@@ -1,0 +1,203 @@
+name: Build and publish release
+
+on:
+  push:
+    branches:
+      - "**"
+
+permissions:
+  contents: write
+
+concurrency:
+  group: sakolaan-release-${{ github.ref }}
+  cancel-in-progress: false
+
+jobs:
+  release:
+    name: Build release packages
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+
+    steps:
+      - name: Check out repository
+        uses: actions/checkout@v4
+        with:
+          persist-credentials: false
+
+      - name: Set up PHP
+        uses: shivammathur/setup-php@v2
+        with:
+          php-version: "8.2"
+          extensions: gd, zip
+          coverage: none
+
+      - name: Prepare release metadata
+        id: metadata
+        shell: bash
+        env:
+          REF_NAME: ${{ github.ref_name }}
+          COMMIT_SHA: ${{ github.sha }}
+        run: |
+          set -euo pipefail
+
+          short_sha="${COMMIT_SHA:0:7}"
+          branch_slug=""
+          suffix=""
+
+          if [[ "$REF_NAME" != "main" ]]; then
+            branch_slug="$(printf '%s' "$REF_NAME" \
+              | tr '[:upper:]' '[:lower:]' \
+              | sed -E 's/[^a-z0-9]+/-/g; s/^-+//; s/-+$//')"
+            branch_slug="${branch_slug:0:63}"
+            branch_slug="$(printf '%s' "$branch_slug" | sed -E 's/-+$//')"
+            if [[ -z "$branch_slug" ]]; then
+              branch_slug="branch-$short_sha"
+            fi
+            suffix="$branch_slug"
+            artifact_name="sakolaan-release-$branch_slug-$short_sha"
+          else
+            artifact_name="sakolaan-release-$short_sha"
+          fi
+
+          {
+            printf 'branch_slug=%s\n' "$branch_slug"
+            printf 'suffix=%s\n' "$suffix"
+            printf 'short_sha=%s\n' "$short_sha"
+            printf 'artifact_name=%s\n' "$artifact_name"
+          } >> "$GITHUB_OUTPUT"
+
+      - name: Lint PHP sources
+        shell: bash
+        run: |
+          set -euo pipefail
+          find wp-content/plugins/sakolaan wp-content/themes/sakolaan-theme tools \
+            -type f -name '*.php' -print0 \
+            | xargs -0 -n1 php -l
+
+      - name: Build and verify packages
+        id: build
+        shell: bash
+        env:
+          RELEASE_SUFFIX: ${{ steps.metadata.outputs.suffix }}
+        run: |
+          set -euo pipefail
+
+          build_args=()
+          if [[ -n "$RELEASE_SUFFIX" ]]; then
+            build_args+=("--suffix=$RELEASE_SUFFIX")
+          fi
+
+          build_json="$(php tools/build-release.php "${build_args[@]}")"
+          build_result="$RUNNER_TEMP/sakolaan-build-result.json"
+          printf '%s\n' "$build_json" > "$build_result"
+
+          read_json() {
+            php -r '
+              $data = json_decode(file_get_contents($argv[1]), true, 512, JSON_THROW_ON_ERROR);
+              $value = $data;
+              foreach (explode(".", $argv[2]) as $key) {
+                $value = $value[$key];
+              }
+              echo $value;
+            ' "$build_result" "$1"
+          }
+
+          version="$(read_json version)"
+          plugin="$(basename "$(read_json plugin.path)")"
+          theme="$(basename "$(read_json theme.path)")"
+          media="$(basename "$(read_json media.path)")"
+          checksum="$(basename "$(read_json media.checksum_path)")"
+
+          for file in "$plugin" "$theme" "$media" "$checksum"; do
+            test -f "dist/$file"
+          done
+          (cd dist && sha256sum --check "$checksum")
+
+          {
+            printf 'version=%s\n' "$version"
+            printf 'plugin=%s\n' "$plugin"
+            printf 'theme=%s\n' "$theme"
+            printf 'media=%s\n' "$media"
+            printf 'checksum=%s\n' "$checksum"
+          } >> "$GITHUB_OUTPUT"
+
+      - name: Upload workflow artifact
+        uses: actions/upload-artifact@v4
+        with:
+          name: ${{ steps.metadata.outputs.artifact_name }}
+          path: |
+            dist/${{ steps.build.outputs.plugin }}
+            dist/${{ steps.build.outputs.theme }}
+            dist/${{ steps.build.outputs.media }}
+            dist/${{ steps.build.outputs.checksum }}
+          if-no-files-found: error
+          compression-level: 0
+          retention-days: 14
+
+      - name: Create or update GitHub Release
+        shell: bash
+        env:
+          GH_TOKEN: ${{ github.token }}
+          GH_REPO: ${{ github.repository }}
+          VERSION: ${{ steps.build.outputs.version }}
+          BRANCH_NAME: ${{ github.ref_name }}
+          BRANCH_SLUG: ${{ steps.metadata.outputs.branch_slug }}
+          SHORT_SHA: ${{ steps.metadata.outputs.short_sha }}
+          COMMIT_SHA: ${{ github.sha }}
+          PLUGIN_FILE: ${{ steps.build.outputs.plugin }}
+          THEME_FILE: ${{ steps.build.outputs.theme }}
+          MEDIA_FILE: ${{ steps.build.outputs.media }}
+          CHECKSUM_FILE: ${{ steps.build.outputs.checksum }}
+        run: |
+          set -euo pipefail
+
+          if [[ "$BRANCH_NAME" == "main" ]]; then
+            tag="build-$VERSION-$SHORT_SHA"
+            title="Sakolaan $VERSION ($SHORT_SHA)"
+            release_mode="main"
+          else
+            tag="build-$VERSION-$BRANCH_SLUG-$SHORT_SHA"
+            title="Sakolaan $VERSION - $BRANCH_SLUG ($SHORT_SHA)"
+            release_mode="prerelease"
+          fi
+
+          notes_file="$RUNNER_TEMP/sakolaan-release-notes.md"
+          {
+            printf 'Build otomatis Sakolaan.\n\n'
+            printf -- '- Versi: `%s`\n' "$VERSION"
+            printf -- '- Branch: `%s`\n' "$BRANCH_NAME"
+            printf -- '- Commit: `%s`\n\n' "$COMMIT_SHA"
+            printf 'Aset:\n\n'
+            printf -- '- `%s`\n' "$PLUGIN_FILE"
+            printf -- '- `%s`\n' "$THEME_FILE"
+            printf -- '- `%s`\n' "$MEDIA_FILE"
+            printf -- '- `%s`\n' "$CHECKSUM_FILE"
+          } > "$notes_file"
+
+          assets=(
+            "dist/$PLUGIN_FILE"
+            "dist/$THEME_FILE"
+            "dist/$MEDIA_FILE"
+            "dist/$CHECKSUM_FILE"
+          )
+
+          if gh release view "$tag" >/dev/null 2>&1; then
+            if [[ "$release_mode" == "main" ]]; then
+              gh release edit "$tag" --title "$title" --notes-file "$notes_file" --latest
+            else
+              gh release edit "$tag" --title "$title" --notes-file "$notes_file" --prerelease
+            fi
+            gh release upload "$tag" "${assets[@]}" --clobber
+          elif [[ "$release_mode" == "main" ]]; then
+            gh release create "$tag" "${assets[@]}" \
+              --target "$COMMIT_SHA" \
+              --title "$title" \
+              --notes-file "$notes_file" \
+              --latest
+          else
+            gh release create "$tag" "${assets[@]}" \
+              --target "$COMMIT_SHA" \
+              --title "$title" \
+              --notes-file "$notes_file" \
+              --prerelease
+          fi

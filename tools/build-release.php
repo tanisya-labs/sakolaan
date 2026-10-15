@@ -7,6 +7,19 @@
 
 declare(strict_types=1);
 
+$release_suffix = '';
+$suffix_supplied = false;
+foreach ( array_slice( $argv, 1 ) as $argument ) {
+	if ( ! str_starts_with( $argument, '--suffix=' ) || $suffix_supplied ) {
+		throw new InvalidArgumentException( 'Argumen build tidak dikenal. Gunakan hanya --suffix=<slug> satu kali.' );
+	}
+	$release_suffix = substr( $argument, strlen( '--suffix=' ) );
+	$suffix_supplied = true;
+}
+if ( $suffix_supplied && ( '' === $release_suffix || strlen( $release_suffix ) > 63 || ! preg_match( '/^[a-z0-9]+(?:-[a-z0-9]+)*$/', $release_suffix ) ) ) {
+	throw new InvalidArgumentException( 'Suffix rilis harus berupa slug huruf kecil, angka, dan tanda hubung dengan panjang 1-63 karakter.' );
+}
+
 $root       = dirname( __DIR__ );
 $dist       = $root . '/dist';
 $source     = $root . '/release-assets/demo-media/source';
@@ -14,6 +27,7 @@ $stage      = sys_get_temp_dir() . '/sakolaan-release-' . bin2hex( random_bytes(
 $product_version = '0.0.1';
 $media_version   = '0.0.1';
 $media_root = $stage . '/media-package';
+$filename_suffix = '' !== $release_suffix ? '-' . $release_suffix : '';
 
 /** Read one required version value from a source file. */
 function sakolaan_build_read_version( string $path, string $pattern, string $label ): string {
@@ -207,6 +221,45 @@ function sakolaan_build_zip( string $zip_path, string $source_dir, string $root_
 	$zip->close();
 }
 
+/** Pastikan ZIP hanya berisi path aman dan struktur akar yang diminta. */
+function sakolaan_build_validate_zip( string $zip_path, string $root_name = '', array $required_entries = array() ): void {
+	$zip = new ZipArchive();
+	if ( true !== $zip->open( $zip_path ) ) {
+		throw new RuntimeException( 'Gagal membuka ZIP hasil build: ' . $zip_path );
+	}
+	$entries = array();
+	for ( $index = 0; $index < $zip->numFiles; ++$index ) {
+		$name = (string) $zip->getNameIndex( $index );
+		$entries[] = $name;
+		$segments = explode( '/', str_replace( '\\', '/', $name ) );
+		if ( '' === $name || str_starts_with( $name, '/' ) || preg_match( '/^[A-Za-z]:/', $name ) || in_array( '..', $segments, true ) ) {
+			$zip->close();
+			throw new RuntimeException( 'ZIP berisi path yang tidak aman: ' . $name );
+		}
+		if ( '' !== $root_name && $name !== $root_name . '/' && ! str_starts_with( $name, $root_name . '/' ) ) {
+			$zip->close();
+			throw new RuntimeException( sprintf( 'Akar ZIP %s tidak sesuai; seharusnya %s/.', basename( $zip_path ), $root_name ) );
+		}
+	}
+	$zip->close();
+	if ( empty( $entries ) ) {
+		throw new RuntimeException( 'ZIP hasil build kosong: ' . $zip_path );
+	}
+	foreach ( $required_entries as $required_entry ) {
+		if ( ! in_array( $required_entry, $entries, true ) ) {
+			throw new RuntimeException( sprintf( 'Entry wajib %s tidak ditemukan dalam %s.', $required_entry, basename( $zip_path ) ) );
+		}
+	}
+}
+
+/** Batalkan build jika ukuran paket melampaui batas distribusi. */
+function sakolaan_build_assert_max_size( string $path, int $maximum_bytes ): void {
+	$bytes = filesize( $path );
+	if ( false === $bytes || $bytes > $maximum_bytes ) {
+		throw new RuntimeException( sprintf( '%s melampaui batas %d byte.', basename( $path ), $maximum_bytes ) );
+	}
+}
+
 if ( ! is_dir( $source ) ) {
 	fwrite( STDERR, "Sumber media tidak ditemukan: {$source}\n" );
 	exit( 1 );
@@ -268,18 +321,26 @@ foreach ( array_merge( glob( $plugin_stage . '/assets/js/*.js' ), glob( $theme_s
 }
 sakolaan_build_screenshot( $root . '/wp-content/themes/sakolaan-theme/screenshot.png', $theme_stage . '/screenshot.png' );
 
-$plugin_zip = $dist . '/sakolaan.zip';
-$theme_zip  = $dist . '/sakolaan-theme.zip';
-$media_zip  = $dist . '/sakolaan-demo-media-' . $media_version . '.zip';
+$plugin_zip = $dist . '/sakolaan' . $filename_suffix . '.zip';
+$theme_zip  = $dist . '/sakolaan-theme' . $filename_suffix . '.zip';
+$media_zip  = $dist . '/sakolaan-demo-media-' . $media_version . $filename_suffix . '.zip';
 sakolaan_build_zip( $plugin_zip, $plugin_stage, 'sakolaan' );
 sakolaan_build_zip( $theme_zip, $theme_stage, 'sakolaan-theme' );
 sakolaan_build_zip( $media_zip, $media_root );
+sakolaan_build_validate_zip( $plugin_zip, 'sakolaan', array( 'sakolaan/sakolaan.php' ) );
+sakolaan_build_validate_zip( $theme_zip, 'sakolaan-theme', array( 'sakolaan-theme/style.css' ) );
+sakolaan_build_validate_zip( $media_zip, '', array( 'manifest.json', 'media/' ) );
+sakolaan_build_assert_max_size( $plugin_zip, 1000000 );
+sakolaan_build_assert_max_size( $theme_zip, 1000000 );
+sakolaan_build_assert_max_size( $media_zip, 2500000 );
 file_put_contents( $media_zip . '.sha256', hash_file( 'sha256', $media_zip ) . "  " . basename( $media_zip ) . "\n" );
 
 $result = array(
-	'plugin' => array( 'path' => $plugin_zip, 'bytes' => filesize( $plugin_zip ) ),
-	'theme'  => array( 'path' => $theme_zip, 'bytes' => filesize( $theme_zip ) ),
-	'media'  => array( 'path' => $media_zip, 'bytes' => filesize( $media_zip ), 'sha256' => hash_file( 'sha256', $media_zip ) ),
+	'version' => $product_version,
+	'suffix'  => $release_suffix,
+	'plugin'  => array( 'path' => $plugin_zip, 'bytes' => filesize( $plugin_zip ) ),
+	'theme'   => array( 'path' => $theme_zip, 'bytes' => filesize( $theme_zip ) ),
+	'media'   => array( 'path' => $media_zip, 'checksum_path' => $media_zip . '.sha256', 'bytes' => filesize( $media_zip ), 'sha256' => hash_file( 'sha256', $media_zip ) ),
 );
 echo json_encode( $result, JSON_PRETTY_PRINT | JSON_UNESCAPED_SLASHES ) . PHP_EOL;
 
