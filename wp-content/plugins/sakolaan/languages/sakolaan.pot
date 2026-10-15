@@ -2758,3 +2758,19 @@ msgstr ""
 #: includes\admin\tools-workflow.php:18
 msgid "← Kembali ke Sakolaan"
 msgstr ""
+
+#: includes\demo-media.php:69
+msgid "Konfigurasi media demo manual belum lengkap. Tetapkan kedua konstanta SAKOLAAN_DEMO_MEDIA_URL dan SAKOLAAN_DEMO_MEDIA_SHA256, atau hapus keduanya untuk memakai konfigurasi release."
+msgstr ""
+
+#: includes\demo-media.php:73
+msgid "Konfigurasi paket media demo belum tersedia. Gunakan paket plugin resmi dari GitHub Release atau tetapkan URL dan checksum secara manual di wp-config.php."
+msgstr ""
+
+#: includes\admin\demo-data-page.php:253
+msgid "Konfigurasi media demo dari GitHub Release siap digunakan dan checksum SHA-256 telah dipatok di paket plugin."
+msgstr ""
+
+#: includes\admin\demo-data-page.php:255
+msgid "Konfigurasi media demo manual dari wp-config.php siap digunakan."
+msgstr ""

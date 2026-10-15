@@ -248,7 +248,13 @@ function sakolaan_render_demo_data_page() {
 	<?php sakolaan_render_demo_report( $report ); ?>
 
 	<?php if ( $media_ready ) : ?>
-		<div class="notice sakolaan-notice notice-success inline"><p><?php esc_html_e( 'Konfigurasi paket media demo siap. URL HTTPS dan checksum SHA-256 telah terdeteksi.', 'sakolaan' ); ?></p></div>
+		<div class="notice sakolaan-notice notice-success inline"><p>
+			<?php if ( 'release' === $media_config['source'] ) : ?>
+				<?php esc_html_e( 'Konfigurasi media demo dari GitHub Release siap digunakan dan checksum SHA-256 telah dipatok di paket plugin.', 'sakolaan' ); ?>
+			<?php else : ?>
+				<?php esc_html_e( 'Konfigurasi media demo manual dari wp-config.php siap digunakan.', 'sakolaan' ); ?>
+			<?php endif; ?>
+		</p></div>
 	<?php else : ?>
 		<div class="notice sakolaan-notice notice-warning inline"><p><strong><?php esc_html_e( 'Pemasangan demo dinonaktifkan.', 'sakolaan' ); ?></strong> <?php echo esc_html( $media_config->get_error_message() ); ?></p></div>
 	<?php endif; ?>

@@ -41,6 +41,14 @@ jobs:
           set -euo pipefail
 
           short_sha="${COMMIT_SHA:0:7}"
+          version="$(php -r '
+            $source = file_get_contents("wp-content/plugins/sakolaan/sakolaan.php");
+            if (!preg_match("/Version:\\s*([0-9A-Za-z.+-]+)/", $source, $matches)) {
+              fwrite(STDERR, "Plugin version not found.\\n");
+              exit(1);
+            }
+            echo $matches[1];
+          ')"
           branch_slug=""
           suffix=""
 
@@ -59,11 +67,19 @@ jobs:
             artifact_name="sakolaan-release-$short_sha"
           fi
 
+          if [[ "$REF_NAME" == "main" ]]; then
+            release_tag="build-$version-$short_sha"
+          else
+            release_tag="build-$version-$branch_slug-$short_sha"
+          fi
+
           {
+            printf 'version=%s\n' "$version"
             printf 'branch_slug=%s\n' "$branch_slug"
             printf 'suffix=%s\n' "$suffix"
             printf 'short_sha=%s\n' "$short_sha"
             printf 'artifact_name=%s\n' "$artifact_name"
+            printf 'release_tag=%s\n' "$release_tag"
           } >> "$GITHUB_OUTPUT"
 
       - name: Lint PHP sources
@@ -79,10 +95,16 @@ jobs:
         shell: bash
         env:
           RELEASE_SUFFIX: ${{ steps.metadata.outputs.suffix }}
+          RELEASE_REPOSITORY: ${{ github.repository }}
+          RELEASE_TAG: ${{ steps.metadata.outputs.release_tag }}
+          EXPECTED_VERSION: ${{ steps.metadata.outputs.version }}
         run: |
           set -euo pipefail
 
-          build_args=()
+          build_args=(
+            "--release-repository=$RELEASE_REPOSITORY"
+            "--release-tag=$RELEASE_TAG"
+          )
           if [[ -n "$RELEASE_SUFFIX" ]]; then
             build_args+=("--suffix=$RELEASE_SUFFIX")
           fi
@@ -107,6 +129,16 @@ jobs:
           theme="$(basename "$(read_json theme.path)")"
           media="$(basename "$(read_json media.path)")"
           checksum="$(basename "$(read_json media.checksum_path)")"
+          release_url="$(read_json media.url)"
+
+          if [[ "$version" != "$EXPECTED_VERSION" ]]; then
+            printf 'Builder version %s does not match metadata version %s.\n' "$version" "$EXPECTED_VERSION" >&2
+            exit 1
+          fi
+          if [[ "$release_url" != "https://github.com/$RELEASE_REPOSITORY/releases/download/$RELEASE_TAG/$media" ]]; then
+            printf 'Embedded media release URL does not match the release metadata.\n' >&2
+            exit 1
+          fi
 
           for file in "$plugin" "$theme" "$media" "$checksum"; do
             test -f "dist/$file"
@@ -143,6 +175,7 @@ jobs:
           BRANCH_NAME: ${{ github.ref_name }}
           BRANCH_SLUG: ${{ steps.metadata.outputs.branch_slug }}
           SHORT_SHA: ${{ steps.metadata.outputs.short_sha }}
+          RELEASE_TAG: ${{ steps.metadata.outputs.release_tag }}
           COMMIT_SHA: ${{ github.sha }}
           PLUGIN_FILE: ${{ steps.build.outputs.plugin }}
           THEME_FILE: ${{ steps.build.outputs.theme }}
@@ -151,12 +184,11 @@ jobs:
         run: |
           set -euo pipefail
 
+          tag="$RELEASE_TAG"
           if [[ "$BRANCH_NAME" == "main" ]]; then
-            tag="build-$VERSION-$SHORT_SHA"
             title="Sakolaan $VERSION ($SHORT_SHA)"
             release_mode="main"
           else
-            tag="build-$VERSION-$BRANCH_SLUG-$SHORT_SHA"
             title="Sakolaan $VERSION - $BRANCH_SLUG ($SHORT_SHA)"
             release_mode="prerelease"
           fi

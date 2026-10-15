@@ -62,8 +62,15 @@ function sakolaan_demo_media_assets( $school_name = '' ) {
  * @return array|WP_Error
  */
 function sakolaan_demo_media_config() {
-	if ( ! defined( 'SAKOLAAN_DEMO_MEDIA_URL' ) || ! defined( 'SAKOLAAN_DEMO_MEDIA_SHA256' ) ) {
-		return new WP_Error( 'sakolaan_demo_media_config_missing', __( 'Konfigurasi paket media demo belum lengkap. Tetapkan SAKOLAAN_DEMO_MEDIA_URL dan SAKOLAAN_DEMO_MEDIA_SHA256 di wp-config.php.', 'sakolaan' ) );
+	$has_url      = defined( 'SAKOLAAN_DEMO_MEDIA_URL' );
+	$has_checksum = defined( 'SAKOLAAN_DEMO_MEDIA_SHA256' );
+
+	if ( $has_url !== $has_checksum ) {
+		return new WP_Error( 'sakolaan_demo_media_config_partial', __( 'Konfigurasi media demo manual belum lengkap. Tetapkan kedua konstanta SAKOLAAN_DEMO_MEDIA_URL dan SAKOLAAN_DEMO_MEDIA_SHA256, atau hapus keduanya untuk memakai konfigurasi release.', 'sakolaan' ) );
+	}
+
+	if ( ! $has_url ) {
+		return new WP_Error( 'sakolaan_demo_media_config_missing', __( 'Konfigurasi paket media demo belum tersedia. Gunakan paket plugin resmi dari GitHub Release atau tetapkan URL dan checksum secara manual di wp-config.php.', 'sakolaan' ) );
 	}
 
 	$url      = esc_url_raw( SAKOLAAN_DEMO_MEDIA_URL );
@@ -77,7 +84,9 @@ function sakolaan_demo_media_config() {
 		return new WP_Error( 'sakolaan_demo_media_checksum_invalid', __( 'Checksum SHA-256 paket media demo tidak valid.', 'sakolaan' ) );
 	}
 
-	return array( 'url' => $url, 'checksum' => $checksum );
+	$source = defined( 'SAKOLAAN_DEMO_MEDIA_CONFIG_SOURCE' ) && 'release' === SAKOLAAN_DEMO_MEDIA_CONFIG_SOURCE ? 'release' : 'manual';
+
+	return array( 'url' => $url, 'checksum' => $checksum, 'source' => $source );
 }
 
 /**

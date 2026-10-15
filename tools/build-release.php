@@ -7,26 +7,42 @@
 
 declare(strict_types=1);
 
-$release_suffix = '';
-$suffix_supplied = false;
+$build_options = array(
+	'suffix'             => null,
+	'release-repository' => null,
+	'release-tag'        => null,
+);
 foreach ( array_slice( $argv, 1 ) as $argument ) {
-	if ( ! str_starts_with( $argument, '--suffix=' ) || $suffix_supplied ) {
-		throw new InvalidArgumentException( 'Argumen build tidak dikenal. Gunakan hanya --suffix=<slug> satu kali.' );
+	if ( ! preg_match( '/^--(suffix|release-repository|release-tag)=(.*)$/', $argument, $matches ) || null !== $build_options[ $matches[1] ] ) {
+		throw new InvalidArgumentException( 'Argumen build tidak dikenal atau berulang.' );
 	}
-	$release_suffix = substr( $argument, strlen( '--suffix=' ) );
-	$suffix_supplied = true;
+	$build_options[ $matches[1] ] = $matches[2];
 }
-if ( $suffix_supplied && ( '' === $release_suffix || strlen( $release_suffix ) > 63 || ! preg_match( '/^[a-z0-9]+(?:-[a-z0-9]+)*$/', $release_suffix ) ) ) {
+$release_suffix      = null === $build_options['suffix'] ? '' : $build_options['suffix'];
+$release_repository = null === $build_options['release-repository'] ? '' : $build_options['release-repository'];
+$release_tag         = null === $build_options['release-tag'] ? '' : $build_options['release-tag'];
+$repository_supplied = null !== $build_options['release-repository'];
+$tag_supplied        = null !== $build_options['release-tag'];
+if ( null !== $build_options['suffix'] && ( '' === $release_suffix || strlen( $release_suffix ) > 63 || ! preg_match( '/^[a-z0-9]+(?:-[a-z0-9]+)*$/', $release_suffix ) ) ) {
 	throw new InvalidArgumentException( 'Suffix rilis harus berupa slug huruf kecil, angka, dan tanda hubung dengan panjang 1-63 karakter.' );
 }
+if ( $repository_supplied !== $tag_supplied ) {
+	throw new InvalidArgumentException( 'Argumen --release-repository dan --release-tag harus diberikan bersama.' );
+}
+if ( $repository_supplied && ( '' === $release_repository || ! preg_match( '/^[A-Za-z0-9][A-Za-z0-9.-]{0,99}\/[A-Za-z0-9][A-Za-z0-9._-]{0,99}$/', $release_repository ) ) ) {
+	throw new InvalidArgumentException( 'Repository release harus memakai format owner/repository yang aman.' );
+}
+if ( $tag_supplied && ( '' === $release_tag || strlen( $release_tag ) > 128 || ! preg_match( '/^[A-Za-z0-9][A-Za-z0-9._-]*$/', $release_tag ) ) ) {
+	throw new InvalidArgumentException( 'Tag release memuat karakter yang tidak aman atau terlalu panjang.' );
+}
 
-$root       = dirname( __DIR__ );
-$dist       = $root . '/dist';
-$source     = $root . '/release-assets/demo-media/source';
-$stage      = sys_get_temp_dir() . '/sakolaan-release-' . bin2hex( random_bytes( 6 ) );
+$root            = dirname( __DIR__ );
+$dist            = $root . '/dist';
+$source          = $root . '/release-assets/demo-media/source';
+$stage           = sys_get_temp_dir() . '/sakolaan-release-' . bin2hex( random_bytes( 6 ) );
 $product_version = '0.0.1';
 $media_version   = '0.0.1';
-$media_root = $stage . '/media-package';
+$media_root      = $stage . '/media-package';
 $filename_suffix = '' !== $release_suffix ? '-' . $release_suffix : '';
 
 /** Read one required version value from a source file. */
@@ -37,6 +53,12 @@ function sakolaan_build_read_version( string $path, string $pattern, string $lab
 	}
 	return trim( $matches[1] );
 }
+
+$demo_version = sakolaan_build_read_version(
+	$root . '/wp-content/plugins/sakolaan/includes/demo-data.php',
+	"/const\s+SAKOLAAN_DEMO_VERSION\s*=\s*'([^']+)'/",
+	'demo dataset constant'
+);
 
 $release_versions = array(
 	'plugin header'   => sakolaan_build_read_version( $root . '/wp-content/plugins/sakolaan/sakolaan.php', '/Version:\s*([0-9A-Za-z.+-]+)/', 'plugin header' ),
@@ -260,6 +282,36 @@ function sakolaan_build_assert_max_size( string $path, int $maximum_bytes ): voi
 	}
 }
 
+/** Buat konfigurasi media yang hanya mengisi konstanta jika tidak dioverride. */
+function sakolaan_build_release_media_config( string $url, string $checksum ): string {
+	return "<?php\n"
+		. "/**\n * Konfigurasi media demo yang dibuat otomatis untuk paket release.\n *\n * @package Sakolaan\n */\n\n"
+		. "if ( ! defined( 'ABSPATH' ) ) {\n\texit;\n}\n\n"
+		. "if ( ! defined( 'SAKOLAAN_DEMO_MEDIA_URL' ) && ! defined( 'SAKOLAAN_DEMO_MEDIA_SHA256' ) ) {\n"
+		. "\tdefine( 'SAKOLAAN_DEMO_MEDIA_URL', " . var_export( $url, true ) . " );\n"
+		. "\tdefine( 'SAKOLAAN_DEMO_MEDIA_SHA256', " . var_export( $checksum, true ) . " );\n"
+		. "\tdefine( 'SAKOLAAN_DEMO_MEDIA_CONFIG_SOURCE', 'release' );\n"
+		. "}\n";
+}
+
+/** Pastikan konfigurasi release tertanam di dalam ZIP plugin dengan nilai tepat. */
+function sakolaan_build_validate_release_config( string $plugin_zip, string $url, string $checksum ): void {
+	$zip = new ZipArchive();
+	if ( true !== $zip->open( $plugin_zip ) ) {
+		throw new RuntimeException( 'Gagal membuka ZIP plugin untuk validasi konfigurasi release.' );
+	}
+	$contents = $zip->getFromName( 'sakolaan/includes/release-media-config.php' );
+	$zip->close();
+	if (
+		false === $contents ||
+		! str_contains( $contents, var_export( $url, true ) ) ||
+		! str_contains( $contents, var_export( $checksum, true ) ) ||
+		! str_contains( $contents, "SAKOLAAN_DEMO_MEDIA_CONFIG_SOURCE', 'release" )
+	) {
+		throw new RuntimeException( 'Konfigurasi media release dalam ZIP plugin tidak sesuai hasil build.' );
+	}
+}
+
 if ( ! is_dir( $source ) ) {
 	fwrite( STDERR, "Sumber media tidak ditemukan: {$source}\n" );
 	exit( 1 );
@@ -295,7 +347,32 @@ foreach ( glob( $media_root . '/media/*' ) as $path ) {
 	);
 }
 ksort( $files );
-file_put_contents( $media_root . '/manifest.json', json_encode( array( 'version' => $media_version, 'files' => $files ), JSON_PRETTY_PRINT | JSON_UNESCAPED_SLASHES ) . "\n" );
+file_put_contents( $media_root . '/manifest.json', json_encode( array( 'version' => $demo_version, 'files' => $files ), JSON_PRETTY_PRINT | JSON_UNESCAPED_SLASHES ) . "\n" );
+
+$plugin_zip = $dist . '/sakolaan' . $filename_suffix . '.zip';
+$theme_zip  = $dist . '/sakolaan-theme' . $filename_suffix . '.zip';
+$media_zip  = $dist . '/sakolaan-demo-media-' . $media_version . $filename_suffix . '.zip';
+sakolaan_build_zip( $media_zip, $media_root );
+sakolaan_build_validate_zip( $media_zip, '', array( 'manifest.json', 'media/' ) );
+sakolaan_build_assert_max_size( $media_zip, 2500000 );
+$media_checksum = (string) hash_file( 'sha256', $media_zip );
+if ( ! preg_match( '/^[a-f0-9]{64}$/', $media_checksum ) ) {
+	throw new RuntimeException( 'Checksum media hasil build tidak valid.' );
+}
+file_put_contents( $media_zip . '.sha256', $media_checksum . "  " . basename( $media_zip ) . "\n" );
+
+$release_media_url = '';
+if ( '' !== $release_repository ) {
+	$release_media_url = sprintf(
+		'https://github.com/%s/releases/download/%s/%s',
+		$release_repository,
+		rawurlencode( $release_tag ),
+		rawurlencode( basename( $media_zip ) )
+	);
+	if ( 'https' !== parse_url( $release_media_url, PHP_URL_SCHEME ) ) {
+		throw new RuntimeException( 'URL media release hasil build tidak aman.' );
+	}
+}
 
 $plugin_stage = $stage . '/sakolaan';
 $theme_stage  = $stage . '/sakolaan-theme';
@@ -313,6 +390,11 @@ sakolaan_build_copy_tree(
 	}
 );
 
+if ( '' !== $release_media_url ) {
+	$release_config_path = $plugin_stage . '/includes/release-media-config.php';
+	file_put_contents( $release_config_path, sakolaan_build_release_media_config( $release_media_url, $media_checksum ) );
+}
+
 foreach ( array_merge( glob( $plugin_stage . '/assets/css/*.css' ), glob( $theme_stage . '/assets/css/*.css' ) ) as $css ) {
 	file_put_contents( $css, sakolaan_build_minify_css( file_get_contents( $css ) ) );
 }
@@ -321,26 +403,24 @@ foreach ( array_merge( glob( $plugin_stage . '/assets/js/*.js' ), glob( $theme_s
 }
 sakolaan_build_screenshot( $root . '/wp-content/themes/sakolaan-theme/screenshot.png', $theme_stage . '/screenshot.png' );
 
-$plugin_zip = $dist . '/sakolaan' . $filename_suffix . '.zip';
-$theme_zip  = $dist . '/sakolaan-theme' . $filename_suffix . '.zip';
-$media_zip  = $dist . '/sakolaan-demo-media-' . $media_version . $filename_suffix . '.zip';
 sakolaan_build_zip( $plugin_zip, $plugin_stage, 'sakolaan' );
 sakolaan_build_zip( $theme_zip, $theme_stage, 'sakolaan-theme' );
-sakolaan_build_zip( $media_zip, $media_root );
-sakolaan_build_validate_zip( $plugin_zip, 'sakolaan', array( 'sakolaan/sakolaan.php' ) );
+sakolaan_build_validate_zip( $plugin_zip, 'sakolaan', array( 'sakolaan/sakolaan.php', 'sakolaan/includes/release-media-config.php' ) );
 sakolaan_build_validate_zip( $theme_zip, 'sakolaan-theme', array( 'sakolaan-theme/style.css' ) );
-sakolaan_build_validate_zip( $media_zip, '', array( 'manifest.json', 'media/' ) );
 sakolaan_build_assert_max_size( $plugin_zip, 1000000 );
 sakolaan_build_assert_max_size( $theme_zip, 1000000 );
-sakolaan_build_assert_max_size( $media_zip, 2500000 );
-file_put_contents( $media_zip . '.sha256', hash_file( 'sha256', $media_zip ) . "  " . basename( $media_zip ) . "\n" );
+if ( '' !== $release_media_url ) {
+	sakolaan_build_validate_release_config( $plugin_zip, $release_media_url, $media_checksum );
+}
 
 $result = array(
-	'version' => $product_version,
-	'suffix'  => $release_suffix,
-	'plugin'  => array( 'path' => $plugin_zip, 'bytes' => filesize( $plugin_zip ) ),
-	'theme'   => array( 'path' => $theme_zip, 'bytes' => filesize( $theme_zip ) ),
-	'media'   => array( 'path' => $media_zip, 'checksum_path' => $media_zip . '.sha256', 'bytes' => filesize( $media_zip ), 'sha256' => hash_file( 'sha256', $media_zip ) ),
+	'version'      => $product_version,
+	'demo_version' => $demo_version,
+	'suffix'       => $release_suffix,
+	'release'      => array( 'repository' => $release_repository, 'tag' => $release_tag, 'configured' => '' !== $release_media_url ),
+	'plugin'       => array( 'path' => $plugin_zip, 'bytes' => filesize( $plugin_zip ) ),
+	'theme'        => array( 'path' => $theme_zip, 'bytes' => filesize( $theme_zip ) ),
+	'media'        => array( 'path' => $media_zip, 'url' => $release_media_url, 'checksum_path' => $media_zip . '.sha256', 'bytes' => filesize( $media_zip ), 'sha256' => $media_checksum ),
 );
 echo json_encode( $result, JSON_PRETTY_PRINT | JSON_UNESCAPED_SLASHES ) . PHP_EOL;
 

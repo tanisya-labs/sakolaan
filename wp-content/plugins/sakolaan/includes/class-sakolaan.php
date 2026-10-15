@@ -54,6 +54,7 @@ final class Sakolaan {
 		'admin/assets.php',
 		'settings/page.php',
 		'seo.php',
+		'release-media-config.php',
 		'demo-media.php',
 		'demo-data.php',
 		'admin/demo-data-page.php',

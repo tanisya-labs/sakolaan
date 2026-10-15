@@ -44,13 +44,36 @@ Workflow memakai `GITHUB_TOKEN` bawaan dengan izin `contents: write`; secret
 tambahan tidak diperlukan. Builder memverifikasi versi, struktur ZIP, checksum,
 kesamaan stylesheet notice, serta batas ukuran sebelum file dipublikasikan.
 
-Unggah paket media ke host HTTPS, lalu tambahkan konfigurasi berikut ke `wp-config.php` sebelum tombol Data Demo digunakan:
+Workflow meneruskan repository dan tag release ke builder. Builder membuat ZIP
+media lebih dahulu, lalu menanam URL asset GitHub dan checksum hasil build ke
+salinan plugin di staging. Source plugin tidak diubah.
+
+Build manual yang ingin menanam konfigurasi release harus memberikan kedua
+argumen berikut bersama-sama:
+
+```sh
+php tools/build-release.php \
+  --release-repository=tanisya-labs/sakolaan \
+  --release-tag=build-0.0.1-abcdef1
+```
+
+Tanpa kedua argumen tersebut, plugin memakai perilaku development dan meminta
+konfigurasi manual. Paket resmi GitHub Release tidak memerlukan perubahan
+`wp-config.php`. Untuk memakai mirror atau host privat, definisikan kedua nilai
+berikut; pasangan manual selalu mengalahkan nilai bawaan release:
 
 ```php
 define( 'SAKOLAAN_DEMO_MEDIA_URL', 'https://example.com/sakolaan-demo-media-***.zip' );
 define( 'SAKOLAAN_DEMO_MEDIA_SHA256', 'nilai-dari-file-sha256' );
 ```
 
-Sumber gambar berada di `release-assets/demo-media/source` dan tidak ikut masuk ke ZIP plugin. Jangan mengubah versi paket media tanpa menaikkan `SAKOLAAN_DEMO_VERSION` serta membangun ulang seluruh arsip.
+Jika hanya satu konstanta didefinisikan, pemasangan demo dinonaktifkan agar URL
+manual tidak pernah dipasangkan dengan checksum bawaan release.
+
+Sumber gambar berada di `release-assets/demo-media/source` dan tidak ikut masuk
+ke ZIP plugin. Nama paket media mengikuti versi rilis produk (`0.0.1`), sedangkan
+versi di `manifest.json` dibaca dari `SAKOLAAN_DEMO_VERSION` (`2.2.0`) agar cocok
+dengan validasi installer. Bangun ulang seluruh arsip setelah salah satunya
+berubah.
 
 CSS theme gabungan digunakan pada paket produksi. Untuk memakai CSS sumber di workspace pengembangan, definisikan `SAKOLAAN_THEME_DEV_ASSETS` bernilai `true`.
