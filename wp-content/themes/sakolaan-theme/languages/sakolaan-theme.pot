@@ -1,0 +1,1153 @@
+# Template terjemahan untuk sakolaan-theme.
+msgid ""
+msgstr ""
+"Project-Id-Version: Sakolaan Theme 0.0.1\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2026-10-15 07:25+0000\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Language: id\n"
+"X-Domain: sakolaan-theme\n"
+
+#: inc\patterns.php:47 inc\seed.php:227 patterns\quick-links.php:27
+msgid "Agenda"
+msgstr ""
+
+#: patterns\events.php:20
+msgid "Agenda mendatang"
+msgstr ""
+
+#: patterns\events.php
+msgctxt "Pattern title"
+msgid "Agenda mendatang"
+msgstr ""
+
+#: patterns\events.php
+msgctxt "Pattern description"
+msgid "Agenda yang belum selesai, terdekat lebih dulu."
+msgstr ""
+
+#: patterns\admission-cta.php
+msgctxt "Pattern description"
+msgid "Ajakan mendaftar dengan tombol ke halaman PPDB."
+msgstr ""
+
+#: patterns\admission-cta.php
+msgctxt "Pattern title"
+msgid "Ajakan PPDB"
+msgstr ""
+
+#: inc\seed.php:219 inc\seed.php:34
+msgid "Akademik"
+msgstr ""
+
+#: inc\seed.php:216 inc\seed.php:31
+msgid "Akreditasi"
+msgstr ""
+
+#: inc\setup.php:94 patterns\design-system.php:113 patterns\design-system.php:52
+msgid "Aksen"
+msgstr ""
+
+#: theme.json
+msgctxt "Color name"
+msgid "Aksen emas"
+msgstr ""
+
+#: inc\patterns.php:263 patterns\quick-links.php:49
+msgid "Akses cepat"
+msgstr ""
+
+#: patterns\quick-links.php
+msgctxt "Pattern title"
+msgid "Akses cepat"
+msgstr ""
+
+#: inc\queries.php:59
+msgid "Aktif"
+msgstr ""
+
+#: inc\post-meta.php:152
+msgid "Aktivitas saat ini"
+msgstr ""
+
+#: patterns\404.php:22
+msgid "Alamat yang Anda buka tidak ada atau sudah dipindahkan. Coba cari, atau kembali ke beranda."
+msgstr ""
+
+#: patterns\contact-details.php
+msgctxt "Pattern description"
+msgid "Alamat, telepon, email, tombol WhatsApp, dan peta dari Pengaturan Sakolaan."
+msgstr ""
+
+#: patterns\contact-details.php:16
+msgid "Alamat: "
+msgstr ""
+
+#: inc\post-meta.php:107 inc\queries.php:60
+msgid "Arsip"
+msgstr ""
+
+#: patterns\testimonials.php:20
+msgid "Baca cerita alumni"
+msgstr ""
+
+#: patterns\design-system.php:82
+msgid "Bahaya"
+msgstr ""
+
+#: theme.json
+msgctxt "Color name"
+msgid "Bahaya"
+msgstr ""
+
+#: inc\patterns.php:51
+msgid "Belum ada agenda"
+msgstr ""
+
+#: inc\patterns.php:27
+msgid "Belum ada berita"
+msgstr ""
+
+#: inc\patterns.php:67
+msgid "Belum ada ekstrakurikuler"
+msgstr ""
+
+#: inc\patterns.php:75
+msgid "Belum ada galeri"
+msgstr ""
+
+#: patterns\empty-state.php:18
+msgid "Belum ada konten"
+msgstr ""
+
+#: patterns\no-results.php:22
+msgid "Belum ada konten yang cocok. Coba kata kunci lain."
+msgstr ""
+
+#: inc\patterns.php:43
+msgid "Belum ada pengumuman"
+msgstr ""
+
+#: inc\patterns.php:59
+msgid "Belum ada prestasi"
+msgstr ""
+
+#: inc\breadcrumbs.php:24
+msgid "Beranda"
+msgstr ""
+
+#: patterns\admission-cta.php:20
+msgid "Bergabung bersama kami"
+msgstr ""
+
+#: inc\patterns.php:23 inc\seed.php:225 patterns\quick-links.php:25
+msgid "Berita"
+msgstr ""
+
+#: inc\patterns.php:28
+msgid "Berita sekolah akan tampil di sini setelah dipublikasikan."
+msgstr ""
+
+#: patterns\latest-news.php:20
+msgid "Berita terbaru"
+msgstr ""
+
+#: patterns\latest-news.php
+msgctxt "Pattern title"
+msgid "Berita terbaru"
+msgstr ""
+
+#: inc\queries.php:67
+msgid "Berlangsung"
+msgstr ""
+
+#: inc\compat.php:57
+msgid "Buka Editor"
+msgstr ""
+
+#: inc\compat.php:32
+msgid "Buka halaman Plugin"
+msgstr ""
+
+#: patterns\404.php:25 patterns\no-results.php:25
+msgid "Cari"
+msgstr ""
+
+#: patterns\404.php:25 patterns\no-results.php:25
+msgid "Cari di situs ini"
+msgstr ""
+
+#: inc\patterns.php:100
+msgid "Cerita alumni akan tampil di sini."
+msgstr ""
+
+#: patterns\testimonials.php
+msgctxt "Pattern description"
+msgid "Cerita singkat alumni."
+msgstr ""
+
+#: patterns\contact-details.php:35 patterns\footer.php:64
+msgid "Chat via WhatsApp"
+msgstr ""
+
+#: patterns\design-system.php:142
+msgid "Contoh tautan"
+msgstr ""
+
+#: patterns\design-system.php
+msgctxt "Pattern description"
+msgid "Contoh warna, tipografi, tombol, kartu, badge, dan alert untuk memeriksa design system."
+msgstr ""
+
+#. %s: nama konten, misalnya Berita.
+#: inc\patterns.php:150 inc\patterns.php:232
+#, php-format
+msgid "Daftar %s"
+msgstr ""
+
+#: patterns\facilities.php
+msgctxt "Pattern description"
+msgid "Daftar fasilitas sekolah."
+msgstr ""
+
+#: patterns\list-heading.php:17
+msgid "Daftar konten"
+msgstr ""
+
+#: inc\helpers.php:73
+msgid "Daftar PPDB"
+msgstr ""
+
+#: inc\setup.php:133
+msgid "Daftar: centang"
+msgstr ""
+
+#: inc\patterns.php:35
+msgid "Data guru belum tersedia"
+msgstr ""
+
+#: inc\bindings.php:43
+msgid "Data konten sekolah"
+msgstr ""
+
+#: patterns\design-system.php:96
+msgid "dengan garis bawah"
+msgstr ""
+
+#: patterns\contact-details.php
+msgctxt "Pattern title"
+msgid "Detail kontak dan peta"
+msgstr ""
+
+#: inc\queries.php:70
+msgid "Dibatalkan"
+msgstr ""
+
+#: inc\queries.php:69
+msgid "Ditunda"
+msgstr ""
+
+#: inc\post-meta.php:150
+msgid "Durasi"
+msgstr ""
+
+#: inc\patterns.php:63 inc\seed.php:234 patterns\extracurricular.php:20
+msgid "Ekstrakurikuler"
+msgstr ""
+
+#: patterns\extracurricular.php
+msgctxt "Pattern title"
+msgid "Ekstrakurikuler"
+msgstr ""
+
+#: inc\post-meta.php:137
+msgid "Email"
+msgstr ""
+
+#: patterns\contact-details.php:18
+msgid "Email: "
+msgstr ""
+
+#: inc\patterns.php:273 inc\patterns.php:79 inc\seed.php:215 inc\seed.php:30 patterns\facilities.php:20
+msgid "Fasilitas"
+msgstr ""
+
+#: patterns\facilities.php
+msgctxt "Pattern title"
+msgid "Fasilitas"
+msgstr ""
+
+#: inc\patterns.php:83
+msgid "Fasilitas belum tersedia"
+msgstr ""
+
+#: patterns\footer.php
+msgctxt "Pattern title"
+msgid "Footer"
+msgstr ""
+
+#: theme.json
+msgctxt "Template part name"
+msgid "Footer"
+msgstr ""
+
+#. %s: nama sekolah.
+#: patterns\hero.php:33
+#, php-format
+msgid "Foto %s"
+msgstr ""
+
+#: inc\patterns.php:76
+msgid "Foto kegiatan sekolah akan tampil di sini."
+msgstr ""
+
+#: patterns\sakolaan-introduction.php
+msgctxt "Pattern description"
+msgid "Foto sekolah, deskripsi singkat, dan tautan ke halaman profil."
+msgstr ""
+
+#: patterns\principal-greeting.php
+msgctxt "Pattern description"
+msgid "Foto, nama, jabatan, dan sambutan kepala sekolah."
+msgstr ""
+
+#: inc\patterns.php:71 inc\seed.php:235 patterns\gallery.php:20
+msgid "Galeri"
+msgstr ""
+
+#: patterns\gallery.php
+msgctxt "Pattern title"
+msgid "Galeri"
+msgstr ""
+
+#: patterns\gallery.php
+msgctxt "Pattern description"
+msgid "Galeri foto terbaru."
+msgstr ""
+
+#: patterns\statistics.php:28
+msgid "Gambaran singkat komunitas dan fasilitas belajar kami."
+msgstr ""
+
+#: theme.json
+msgctxt "Color name"
+msgid "Garis"
+msgstr ""
+
+#: theme.json
+msgctxt "Color name"
+msgid "Garis tegas"
+msgstr ""
+
+#: patterns\design-system.php:109
+msgid "Garis tepi"
+msgstr ""
+
+#: patterns\latest-news.php
+msgctxt "Pattern description"
+msgid "Grid berita terbaru dengan kartu sederhana dan seragam."
+msgstr ""
+
+#: inc\patterns.php:31 inc\seed.php:221
+msgid "Guru & Tendik"
+msgstr ""
+
+#: patterns\design-system.php:24
+msgid "Halaman ini memeriksa warna, tipografi, dan komponen dasar. Hapus halaman ini setelah selesai diperiksa."
+msgstr ""
+
+#: inc\breadcrumbs.php:43 patterns\404.php:18
+msgid "Halaman tidak ditemukan"
+msgstr ""
+
+#: theme.json
+msgctxt "Shadow name"
+msgid "Halus"
+msgstr ""
+
+#. %s: kata kunci pencarian.
+#: inc\breadcrumbs.php:38
+#, php-format
+msgid "Hasil pencarian: %s"
+msgstr ""
+
+#: patterns\no-results.php
+msgctxt "Pattern title"
+msgid "Hasil tidak ditemukan"
+msgstr ""
+
+#: patterns\header.php
+msgctxt "Pattern title"
+msgid "Header"
+msgstr ""
+
+#: theme.json
+msgctxt "Template part name"
+msgid "Header"
+msgstr ""
+
+#: inc\setup.php:125
+msgid "Header: floating"
+msgstr ""
+
+#: inc\setup.php:126
+msgid "Header: floating, sembunyi saat scroll turun"
+msgstr ""
+
+#: inc\setup.php:123
+msgid "Header: rounded"
+msgstr ""
+
+#: inc\setup.php:124
+msgid "Header: sticky"
+msgstr ""
+
+#: inc\setup.php:60
+msgid "Hero (4:3)"
+msgstr ""
+
+#: patterns\hero.php
+msgctxt "Pattern title"
+msgid "Hero beranda"
+msgstr ""
+
+#: patterns\statistics.php
+msgctxt "Pattern description"
+msgid "Hingga lima angka (siswa, guru, tahun berdiri, dan lainnya) dari Pengaturan Sakolaan."
+msgstr ""
+
+#: patterns\contact-details.php:24
+msgid "Hubungi kami"
+msgstr ""
+
+#: patterns\footer.php:47
+msgid "Hubungi sekolah"
+msgstr ""
+
+#: inc\seed.php:223
+msgid "Informasi"
+msgstr ""
+
+#: inc\patterns.php:84
+msgid "Informasi fasilitas sekolah akan tampil di sini."
+msgstr ""
+
+#: inc\helpers.php:76
+msgid "Informasi jadwal, persyaratan, dan alur pendaftaran peserta didik baru tersedia di halaman PPDB."
+msgstr ""
+
+#: theme.json
+msgctxt "Font family name"
+msgid "Isi (Public Sans)"
+msgstr ""
+
+#: inc\post-meta.php:132
+msgid "Jabatan"
+msgstr ""
+
+#: inc\post-meta.php:148
+msgid "Jadwal"
+msgstr ""
+
+#: patterns\design-system.php:152
+msgid "Jadwal dapat berubah. Periksa pengumuman terbaru."
+msgstr ""
+
+#: inc\patterns.php:52
+msgid "Jadwal kegiatan sekolah akan tampil di sini."
+msgstr ""
+
+#: patterns\card-ekskul.php:25
+msgid "Jadwal: "
+msgstr ""
+
+#: patterns\footer.php:39
+msgid "Jelajahi"
+msgstr ""
+
+#: theme.json
+msgctxt "Font family name"
+msgid "Judul (Public Sans)"
+msgstr ""
+
+#: inc\queries.php:29
+msgid "Judul A–Z"
+msgstr ""
+
+#: patterns\list-heading.php
+msgctxt "Pattern title"
+msgid "Judul daftar (tersembunyi)"
+msgstr ""
+
+#: patterns\design-system.php:128
+msgid "Judul kartu"
+msgstr ""
+
+#: patterns\design-system.php:92
+msgid "Judul tingkat 3 memakai Public Sans tebal"
+msgstr ""
+
+#: inc\queries.php:30
+msgid "Judul Z–A"
+msgstr ""
+
+#: patterns\hero.php
+msgctxt "Pattern description"
+msgid "Judul, deskripsi, dua tombol, dan gambar hero dari Pengaturan Sakolaan."
+msgstr ""
+
+#: inc\setup.php:102
+msgid "Kartu"
+msgstr ""
+
+#: theme.json
+msgctxt "Shadow name"
+msgid "Kartu"
+msgstr ""
+
+#: inc\setup.php:58
+msgid "Kartu (16:10)"
+msgstr ""
+
+#: patterns\card-agenda.php
+msgctxt "Pattern title"
+msgid "Kartu agenda"
+msgstr ""
+
+#: patterns\card-berita.php
+msgctxt "Pattern title"
+msgid "Kartu berita"
+msgstr ""
+
+#: patterns\card-berita-compact.php
+msgctxt "Pattern title"
+msgid "Kartu berita ringkas"
+msgstr ""
+
+#: patterns\card-berita-featured.php
+msgctxt "Pattern title"
+msgid "Kartu berita utama"
+msgstr ""
+
+#: patterns\card-ekskul.php
+msgctxt "Pattern title"
+msgid "Kartu ekstrakurikuler"
+msgstr ""
+
+#: inc\patterns.php:276
+msgid "Kartu fasilitas"
+msgstr ""
+
+#: patterns\card-fasilitas.php
+msgctxt "Pattern title"
+msgid "Kartu fasilitas"
+msgstr ""
+
+#: patterns\card-galeri.php
+msgctxt "Pattern title"
+msgid "Kartu galeri"
+msgstr ""
+
+#: patterns\card-guru.php
+msgctxt "Pattern title"
+msgid "Kartu guru"
+msgstr ""
+
+#: patterns\card-pengumuman.php
+msgctxt "Pattern title"
+msgid "Kartu pengumuman"
+msgstr ""
+
+#: patterns\card-prestasi.php
+msgctxt "Pattern title"
+msgid "Kartu prestasi"
+msgstr ""
+
+#: inc\patterns.php:277
+msgid "Kartu program unggulan"
+msgstr ""
+
+#: patterns\card-program.php
+msgctxt "Pattern title"
+msgid "Kartu program unggulan"
+msgstr ""
+
+#: inc\patterns.php:278
+msgid "Kartu testimoni alumni"
+msgstr ""
+
+#: patterns\card-testimoni.php
+msgctxt "Pattern title"
+msgid "Kartu testimoni alumni"
+msgstr ""
+
+#: patterns\design-system.php:118
+msgid "Kartu, badge, dan alert"
+msgstr ""
+
+#: inc\setup.php:131
+msgid "Kartu: sederhana"
+msgstr ""
+
+#: patterns\design-system.php:124
+msgid "Kategori"
+msgstr ""
+
+#: patterns\empty-state.php
+msgctxt "Pattern title"
+msgid "Keadaan kosong"
+msgstr ""
+
+#. %s: nama konten, misalnya Berita.
+#: inc\patterns.php:243
+#, php-format
+msgid "Keadaan kosong: %s"
+msgstr ""
+
+#: inc\seed.php:231
+msgid "Kegiatan"
+msgstr ""
+
+#: inc\patterns.php:68
+msgid "Kegiatan ekstrakurikuler akan tampil di sini."
+msgstr ""
+
+#: patterns\extracurricular.php
+msgctxt "Pattern description"
+msgid "Kegiatan ekstrakurikuler, diurutkan menurut urutan tampilan."
+msgstr ""
+
+#: patterns\404.php:29
+msgid "Kembali ke beranda"
+msgstr ""
+
+#: inc\helpers.php:83
+msgid "Kenali sekolah kami"
+msgstr ""
+
+#: inc\seed.php:220 inc\seed.php:35
+msgid "Kesiswaan"
+msgstr ""
+
+#: inc\seed.php:238 inc\seed.php:37 patterns\quick-links.php:29
+msgid "Kontak"
+msgstr ""
+
+#: theme.json
+msgctxt "Template name"
+msgid "Kontak (info dan peta)"
+msgstr ""
+
+#: patterns\404.php
+msgctxt "Pattern title"
+msgid "Konten 404"
+msgstr ""
+
+#: inc\seed.php:65
+msgid "Konten halaman ini belum diisi."
+msgstr ""
+
+#: patterns\no-results.php:18
+msgid "Konten tidak ditemukan"
+msgstr ""
+
+#: patterns\empty-state.php:22
+msgid "Konten untuk bagian ini belum tersedia. Silakan kembali lagi nanti."
+msgstr ""
+
+#: inc\post-meta.php:153
+msgid "Lampiran"
+msgstr ""
+
+#: theme.json
+msgctxt "Color name"
+msgid "Latar"
+msgstr ""
+
+#: inc\setup.php:118 patterns\design-system.php:138
+msgid "Latar gelap"
+msgstr ""
+
+#: inc\setup.php:110
+msgid "Latar muda"
+msgstr ""
+
+#: inc\setup.php:61
+msgid "Lebar (16:9)"
+msgstr ""
+
+#: patterns\events.php:20
+msgid "Lihat semua agenda"
+msgstr ""
+
+#: patterns\latest-news.php:20
+msgid "Lihat semua berita"
+msgstr ""
+
+#: patterns\extracurricular.php:20
+msgid "Lihat semua ekstrakurikuler"
+msgstr ""
+
+#: patterns\facilities.php:20
+msgid "Lihat semua fasilitas"
+msgstr ""
+
+#: patterns\gallery.php:20
+msgid "Lihat semua galeri"
+msgstr ""
+
+#: patterns\announcements.php:20
+msgid "Lihat semua pengumuman"
+msgstr ""
+
+#: patterns\achievements.php:20
+msgid "Lihat semua prestasi"
+msgstr ""
+
+#: patterns\featured-programs.php:20
+msgid "Lihat semua program"
+msgstr ""
+
+#: inc\patterns.php:264
+msgid "Lima tujuan utama untuk pengunjung situs sekolah."
+msgstr ""
+
+#: patterns\quick-links.php
+msgctxt "Pattern description"
+msgid "Lima tujuan utama untuk pengunjung situs sekolah."
+msgstr ""
+
+#. %s: nama sekolah.
+#: patterns\sakolaan-introduction.php:17
+#, php-format
+msgid "Lingkungan %s"
+msgstr ""
+
+#: inc\post-meta.php:142
+msgid "Lokasi"
+msgstr ""
+
+#: patterns\card-fasilitas.php:22
+msgid "Lokasi: "
+msgstr ""
+
+#: patterns\card-guru.php:25
+msgid "Mapel: "
+msgstr ""
+
+#: inc\post-meta.php:133
+msgid "Mata pelajaran"
+msgstr ""
+
+#: inc\seed.php:260 inc\seed.php:308
+msgid "Menu utama"
+msgstr ""
+
+#: patterns\header.php:29
+msgid "Navigasi utama"
+msgstr ""
+
+#: inc\post-meta.php:135
+msgid "NIP"
+msgstr ""
+
+#: inc\post-meta.php:136
+msgid "NUPTK"
+msgstr ""
+
+#: patterns\query-pagination.php
+msgctxt "Pattern title"
+msgid "Pagination daftar"
+msgstr ""
+
+#: patterns\design-system.php:20
+msgid "Panduan gaya"
+msgstr ""
+
+#: patterns\design-system.php
+msgctxt "Pattern title"
+msgid "Panduan gaya (design system)"
+msgstr ""
+
+#: inc\setup.php:132
+msgid "Panel informasi"
+msgstr ""
+
+#: patterns\design-system.php:96
+msgid "Paragraf isi memakai font sans-serif dengan tinggi baris 1,65 agar nyaman dibaca. Tautan ditampilkan"
+msgstr ""
+
+#: inc\post-meta.php:147
+msgid "Pembina"
+msgstr ""
+
+#: patterns\card-ekskul.php:21
+msgid "Pembina: "
+msgstr ""
+
+#: patterns\design-system.php:148
+msgid "Pendaftaran dibuka. Lengkapi berkas sebelum batas waktu."
+msgstr ""
+
+#: inc\post-meta.php:134
+msgid "Pendidikan terakhir"
+msgstr ""
+
+#: patterns\admission-cta.php:24
+msgid "Penerimaan peserta didik baru"
+msgstr ""
+
+#: inc\bindings.php:35
+msgid "Pengaturan sekolah"
+msgstr ""
+
+#: patterns\sakolaan-introduction.php
+msgctxt "Pattern title"
+msgid "Pengenalan sekolah"
+msgstr ""
+
+#: inc\patterns.php:39 inc\seed.php:226 patterns\announcements.php:20 patterns\quick-links.php:26
+msgid "Pengumuman"
+msgstr ""
+
+#: patterns\announcements.php
+msgctxt "Pattern title"
+msgid "Pengumuman"
+msgstr ""
+
+#: patterns\announcements.php
+msgctxt "Pattern description"
+msgid "Pengumuman aktif terbaru."
+msgstr ""
+
+#: inc\patterns.php:44
+msgid "Pengumuman terbaru dari sekolah akan tampil di sini."
+msgstr ""
+
+#: inc\post-meta.php:146
+msgid "Peraih"
+msgstr ""
+
+#: theme.json
+msgctxt "Color name"
+msgid "Peringatan"
+msgstr ""
+
+#: patterns\design-system.php:70
+msgid "Permukaan"
+msgstr ""
+
+#: theme.json
+msgctxt "Color name"
+msgid "Permukaan"
+msgstr ""
+
+#: inc\setup.php:59
+msgid "Potret (4:5)"
+msgstr ""
+
+#: inc\seed.php:36 patterns\quick-links.php:28
+msgid "PPDB"
+msgstr ""
+
+#: inc\patterns.php:55 inc\seed.php:233 patterns\achievements.php:20
+msgid "Prestasi"
+msgstr ""
+
+#: patterns\achievements.php
+msgctxt "Pattern title"
+msgid "Prestasi"
+msgstr ""
+
+#: inc\patterns.php:60
+msgid "Prestasi siswa dan sekolah akan tampil di sini."
+msgstr ""
+
+#: patterns\achievements.php
+msgctxt "Pattern description"
+msgid "Prestasi terbaru."
+msgstr ""
+
+#: patterns\design-system.php:34
+msgid "Primer"
+msgstr ""
+
+#: theme.json
+msgctxt "Color name"
+msgid "Primer"
+msgstr ""
+
+#: patterns\design-system.php:40
+msgid "Primer gelap"
+msgstr ""
+
+#: theme.json
+msgctxt "Color name"
+msgid "Primer gelap"
+msgstr ""
+
+#: patterns\design-system.php:64
+msgid "Primer muda"
+msgstr ""
+
+#: theme.json
+msgctxt "Color name"
+msgid "Primer muda"
+msgstr ""
+
+#: inc\seed.php:209 inc\seed.php:25
+msgid "Profil"
+msgstr ""
+
+#: inc\patterns.php:36
+msgid "Profil guru dan tenaga kependidikan akan tampil di sini."
+msgstr ""
+
+#: inc\seed.php:211
+msgid "Profil sekolah"
+msgstr ""
+
+#: patterns\statistics.php:20
+msgid "Profil singkat"
+msgstr ""
+
+#: inc\patterns.php:274 inc\patterns.php:87 patterns\featured-programs.php:20
+msgid "Program Unggulan"
+msgstr ""
+
+#: patterns\featured-programs.php
+msgctxt "Pattern title"
+msgid "Program Unggulan"
+msgstr ""
+
+#: inc\patterns.php:91
+msgid "Program unggulan belum tersedia"
+msgstr ""
+
+#: inc\patterns.php:92
+msgid "Program unggulan sekolah akan tampil di sini."
+msgstr ""
+
+#: patterns\featured-programs.php
+msgctxt "Pattern description"
+msgid "Program unggulan sekolah."
+msgstr ""
+
+#: inc\compat.php:30
+msgid "Sakolaan Theme membutuhkan plugin Sakolaan untuk data guru, berita, agenda, dan pengaturan sekolah."
+msgstr ""
+
+#: patterns\principal-greeting.php:31
+msgid "Sambutan kepala sekolah"
+msgstr ""
+
+#: patterns\principal-greeting.php
+msgctxt "Pattern title"
+msgid "Sambutan kepala sekolah"
+msgstr ""
+
+#: inc\post-meta.php:149
+msgid "Sasaran"
+msgstr ""
+
+#: inc\seed.php:212 inc\seed.php:27
+msgid "Sejarah"
+msgstr ""
+
+#: patterns\statistics.php:24
+msgid "Sekolah dalam angka"
+msgstr ""
+
+#: inc\setup.php:79
+msgid "Sekolah: Halaman"
+msgstr ""
+
+#: inc\setup.php:75
+msgid "Sekolah: Section"
+msgstr ""
+
+#: patterns\design-system.php:46
+msgid "Sekunder"
+msgstr ""
+
+#: theme.json
+msgctxt "Color name"
+msgid "Sekunder"
+msgstr ""
+
+#: patterns\sakolaan-introduction.php:45
+msgid "Selengkapnya tentang sekolah"
+msgstr ""
+
+#: inc\queries.php:68
+msgid "Selesai"
+msgstr ""
+
+#: theme.json
+msgctxt "Font family name"
+msgid "Serif"
+msgstr ""
+
+#: patterns\design-system.php:58
+msgid "Sorotan"
+msgstr ""
+
+#: theme.json
+msgctxt "Color name"
+msgid "Sorotan lime"
+msgstr ""
+
+#: patterns\statistics.php
+msgctxt "Pattern title"
+msgid "Statistik sekolah"
+msgstr ""
+
+#: inc\post-meta.php:143 inc\post-meta.php:144
+msgid "Status"
+msgstr ""
+
+#: inc\seed.php:214 inc\seed.php:29
+msgid "Struktur Organisasi"
+msgstr ""
+
+#: patterns\design-system.php:76
+msgid "Sukses"
+msgstr ""
+
+#: theme.json
+msgctxt "Color name"
+msgid "Sukses"
+msgstr ""
+
+#: theme.json
+msgctxt "Font family name"
+msgid "System Sans"
+msgstr ""
+
+#: inc\post-meta.php:145
+msgid "Tahun"
+msgstr ""
+
+#: inc\post-meta.php:151
+msgid "Tahun lulus"
+msgstr ""
+
+#: inc\post-meta.php:139 inc\post-meta.php:140
+msgid "Tanggal"
+msgstr ""
+
+#: patterns\design-system.php:132
+msgid "Tanggal terbit"
+msgstr ""
+
+#: theme.json
+msgctxt "Color name"
+msgid "Teks"
+msgstr ""
+
+#: theme.json
+msgctxt "Color name"
+msgid "Teks redup"
+msgstr ""
+
+#: patterns\design-system.php:142
+msgid "Teks, tautan, dan fokus keyboard menyesuaikan latar gelap."
+msgstr ""
+
+#: inc\post-meta.php:138
+msgid "Telepon"
+msgstr ""
+
+#: patterns\contact-details.php:17
+msgid "Telepon: "
+msgstr ""
+
+#: inc\compat.php:55
+msgid "Template Beranda telah dikustomisasi dan belum memakai block Susunan Beranda. Pengaturan urutan section belum dapat diterapkan pada template tersebut."
+msgstr ""
+
+#: patterns\sakolaan-introduction.php:36
+msgid "Tentang sekolah kami"
+msgstr ""
+
+#: theme.json
+msgctxt "Shadow name"
+msgid "Terangkat"
+msgstr ""
+
+#: inc\queries.php:27
+msgid "Terbaru dibuat"
+msgstr ""
+
+#: inc\queries.php:66
+msgid "Terjadwal"
+msgstr ""
+
+#: inc\queries.php:28
+msgid "Terlama dibuat"
+msgstr ""
+
+#: inc\patterns.php:275 inc\patterns.php:95 patterns\testimonials.php:20
+msgid "Testimoni Alumni"
+msgstr ""
+
+#: patterns\testimonials.php
+msgctxt "Pattern title"
+msgid "Testimoni Alumni"
+msgstr ""
+
+#: inc\patterns.php:99
+msgid "Testimoni alumni belum tersedia"
+msgstr ""
+
+#: patterns\design-system.php:88
+msgid "Tipografi"
+msgstr ""
+
+#: patterns\design-system.php:100
+msgid "Tombol"
+msgstr ""
+
+#: inc\setup.php:134
+msgid "Tombol: outline"
+msgstr ""
+
+#: inc\breadcrumbs.php:32
+msgid "Tulisan"
+msgstr ""
+
+#: inc\post-meta.php:177
+msgid "Unduh berkas"
+msgstr ""
+
+#: patterns\card-program.php:22
+msgid "Untuk: "
+msgstr ""
+
+#: inc\queries.php:34
+msgid "Urutan pilihan"
+msgstr ""
+
+#: patterns\design-system.php:105
+msgid "Utama"
+msgstr ""
+
+#: inc\seed.php:213 inc\seed.php:28
+msgid "Visi & Misi"
+msgstr ""
+
+#: inc\post-meta.php:141
+msgid "Waktu"
+msgstr ""
+
+#: patterns\design-system.php:28
+msgid "Warna"
+msgstr ""
+
+#. 1: year, 2: school name.
+#: inc\helpers.php:92
+#, php-format
+msgid "© %1$s %2$s. Hak cipta dilindungi."
+msgstr ""

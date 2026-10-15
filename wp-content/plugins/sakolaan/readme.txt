@@ -1,0 +1,53 @@
+=== Sakolaan ===
+Requires at least: 6.7
+Tested up to: 7.1
+Requires PHP: 8.0
+Stable tag: 0.0.1
+License: GPLv2 or later
+License URI: https://www.gnu.org/licenses/gpl-2.0.html
+
+Manage school identity, content, admissions, SEO, and theme settings from one focused WordPress dashboard.
+
+== Description ==
+
+Sakolaan provides the content and configuration layer for Sakolaan Theme. Its dashboard organizes school identity, official information, contact details, social profiles, statistics, content, admissions, SEO, header, footer, and homepage settings.
+
+Content visibility, ordering, and item limits are managed from a unified control. The plugin also provides settings and school-data backups, import previews, health checks, permalink tools, and guarded migration and recovery workflows for older Sakolaan installations.
+
+Demo media is distributed as a separate, checksummed package. Configure SAKOLAAN_DEMO_MEDIA_URL and SAKOLAAN_DEMO_MEDIA_SHA256 in wp-config.php before installing demo data. Plugin-managed content is retained when the plugin is deactivated. Uninstall removes settings only when an administrator has enabled that option.
+
+Official website: https://sakolaan.com/
+
+Developed by Tanisya: https://tanisya.com/
+
+== External Service ==
+
+When an administrator explicitly installs demo data, Sakolaan downloads the configured media package from SAKOLAAN_DEMO_MEDIA_URL. The request is only made during demo installation when no matching validated cache exists. The administrator controls the hosting provider and is responsible for its privacy policy and terms.
+
+== Installation ==
+
+1. Upload the `sakolaan` folder to `/wp-content/plugins/`, or install the plugin package through the WordPress Plugins screen.
+2. Activate Sakolaan from the Plugins screen.
+3. Upload and activate Sakolaan Theme with the same version as the plugin (currently 0.0.1).
+4. Open the Sakolaan menu to configure school identity, content, SEO, and appearance.
+5. To use Data Demo, upload the matching media package to an HTTPS host and define its URL and SHA-256 checksum in wp-config.php.
+
+== Frequently Asked Questions ==
+
+= Does deactivating the plugin delete school content? =
+
+No. Deactivation does not delete plugin-managed content.
+
+= Can I preview an import before applying it? =
+
+Yes. Settings and school-data imports are validated and previewed before they can be applied.
+
+= How is legacy data migration protected? =
+
+The first migration creates a checksummed JSON snapshot. Migration stops if the snapshot cannot be created or conflicting destination data is detected. Status, retry, download, and recovery actions are available under Sakolaan > More > System > Maintenance.
+
+== Changelog ==
+
+= 0.0.1 =
+
+* Initial release with matching plugin-theme version validation and dependency notices.

@@ -1,0 +1,15 @@
+{
+	"$schema": "https://schemas.wp.org/trunk/block.json",
+	"apiVersion": 3,
+	"name": "sakolaan-theme/map",
+	"title": "Peta lokasi sekolah",
+	"category": "theme",
+	"description": "Peta Google Maps dari Pengaturan Sakolaan (tab Kontak), ditambah tautan petunjuk arah. Tidak tampil jika belum diisi.",
+	"icon": "location-alt",
+	"textdomain": "sakolaan",
+	"supports": {
+		"autoRegister": true,
+		"html": false
+	},
+	"render": "file:./render.php"
+}

@@ -1,0 +1,21 @@
+{
+	"$schema": "https://schemas.wp.org/trunk/block.json",
+	"apiVersion": 3,
+	"name": "sakolaan-theme/term-filter",
+	"title": "Filter kategori",
+	"category": "theme",
+	"description": "Daftar tautan term dari satu taxonomy untuk menyaring arsip. Tidak tampil jika belum ada term yang berisi konten.",
+	"icon": "filter",
+	"textdomain": "sakolaan",
+	"attributes": {
+		"taxonomy": {
+			"type": "string",
+			"default": ""
+		}
+	},
+	"supports": {
+		"autoRegister": true,
+		"html": false
+	},
+	"render": "file:./render.php"
+}

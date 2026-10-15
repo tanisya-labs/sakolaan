@@ -1,0 +1,16 @@
+{
+	"$schema": "https://schemas.wp.org/trunk/block.json",
+	"apiVersion": 3,
+	"name": "sakolaan-theme/detail-byline",
+	"title": "Metadata detail",
+	"category": "theme",
+	"description": "Tanggal, penulis, dan taxonomy utama untuk konten detail.",
+	"icon": "info-outline",
+	"textdomain": "sakolaan",
+	"usesContext": [ "postId", "postType" ],
+	"supports": {
+		"autoRegister": true,
+		"html": false
+	},
+	"render": "file:./render.php"
+}

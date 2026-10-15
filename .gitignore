@@ -1,0 +1,97 @@
+# Repository ini berada di dalam instalasi Local WordPress. Secara default,
+# abaikan seluruh isi root agar WordPress core, konfigurasi lokal, database,
+# uploads, dan plugin/theme pihak ketiga tidak ikut ter-commit.
+/*
+
+# File metadata dan konfigurasi proyek yang aman untuk dibagikan.
+!/.gitignore
+!/.gitattributes
+!/.editorconfig
+!/README.md
+!/README.txt
+!/LICENSE
+!/LICENSE.md
+!/CHANGELOG.md
+!/composer.json
+!/composer.lock
+!/package.json
+!/package-lock.json
+!/.wp-env.json
+!/.wp-env.override.json.example
+!/phpcs.xml.dist
+!/.phpcs.xml.dist
+
+# Konfigurasi CI/CD GitHub.
+!/.github/
+!/.github/**
+
+# Source plugin Sakolaan saja.
+!/wp-content/
+/wp-content/*
+!/wp-content/plugins/
+/wp-content/plugins/*
+!/wp-content/plugins/sakolaan/
+!/wp-content/plugins/sakolaan/**
+
+# Source theme Sakolaan saja.
+!/wp-content/themes/
+/wp-content/themes/*
+!/wp-content/themes/sakolaan-theme/
+!/wp-content/themes/sakolaan-theme/**
+
+# Alat build dan aset sumber paket media demo.
+!/tools/
+!/tools/**
+!/release-assets/
+!/release-assets/**
+
+# Hasil build dipublikasikan sebagai GitHub Release, bukan disimpan di Git.
+/dist/
+*.zip
+*.tar
+*.tar.gz
+*.tgz
+
+# Dependency dan hasil pengujian/build lokal.
+**/node_modules/
+**/vendor/
+**/.cache/
+**/.parcel-cache/
+**/coverage/
+**/build/
+**/.phpunit.result.cache
+**/.phpcs-cache
+**/*.map
+
+# Konfigurasi lokal dan data rahasia. File contoh tetap boleh dilacak.
+**/.env
+**/.env.*
+!**/.env.example
+**/.wp-env.override.json
+**/wp-config.php
+**/auth.json
+**/*.pem
+**/*.key
+**/*.p12
+**/*.pfx
+
+# Database, backup, log, dan file sementara.
+**/*.sql
+**/*.sql.gz
+**/*.sqlite
+**/*.sqlite3
+**/*.log
+**/*.bak
+**/*.backup
+**/*.tmp
+**/*.temp
+**/*~
+
+# File sistem operasi dan editor.
+**/.DS_Store
+**/Thumbs.db
+**/desktop.ini
+**/.idea/
+**/.vscode/
+**/*.swp
+**/*.swo

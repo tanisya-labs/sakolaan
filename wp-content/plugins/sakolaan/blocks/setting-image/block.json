@@ -1,0 +1,23 @@
+{
+	"$schema": "https://schemas.wp.org/trunk/block.json",
+	"apiVersion": 3,
+	"name": "sakolaan-theme/setting-image",
+	"title": "Gambar dari pengaturan sekolah",
+	"category": "theme",
+	"description": "Gambar dari Pengaturan Sakolaan (misalnya gambar hero atau foto kepala sekolah) dengan srcset dan lazy loading. Tidak tampil jika belum diunggah.",
+	"icon": "format-image",
+	"textdomain": "sakolaan",
+	"attributes": {
+		"key": { "type": "string", "default": "" },
+		"size": { "type": "string", "default": "large" },
+		"aspectRatio": { "type": "string", "default": "" },
+		"sizes": { "type": "string", "default": "" },
+		"priority": { "type": "boolean", "default": false },
+		"fallbackAlt": { "type": "string", "default": "" }
+	},
+	"supports": {
+		"autoRegister": true,
+		"html": false
+	},
+	"render": "file:./render.php"
+}

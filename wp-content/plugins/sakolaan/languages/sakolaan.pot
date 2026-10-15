@@ -1,0 +1,2760 @@
+# Template terjemahan untuk sakolaan.
+msgid ""
+msgstr ""
+"Project-Id-Version: Sakolaan 0.0.1\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2026-10-15 07:32+0000\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Language: id\n"
+"X-Domain: sakolaan\n"
+
+#. 1: current slide, 2: total slides.
+#: blocks\hero-slider\render.php:62
+#, php-format
+msgid "%1$d dari %2$d"
+msgstr ""
+
+#. 1: content count, 2: term count, 3: comment count, 4: conflict count, 5: missing media count.
+#: includes\admin\tools-data-transfer.php:231
+#, php-format
+msgid "%1$d konten, %2$d term, %3$d komentar, %4$d konflik, dan %5$d media tidak ditemukan."
+msgstr ""
+
+#. 1: imported content count, 2: imported term count, 3: imported comment count, 4: skipped record count, 5: missing media count.
+#: includes\admin\tools-data-transfer.php:220
+#, php-format
+msgid "%1$d konten, %2$d term, dan %3$d komentar diimpor; %4$d record dilewati dan %5$d media tidak tersedia."
+msgstr ""
+
+#. 1: published count, 2: incomplete count.
+#: includes\admin\menu.php:254
+#, php-format
+msgid "%1$d terbit · %2$d perlu dilengkapi"
+msgstr ""
+
+#. 1: judul galeri, 2: nomor foto.
+#: blocks\meta-gallery\render.php:58
+#, php-format
+msgid "%1$s, foto %2$d"
+msgstr ""
+
+#. %d: number of legacy news records remaining.
+#: includes\admin\tools-legacy.php:80
+#, php-format
+msgid "%d berita lama tersisa. Buat backup sebelum pembersihan."
+msgstr ""
+
+#. %d: number of content types without published items.
+#: includes\admin\tools-health.php:127
+#, php-format
+msgid "%d jenis konten belum memiliki item terbit."
+msgstr ""
+
+#. %d: number of incomplete content records.
+#: includes\admin\tools-health.php:125
+#, php-format
+msgid "%d konten perlu dilengkapi."
+msgstr ""
+
+#. %d: number of settings that will change.
+#: includes\admin\tools-settings-transfer.php:138
+#, php-format
+msgid "%d pengaturan akan berubah."
+msgstr ""
+
+#. %d: number of announcements updated by the bulk action.
+#: includes\admin\tools-workflow.php:51
+#, php-format
+msgid "%d pengumuman diperbarui."
+msgstr ""
+
+#. %d: number of skipped records with unknown content types.
+#: includes\admin\tools-data-transfer.php:234
+#, php-format
+msgid "%d record memakai tipe yang tidak dikenal dan akan dilewati."
+msgstr ""
+
+#. %d: number of broken media relations.
+#: includes\admin\tools-health.php:129
+#, php-format
+msgid "%d relasi media rusak."
+msgstr ""
+
+#. %d: number of orphaned taxonomy relationships.
+#: includes\admin\tools-health.php:135
+#, php-format
+msgid "%d relasi taxonomy yatim."
+msgstr ""
+
+#. %s: teacher name.
+#: includes\demo-data.php:786
+#, php-format
+msgid "%s adalah profil pendidik dan tenaga kependidikan dalam dataset demo."
+msgstr ""
+
+#. %s: nama konten.
+#: includes\helpers\labels.php:30
+#, php-format
+msgid "%s baru"
+msgstr ""
+
+#. %s: nama konten jamak.
+#: includes\helpers\labels.php:106 includes\helpers\labels.php:36
+#, php-format
+msgid "%s belum ada."
+msgstr ""
+
+#. %s: settings field key.
+#: includes\admin\tools-health.php:97
+#, php-format
+msgid "%s belum diisi."
+msgstr ""
+
+#. %s: facility name.
+#: includes\demo-data.php:998
+#, php-format
+msgid "%s digunakan untuk mendukung pengalaman belajar siswa yang aman dan aktif."
+msgstr ""
+
+#. %s: featured program name.
+#: includes\demo-data.php:1023
+#, php-format
+msgid "%s dirancang sebagai program unggulan yang relevan dengan kebutuhan siswa."
+msgstr ""
+
+#. %s: extracurricular activity name.
+#: includes\demo-data.php:935
+#, php-format
+msgid "%s membantu siswa mengembangkan minat, karakter, dan kemampuan bekerja sama."
+msgstr ""
+
+#. %s: settings field key.
+#: includes\admin\tools-health.php:95
+#, php-format
+msgid "%s sudah diisi."
+msgstr ""
+
+#: includes\meta\schema.php:160
+msgid "4 digit, misalnya 2026."
+msgstr ""
+
+#: includes\registry.php:20 includes\settings\page.php:277
+msgid "Agenda"
+msgstr ""
+
+#: includes\demo-data.php:878
+msgid "Agenda demo ini menguji format tanggal, rentang hari, waktu, lokasi, dan status kegiatan."
+msgstr ""
+
+#: includes\settings\schema.php:29
+msgid "Agenda mendatang"
+msgstr ""
+
+#: includes\settings\schema.php:38
+msgid "Ajakan PPDB"
+msgstr ""
+
+#: includes\taxonomies\default-terms.php:64
+msgid "Akademik"
+msgstr ""
+
+#: includes\admin\hero-slide-cta.php:17
+msgid "Aksen emas"
+msgstr ""
+
+#: includes\admin\menu.php:45
+msgid "Akses Cepat"
+msgstr ""
+
+#: includes\settings\schema.php:164 includes\settings\schema.php:25
+msgid "Akses cepat"
+msgstr ""
+
+#: includes\admin\menu.php:194 includes\admin\tools-data-transfer.php:115 includes\admin\tools-data-transfer.php:187 includes\admin\tools-data-transfer.php:67 includes\admin\tools-data-transfer.php:85 includes\admin\tools-legacy.php:130 includes\admin\tools-legacy.php:192 includes\admin\tools-legacy.php:52 includes\admin\tools-settings-transfer.php:101 includes\admin\tools-settings-transfer.php:153 includes\admin\tools-settings-transfer.php:30 includes\admin\tools.php:51 includes\admin\tools.php:6 includes\migration.php:554 includes\migration.php:564 includes\migration.php:577
+msgid "Akses ditolak."
+msgstr ""
+
+#: includes\meta\schema.php:90 includes\settings\page.php:209
+msgid "Aktif"
+msgstr ""
+
+#: includes\admin\tools-workflow.php:23
+msgid "Aktifkan pengumuman"
+msgstr ""
+
+#: includes\admin\menu.php:43
+msgid "Aktifkan, urutkan, dan tentukan jumlah item setiap section."
+msgstr ""
+
+#: includes\meta\schema.php:234
+msgid "Aktivitas atau jabatan saat ini"
+msgstr ""
+
+#: includes\settings\schema.php:133
+msgid "Alamat"
+msgstr ""
+
+#: includes\settings\sanitize.php:133
+msgid "Alamat email tidak valid."
+msgstr ""
+
+#: includes\settings\schema.php:243
+msgid "Alamat, telepon, email, dan media sosial di footer diambil dari menu Identitas."
+msgstr ""
+
+#: includes\registry.php:38
+msgid "Album"
+msgstr ""
+
+#: includes\registry.php:38
+msgid "Album Galeri"
+msgstr ""
+
+#: includes\demo-data.php:970
+msgid "Album ini berisi media demo untuk menguji grid galeri dan lightbox."
+msgstr ""
+
+#: includes\seo.php:127 includes\seo.php:166
+msgid "Alt text gambar SEO"
+msgstr ""
+
+#: includes\settings\schema.php:308
+msgid "Alt text gambar sosial fallback"
+msgstr ""
+
+#: includes\seo.php:131 includes\seo.php:168
+msgid "Alt text OG / X image"
+msgstr ""
+
+#: includes\admin\content-order.php:15
+msgid "Anda tidak memiliki izin untuk mengatur konten ini."
+msgstr ""
+
+#: includes\admin\demo-data-page.php:42
+msgid "Anda tidak memiliki izin untuk mengelola data demo."
+msgstr ""
+
+#: includes\admin\menu.php:26
+msgid "Angka utama yang ditampilkan pada beranda."
+msgstr ""
+
+#: includes\meta\schema.php:91
+msgid "Arsip"
+msgstr ""
+
+#: includes\admin\tools-workflow.php:24
+msgid "Arsipkan pengumuman"
+msgstr ""
+
+#. %s: unreadable demo asset filename.
+#: includes\demo-data.php:411
+#, php-format
+msgid "Aset demo gagal dibaca: %s"
+msgstr ""
+
+#. %s: missing demo asset filename.
+#: includes\demo-data.php:399
+#, php-format
+msgid "Aset demo tidak ditemukan: %s"
+msgstr ""
+
+#: includes\admin\menu.php:36
+msgid "Atur header, footer, dan susunan konten beranda."
+msgstr ""
+
+#: includes\admin\menu.php:44
+msgid "Atur hero tunggal atau slider beserta tombol aksinya."
+msgstr ""
+
+#: includes\admin\menu.php:34
+msgid "Atur informasi dan tombol penerimaan peserta didik baru."
+msgstr ""
+
+#: includes\settings\page.php:403
+msgid "Atur isi"
+msgstr ""
+
+#: includes\settings\schema.php:282
+msgid "Atur jumlah konten di beranda dan arsip. Kolom dan gaya kartu diatur melalui Site Editor."
+msgstr ""
+
+#: includes\admin\menu.php:54
+msgid "Atur metadata fallback global untuk mesin pencari dan media sosial."
+msgstr ""
+
+#: includes\settings\page.php:292
+msgid "Atur nama, tujuan, ikon, dan visibilitas tiap tautan. Seret untuk mengubah urutan atau gunakan tombol panah."
+msgstr ""
+
+#: includes\admin\columns.php:250
+msgid "Atur Urutan"
+msgstr ""
+
+#: includes\admin\tools-health.php:78
+msgid "Aturan permalink belum tersedia."
+msgstr ""
+
+#: includes\admin\tools-health.php:78
+msgid "Aturan permalink tersedia."
+msgstr ""
+
+#: includes\admin\menu.php:66
+msgid "Backup Data"
+msgstr ""
+
+#: includes\admin\menu.php:210
+msgid "Backup data berhasil diimpor."
+msgstr ""
+
+#: includes\admin\tools-data-transfer.php:60
+msgid "Backup data tidak dapat dibuat."
+msgstr ""
+
+#: includes\admin\menu.php:65
+msgid "Backup Pengaturan"
+msgstr ""
+
+#: includes\admin\tools-legacy.php:143
+msgid "Backup tidak cocok dengan data saat ini. Unduh backup baru dan coba lagi."
+msgstr ""
+
+#: includes\admin\tools-legacy.php:67
+msgid "Backup tidak dapat dikodekan menjadi JSON."
+msgstr ""
+
+#: includes\admin\tools-data-transfer.php:106
+msgid "Backup tidak dapat disiapkan untuk pratinjau."
+msgstr ""
+
+#: includes\admin\tools-legacy.php:61
+msgid "Backup tidak dapat divalidasi."
+msgstr ""
+
+#: includes\admin\menu.php:68
+msgid "Backup, bersihkan, atau pulihkan data berita lama."
+msgstr ""
+
+#: includes\admin\menu.php:63
+msgid "Backup, pemulihan, diagnostik, dan pemeliharaan."
+msgstr ""
+
+#: includes\admin\menu.php:313
+msgid "Bagian yang diminta tidak tersedia atau Anda tidak memiliki izin untuk membukanya. Silakan pilih bagian yang tersedia."
+msgstr ""
+
+#: includes\admin\columns.php:248
+msgid "Batal"
+msgstr ""
+
+#: includes\admin\editor-panels.php:80
+msgid "Belum ada berkas."
+msgstr ""
+
+#: includes\admin\columns.php:116
+msgid "Belum ada foto"
+msgstr ""
+
+#: blocks\breadcrumb\render.php:16 includes\admin\menu.php:41 includes\demo-data.php:1408 includes\settings\schema.php:160
+msgid "Beranda"
+msgstr ""
+
+#: includes\post-types\news.php:20 includes\post-types\news.php:21 includes\registry.php:18 includes\settings\page.php:275
+msgid "Berita"
+msgstr ""
+
+#: includes\settings\schema.php:27
+msgid "Berita terbaru"
+msgstr ""
+
+#: includes\helpers\dates.php:20
+msgid "Berlangsung"
+msgstr ""
+
+#. %s: teacher name.
+#: includes\demo-data.php:786
+msgid "Berpartisipasi dalam program pengembangan mutu madrasah."
+msgstr ""
+
+#: includes\admin\menu.php:283
+msgid "Breadcrumb"
+msgstr ""
+
+#: blocks\breadcrumb\block.json
+msgctxt "block title"
+msgid "Breadcrumb"
+msgstr ""
+
+#: includes\admin\menu.php:61
+msgid "Buat atau bersihkan data contoh untuk menyiapkan situs."
+msgstr ""
+
+#: includes\admin\menu.php:58
+msgid "Buat data awal, pindahkan data, dan rawat sistem Sakolaan."
+msgstr ""
+
+#: includes\migration.php:549
+msgid "Buka alat pemulihan"
+msgstr ""
+
+#: includes\admin\menu.php:33
+msgid "Buka daftar"
+msgstr ""
+
+#: includes\admin\menu.php:234
+msgid "Buka daftar konten untuk menyunting, menambah, atau mengurutkan item."
+msgstr ""
+
+#. %d: photo number.
+#: blocks\meta-gallery\render.php:65
+#, php-format
+msgid "Buka foto %d"
+msgstr ""
+
+#: includes\admin\menu.php:272
+msgid "Buka katalog konten"
+msgstr ""
+
+#: includes\admin\menu.php:328 includes\settings\page.php:318
+msgid "Buka pengaturan"
+msgstr ""
+
+#: includes\admin\menu.php:400
+msgid "Buka template header"
+msgstr ""
+
+#: includes\settings\page.php:304
+msgid "Buku"
+msgstr ""
+
+#: includes\seo.php:132 includes\seo.php:169
+msgid "Canonical URL"
+msgstr ""
+
+#. %s: nama konten jamak.
+#: includes\helpers\labels.php:34 includes\helpers\labels.php:98
+#, php-format
+msgid "Cari %s"
+msgstr ""
+
+#: blocks\hero-slider\render.php:34
+msgid "carousel"
+msgstr ""
+
+#: includes\settings\page.php:388
+msgid "Centang section yang ingin ditampilkan, lalu seret atau gunakan tombol untuk mengatur urutannya. Hero selalu berada paling atas."
+msgstr ""
+
+#: includes\admin\tools-legacy.php:118
+msgid "Checksum backup atau alamat situs tidak cocok."
+msgstr ""
+
+#: includes\admin\tools-data-transfer.php:76
+msgid "Checksum backup data tidak cocok."
+msgstr ""
+
+#: includes\migration.php:482
+msgid "Checksum snapshot migrasi tidak cocok."
+msgstr ""
+
+#: includes\settings\page.php:321
+msgid "Contoh: Berita sekolah"
+msgstr ""
+
+#: blocks\meta-list\block.json
+msgctxt "block description"
+msgid "Daftar detail (jabatan, tanggal, lokasi, dan lainnya) dari data konten saat ini. Baris yang kosong tidak ditampilkan."
+msgstr ""
+
+#: blocks\meta-list\block.json
+msgctxt "block title"
+msgid "Daftar detail konten"
+msgstr ""
+
+#: blocks\meta-gallery\render.php:50
+msgid "Daftar foto"
+msgstr ""
+
+#: includes\admin\menu.php:33
+msgid "Daftar konten"
+msgstr ""
+
+#: blocks\social-links\block.json
+msgctxt "block description"
+msgid "Daftar tautan media sosial sekolah dari Pengaturan Sakolaan. Tidak tampil jika belum diisi."
+msgstr ""
+
+#: blocks\term-filter\block.json
+msgctxt "block description"
+msgid "Daftar tautan term dari satu taxonomy untuk menyaring arsip. Tidak tampil jika belum ada term yang berisi konten."
+msgstr ""
+
+#: includes\settings\schema.php:192
+msgid "Dalam detik."
+msgstr ""
+
+#: blocks\hero-slider\render.php:40
+msgid "dari"
+msgstr ""
+
+#: includes\admin\menu.php:210
+msgid "Data berita lama berhasil dibersihkan."
+msgstr ""
+
+#: includes\admin\menu.php:210
+msgid "Data berita lama berhasil dipulihkan."
+msgstr ""
+
+#: includes\admin\menu.php:61
+msgid "Data Demo"
+msgstr ""
+
+#: includes\meta\schema.php:28
+msgid "Data guru"
+msgstr ""
+
+#: includes\admin\menu.php:444
+msgid "Data hero tunggal tersimpan tetapi sedang tidak aktif."
+msgstr ""
+
+#: includes\admin\menu.php:68
+msgid "Data Legacy"
+msgstr ""
+
+#: includes\admin\tools-legacy.php:134
+msgid "Data legacy sudah dibersihkan."
+msgstr ""
+
+#: includes\admin\editor-panels.php:69
+msgid "Data sekolah"
+msgstr ""
+
+#: includes\admin\menu.php:439
+msgid "Data slider tersimpan tetapi sedang tidak aktif."
+msgstr ""
+
+#: includes\admin\demo-data-page.php:128
+msgid "Data telah dihapus dengan beberapa peringatan."
+msgstr ""
+
+#: includes\admin\tools-data-transfer.php:200
+msgid "Database tidak mendukung transaksi aman untuk mode ganti."
+msgstr ""
+
+#: includes\migration.php:338
+msgid "Database tidak mendukung transaksi migrasi yang aman."
+msgstr ""
+
+#: includes\admin\tools-legacy.php:147
+msgid "Database tidak mendukung transaksi pembersihan."
+msgstr ""
+
+#: includes\migration.php:495
+msgid "Database tidak mendukung transaksi pemulihan yang aman."
+msgstr ""
+
+#: includes\admin\tools-legacy.php:227
+msgid "Database tidak mendukung transaksi pemulihan."
+msgstr ""
+
+#: includes\demo-data.php:1394
+msgid "Dataset demo berhasil dipasang dan siap diuji."
+msgstr ""
+
+#: includes\demo-data.php:1395
+msgid "Dataset demo terpasang dengan beberapa peringatan. Periksa rincian di bawah."
+msgstr ""
+
+#. 1: dataset version, 2: installation time.
+#: includes\admin\demo-data-page.php:252
+#, php-format
+msgid "Dataset demo versi %1$s terpasang sejak %2$s."
+msgstr ""
+
+#: includes\admin\demo-data-page.php:240
+msgid "Dataset ini mengisi seluruh fitur Sakolaan dan Sakolaan Theme agar archive, single, filter, galeri, pengaturan beranda, serta kondisi status dapat diuji langsung."
+msgstr ""
+
+#: includes\settings\schema.php:238
+msgid "Deskripsi ajakan"
+msgstr ""
+
+#: includes\settings\schema.php:306
+msgid "Deskripsi fallback situs"
+msgstr ""
+
+#: includes\settings\schema.php:245
+msgid "Deskripsi footer"
+msgstr ""
+
+#: includes\settings\schema.php:204
+msgid "Deskripsi hero"
+msgstr ""
+
+#: includes\settings\schema.php:211
+msgid "Deskripsi singkat sekolah"
+msgstr ""
+
+#: includes\meta\schema.php:105
+msgid "Detail agenda"
+msgstr ""
+
+#: includes\meta\schema.php:173
+msgid "Detail ekstrakurikuler"
+msgstr ""
+
+#: includes\meta\schema.php:197
+msgid "Detail fasilitas"
+msgstr ""
+
+#: includes\meta\schema.php:291
+msgid "Detail galeri"
+msgstr ""
+
+#: includes\meta\schema.php:75
+msgid "Detail pengumuman"
+msgstr ""
+
+#: includes\meta\schema.php:154
+msgid "Detail prestasi"
+msgstr ""
+
+#: includes\meta\schema.php:208
+msgid "Detail program unggulan"
+msgstr ""
+
+#: includes\settings\schema.php:145
+msgid "Di Google Maps pilih Bagikan, lalu Sematkan peta, dan tempel kodenya di sini. Hanya alamat peta yang disimpan."
+msgstr ""
+
+#: includes\helpers\dates.php:23 includes\meta\schema.php:148
+msgid "Dibatalkan"
+msgstr ""
+
+#. %s: facility name.
+#: includes\demo-data.php:998
+msgid "Dikelola dengan jadwal pemeliharaan berkala."
+msgstr ""
+
+#: includes\helpers\dates.php:22 includes\meta\schema.php:147
+msgid "Ditunda"
+msgstr ""
+
+#: includes\meta\schema.php:217
+msgid "Durasi atau periode"
+msgstr ""
+
+#. %s: nama konten.
+#: includes\helpers\labels.php:102 includes\helpers\labels.php:28
+#, php-format
+msgid "Edit %s"
+msgstr ""
+
+#: includes\admin\menu.php:65
+msgid "Ekspor atau pulihkan konfigurasi tanpa memindahkan konten."
+msgstr ""
+
+#: includes\admin\menu.php:66
+msgid "Ekspor, pratinjau, dan pulihkan data Sakolaan."
+msgstr ""
+
+#: includes\registry.php:23 includes\settings\schema.php:35
+msgid "Ekstrakurikuler"
+msgstr ""
+
+#: includes\meta\schema.php:61 includes\settings\schema.php:135
+msgid "Email"
+msgstr ""
+
+#: blocks\social-links\render.php:14 includes\settings\schema.php:153
+msgid "Facebook"
+msgstr ""
+
+#: includes\registry.php:24 includes\settings\schema.php:33
+msgid "Fasilitas"
+msgstr ""
+
+#: includes\demo-data.php:996
+msgid "Fasilitas demo yang mendukung kegiatan belajar, pengembangan diri, dan kenyamanan warga madrasah."
+msgstr ""
+
+#: includes\demo-data.php:1105
+msgid "Fasilitas madrasah mendukung proses belajar, ibadah, kreativitas, dan aktivitas siswa sehari-hari."
+msgstr ""
+
+#: includes\settings\schema.php:121
+msgid "Favicon"
+msgstr ""
+
+#: includes\admin\tools-data-transfer.php:93
+msgid "File backup tidak valid atau melebihi 50 MB."
+msgstr ""
+
+#: includes\admin\tools-legacy.php:112
+msgid "File backup tidak valid atau terlalu besar."
+msgstr ""
+
+#: includes\admin\tools-settings-transfer.php:111
+msgid "File JSON tidak valid atau terlalu besar."
+msgstr ""
+
+#: includes\admin\tools-data-transfer.php:191
+msgid "File pratinjau tidak lagi tersedia."
+msgstr ""
+
+#: blocks\term-filter\block.json
+msgctxt "block title"
+msgid "Filter kategori"
+msgstr ""
+
+#: includes\migration.php:200
+msgid "Folder backup migrasi tidak dapat diamankan."
+msgstr ""
+
+#: includes\migration.php:197
+msgid "Folder backup migrasi tidak dapat dibuat."
+msgstr ""
+
+#: includes\admin\menu.php:39 includes\settings\schema.php:242
+msgid "Footer"
+msgstr ""
+
+#: includes\admin\tools-data-transfer.php:78
+msgid "Format backup data tidak valid."
+msgstr ""
+
+#: includes\admin\tools-settings-transfer.php:51
+msgid "Format JSON Sakolaan tidak valid."
+msgstr ""
+
+#: includes\admin\columns.php:31 includes\settings\schema.php:225
+msgid "Foto"
+msgstr ""
+
+#: blocks\meta-gallery\render.php:49
+msgid "Foto berikutnya"
+msgstr ""
+
+#. %s: gallery title.
+#: blocks\meta-gallery\render.php:49
+msgid "Foto sebelumnya"
+msgstr ""
+
+#: includes\settings\schema.php:210
+msgid "Foto sekolah (pengenalan)"
+msgstr ""
+
+#. %s: nama konten jamak.
+#: includes\admin\tools-health.php:20 includes\helpers\labels.php:41
+msgid "Foto utama"
+msgstr ""
+
+#: includes\admin\tools-data-transfer.php:237
+msgid "Gabungkan aman; konflik dilewati"
+msgstr ""
+
+#: includes\registry.php:26 includes\settings\schema.php:37
+msgid "Galeri"
+msgstr ""
+
+#: blocks\meta-gallery\render.php:26
+msgid "Galeri foto"
+msgstr ""
+
+#: blocks\meta-gallery\block.json
+msgctxt "block title"
+msgid "Galeri foto konten"
+msgstr ""
+
+#. %s: gallery title.
+#: blocks\meta-gallery\render.php:49
+#, php-format
+msgid "Galeri foto: %s"
+msgstr ""
+
+#: includes\admin\columns.php:31 includes\meta\schema.php:300
+msgid "Gambar"
+msgstr ""
+
+#: blocks\setting-image\block.json
+msgctxt "block description"
+msgid "Gambar dari Pengaturan Sakolaan (misalnya gambar hero atau foto kepala sekolah) dengan srcset dan lazy loading. Tidak tampil jika belum diunggah."
+msgstr ""
+
+#: blocks\setting-image\block.json
+msgctxt "block title"
+msgid "Gambar dari pengaturan sekolah"
+msgstr ""
+
+#: includes\settings\page.php:138
+msgid "Gambar dihapus. Simpan perubahan untuk menerapkannya."
+msgstr ""
+
+#: includes\settings\page.php:137
+msgid "Gambar dipilih. Simpan perubahan untuk menerapkannya."
+msgstr ""
+
+#: includes\settings\schema.php:205
+msgid "Gambar hero"
+msgstr ""
+
+#: includes\settings\schema.php:123
+msgid "Gambar persegi, minimal 512 x 512 piksel."
+msgstr ""
+
+#: includes\settings\schema.php:307
+msgid "Gambar sosial fallback"
+msgstr ""
+
+#: includes\settings\sanitize.php:158
+msgid "Gambar yang dipilih tidak valid atau sudah tidak tersedia."
+msgstr ""
+
+#: includes\admin\editor-panels.php:76
+msgid "Ganti"
+msgstr ""
+
+#: includes\admin\tools-data-transfer.php:237
+msgid "Ganti seluruh data sekolah"
+msgstr ""
+
+#: includes\admin\hero-slide-cta.php:65
+msgid "Gaya tombol"
+msgstr ""
+
+#: includes\settings\schema.php:143
+msgid "Google Maps"
+msgstr ""
+
+#. Keep the literal %title% and %site_name% template tokens unchanged.
+#: includes\settings\schema.php:303
+#, php-format
+msgid "Gunakan %title% dan %site_name%."
+msgstr ""
+
+#: includes\settings\page.php:322
+msgid "Gunakan /alamat/ untuk halaman internal."
+msgstr ""
+
+#: includes\seo.php:134 includes\seo.php:195
+msgid "Gunakan default situs"
+msgstr ""
+
+#: includes\seo.php:255
+msgid "Gunakan gambar"
+msgstr ""
+
+#: includes\settings\page.php:136
+msgid "Gunakan gambar ini"
+msgstr ""
+
+#: includes\helpers\labels.php:44
+msgid "Gunakan sebagai foto utama"
+msgstr ""
+
+#: includes\registry.php:21 includes\taxonomies\default-terms.php:52
+msgid "Guru"
+msgstr ""
+
+#: includes\registry.php:21
+msgid "Guru & Tendik"
+msgstr ""
+
+#: includes\demo-data.php:826
+msgid "Guru melakukan pendampingan dan evaluasi kegiatan."
+msgstr ""
+
+#: includes\demo-data.php:536
+msgid "Guru membimbing siswa saat praktik sains"
+msgstr ""
+
+#. %d: page ID.
+#: includes\demo-data.php:291
+#, php-format
+msgid "Halaman #%d gagal dihapus."
+msgstr ""
+
+#. %s: required page slug.
+#: includes\admin\tools-health.php:89
+#, php-format
+msgid "Halaman %s perlu diperiksa."
+msgstr ""
+
+#. %s: required page slug.
+#: includes\admin\tools-health.php:87
+#, php-format
+msgid "Halaman %s tersedia."
+msgstr ""
+
+#: includes\demo-data.php:1421
+msgid "Halaman 404"
+msgstr ""
+
+#. %d: duplicate page ID.
+#: includes\demo-data.php:1179
+#, php-format
+msgid "Halaman duplikat #%d gagal dibersihkan."
+msgstr ""
+
+#: blocks\breadcrumb\render.php:20
+msgid "Halaman induk"
+msgstr ""
+
+#: blocks\breadcrumb\render.php:24
+msgid "Halaman saat ini"
+msgstr ""
+
+#: includes\admin\editor-panels.php:77 includes\seo.php:181 includes\settings\page.php:330 includes\settings\page.php:503
+msgid "Hapus"
+msgstr ""
+
+#: includes\admin\demo-data-page.php:274
+msgid "Hapus data demo"
+msgstr ""
+
+#: includes\admin\demo-data-page.php:268
+msgid "Hapus Data Lama & Pasang Demo"
+msgstr ""
+
+#: includes\admin\tools-legacy.php:90
+msgid "Hapus data legacy"
+msgstr ""
+
+#: includes\admin\tools-health.php:54
+msgid "Hapus filter"
+msgstr ""
+
+#. %s: nama konten jamak.
+#: includes\helpers\labels.php:43
+msgid "Hapus foto utama"
+msgstr ""
+
+#: includes\settings\schema.php:274
+msgid "Hapus pengaturan saat plugin dihapus"
+msgstr ""
+
+#: includes\admin\demo-data-page.php:276
+msgid "Hapus Seluruh Data Demo"
+msgstr ""
+
+#: includes\settings\page.php:340
+msgid "Hapus tautan"
+msgstr ""
+
+#: includes\demo-data.php:826
+msgid "Hasil kegiatan dibagikan kepada warga madrasah."
+msgstr ""
+
+#: includes\admin\menu.php:38 includes\settings\schema.php:254
+msgid "Header"
+msgstr ""
+
+#: includes\admin\menu.php:44
+msgid "Hero"
+msgstr ""
+
+#: includes\demo-data.php:850
+msgid "Hubungi tata usaha untuk informasi tambahan."
+msgstr ""
+
+#: includes\admin\tools-legacy.php:222
+msgid "ID backup sudah digunakan. Pemulihan dibatalkan."
+msgstr ""
+
+#: includes\admin\menu.php:19 includes\admin\menu.php:22 includes\settings\schema.php:113
+msgid "Identitas"
+msgstr ""
+
+#: includes\admin\menu.php:457
+msgid "Identitas memuat profil sekolah. Konten memuat isi dan tampilan situs. SEO memiliki halaman sendiri. Data demo, backup, dan pemeliharaan tersedia di Lainnya."
+msgstr ""
+
+#: includes\admin\menu.php:19
+msgid "Identitas Sekolah"
+msgstr ""
+
+#: includes\admin\menu.php:39
+msgid "Identitas, kontak, dan informasi pada bagian bawah situs."
+msgstr ""
+
+#: includes\settings\sanitize.php:54
+msgid "Ikon akses cepat harus berupa gambar yang tersedia di Media Library."
+msgstr ""
+
+#: includes\settings\page.php:325
+msgid "Ikon gambar"
+msgstr ""
+
+#: includes\settings\page.php:323
+msgid "Ikon preset"
+msgstr ""
+
+#: includes\settings\schema.php:262
+msgid "Ikuti pengaturan Site Editor"
+msgstr ""
+
+#: includes\demo-data.php:659
+msgid "Informasi akademik dan kesiswaan"
+msgstr ""
+
+#: includes\demo-data.php:1106
+msgid "Informasi ini merupakan data demo untuk menampilkan dokumen dan status mutu satuan pendidikan."
+msgstr ""
+
+#: includes\demo-data.php:660
+msgid "Informasi penerimaan peserta didik baru"
+msgstr ""
+
+#: includes\demo-data.php:1077
+msgid "Informasi PPDB"
+msgstr ""
+
+#: includes\demo-data.php:609
+msgid "Informasi utama"
+msgstr ""
+
+#: blocks\social-links\render.php:18 includes\settings\schema.php:154
+msgid "Instagram"
+msgstr ""
+
+#: includes\demo-data.php:1362
+msgid "Instalasi dibatalkan karena Sakolaan Theme tidak aktif. Tidak ada data yang dihapus."
+msgstr ""
+
+#: includes\taxonomies\default-terms.php:61
+msgid "Internasional"
+msgstr ""
+
+#: includes\admin\tools-health.php:18
+msgid "Isi"
+msgstr ""
+
+#: includes\admin\tools-data-transfer.php:79
+msgid "Isi backup data tidak lengkap."
+msgstr ""
+
+#: includes\admin\tools-legacy.php:122
+msgid "Isi backup tidak lengkap."
+msgstr ""
+
+#: includes\meta\schema.php:242
+msgid "Isi slide hero"
+msgstr ""
+
+#: includes\admin\hero-slide-cta.php:72
+msgid "Isi teks dan tautan agar tombol tampil di slide."
+msgstr ""
+
+#: includes\meta\schema.php:43 includes\settings\schema.php:224
+msgid "Jabatan"
+msgstr ""
+
+#: includes\meta\schema.php:182
+msgid "Jadwal"
+msgstr ""
+
+#: includes\migration.php:602
+msgid "Jalankan ulang migrasi"
+msgstr ""
+
+#: includes\settings\schema.php:186
+msgid "Jeda perpindahan slide"
+msgstr ""
+
+#: blocks\hero-slider\render.php:105
+msgid "Jeda slider"
+msgstr ""
+
+#: blocks\breadcrumb\render.php:45
+msgid "Jejak halaman"
+msgstr ""
+
+#: blocks\breadcrumb\block.json
+msgctxt "block description"
+msgid "Jejak halaman yang dibuat otomatis dari struktur konten."
+msgstr ""
+
+#: includes\demo-data.php:1075
+msgid "Jelajahi Profil"
+msgstr ""
+
+#: includes\admin\menu.php:233
+msgid "Jenis Konten"
+msgstr ""
+
+#: includes\admin\tools-settings-transfer.php:58
+msgid "JSON berisi grup pengaturan yang tidak dikenal."
+msgstr ""
+
+#: includes\admin\tools-health.php:16
+msgid "Judul"
+msgstr ""
+
+#. Keep the literal %title% and %site_name% template tokens unchanged.
+#: includes\settings\schema.php:305
+msgid "Judul fallback situs"
+msgstr ""
+
+#: includes\settings\schema.php:194
+msgid "Judul hero"
+msgstr ""
+
+#: includes\settings\page.php:401
+msgid "Jumlah"
+msgstr ""
+
+#. %s: homepage section label.
+#: includes\settings\schema.php:102
+#, php-format
+msgid "Jumlah %s di beranda"
+msgstr ""
+
+#: includes\admin\columns.php:37
+msgid "Jumlah foto"
+msgstr ""
+
+#: includes\settings\schema.php:285
+msgid "Jumlah konten per halaman arsip"
+msgstr ""
+
+#: includes\admin\tools-data-transfer.php:80
+msgid "Jumlah record backup tidak cocok."
+msgstr ""
+
+#: includes\taxonomies\default-terms.php:58
+msgid "Kabupaten/Kota"
+msgstr ""
+
+#: includes\settings\page.php:305
+msgid "Kalender"
+msgstr ""
+
+#: includes\taxonomies\news.php:21 includes\taxonomies\news.php:22
+msgid "Kategori Berita"
+msgstr ""
+
+#: includes\registry.php:36
+msgid "Kategori Prestasi"
+msgstr ""
+
+#: includes\taxonomies\default-terms.php:57
+msgid "Kecamatan"
+msgstr ""
+
+#. %s: extracurricular activity name.
+#: includes\demo-data.php:935
+msgid "Kegiatan didampingi pembina berpengalaman."
+msgstr ""
+
+#: includes\demo-data.php:826
+msgid "Kegiatan ini menjadi bagian dari upaya madrasah menghadirkan pembelajaran yang aktif, relevan, dan menyenangkan bagi seluruh siswa."
+msgstr ""
+
+#: includes\demo-data.php:537
+msgid "Kegiatan pramuka"
+msgstr ""
+
+#. 1: published count, 2: incomplete count.
+#: includes\admin\menu.php:254
+msgid "Kelola"
+msgstr ""
+
+#: includes\admin\menu.php:33
+msgid "Kelola berita, agenda, guru, fasilitas, dan konten sekolah lainnya."
+msgstr ""
+
+#: includes\admin\menu.php:19
+msgid "Kelola data resmi, pimpinan, kontak, dan profil utama sekolah."
+msgstr ""
+
+#: includes\admin\menu.php:201
+msgid "Kelola identitas, konten, tampilan, dan sistem website sekolah dari satu tempat."
+msgstr ""
+
+#: includes\admin\menu.php:30
+msgid "Kelola isi situs, PPDB, serta tampilan halaman publik."
+msgstr ""
+
+#: includes\admin\menu.php:400
+msgid "Kelola navigasi"
+msgstr ""
+
+#: includes\admin\menu.php:45
+msgid "Kelola tautan penting yang tampil di beranda."
+msgstr ""
+
+#: includes\registry.php:35
+msgid "Kelompok"
+msgstr ""
+
+#: includes\registry.php:35
+msgid "Kelompok GTK"
+msgstr ""
+
+#. %s: parent page name.
+#: includes\admin\menu.php:302
+#, php-format
+msgid "Kembali ke %s"
+msgstr ""
+
+#: includes\admin\menu.php:23
+msgid "Kepala Sekolah"
+msgstr ""
+
+#: includes\settings\schema.php:221
+msgid "Kepala sekolah"
+msgstr ""
+
+#: includes\demo-data.php:535
+msgid "Kepala sekolah demo"
+msgstr ""
+
+#: includes\admin\tools-health.php:141
+msgid "Kesehatan situs"
+msgstr ""
+
+#. %s: exact confirmation phrase.
+#: includes\admin\demo-data-page.php:213
+#, php-format
+msgid "Ketik %s untuk melanjutkan:"
+msgstr ""
+
+#: includes\admin\tools-legacy.php:89
+msgid "Ketik HAPUS BERITA LAMA:"
+msgstr ""
+
+#: includes\migration.php:607
+msgid "Ketik PULIHKAN MIGRASI untuk mengembalikan snapshot:"
+msgstr ""
+
+#: includes\admin\menu.php:69
+msgid "Konfigurasi inti untuk kebutuhan administrator."
+msgstr ""
+
+#: includes\demo-data.php:661
+msgid "Konfirmasi kunjungan ke madrasah"
+msgstr ""
+
+#: includes\admin\tools-legacy.php:138
+msgid "Konfirmasi tidak valid."
+msgstr ""
+
+#: includes\admin\menu.php:24 includes\settings\page.php:279 includes\settings\schema.php:131
+msgid "Kontak"
+msgstr ""
+
+#: includes\admin\menu.php:30
+msgid "Konten"
+msgstr ""
+
+#. %d: content post ID.
+#: includes\demo-data.php:283
+#, php-format
+msgid "Konten #%d gagal dihapus."
+msgstr ""
+
+#: includes\demo-data.php:767
+msgid "Konten ini adalah data demo untuk pengujian tampilan dan harus diganti sebelum situs dipublikasikan."
+msgstr ""
+
+#: includes\admin\demo-data-page.php:242
+msgid "Konten Sakolaan, taxonomy, halaman bawaan theme, navigasi utama, pengaturan sekolah, dan media terkait akan dihapus tanpa backup."
+msgstr ""
+
+#: includes\settings\schema.php:276
+msgid "Konten seperti guru dan berita tidak pernah dihapus."
+msgstr ""
+
+#: blocks\archive-controls\block.json
+msgctxt "block title"
+msgid "Kontrol arsip"
+msgstr ""
+
+#: blocks\archive-controls\block.json
+msgctxt "block description"
+msgid "Kontrol pengurutan dan status untuk daftar konten sekolah."
+msgstr ""
+
+#: blocks\hero-slider\render.php:96
+msgid "Kontrol sorotan sekolah"
+msgstr ""
+
+#: includes\settings\schema.php:167
+msgid "Kosongkan daftar untuk menyembunyikan akses cepat. Pada instalasi lama, tautan bawaan tetap digunakan hingga pengaturan ini disimpan."
+msgstr ""
+
+#: includes\meta\schema.php:117
+msgid "Kosongkan jika agenda satu hari."
+msgstr ""
+
+#: includes\settings\page.php:333
+msgid "Kosongkan jika ikon hanya dekoratif."
+msgstr ""
+
+#: includes\seo.php:125
+msgid "Kosongkan untuk memakai excerpt, lalu ringkasan konten."
+msgstr ""
+
+#: includes\settings\schema.php:235
+msgid "Kosongkan untuk memakai halaman dengan alamat /ppdb/."
+msgstr ""
+
+#: includes\settings\schema.php:249
+msgid "Kosongkan untuk teks otomatis dengan tahun berjalan."
+msgstr ""
+
+#: blocks\meta-gallery\block.json
+msgctxt "block description"
+msgid "Kumpulan foto dari data galeri saat ini, dengan lightbox. Tanpa JavaScript, foto terbuka di halaman sendiri."
+msgstr ""
+
+#: includes\settings\page.php:321
+msgid "Label tautan"
+msgstr ""
+
+#: includes\admin\menu.php:58
+msgid "Lainnya"
+msgstr ""
+
+#: includes\meta\schema.php:95
+msgid "Lampiran"
+msgstr ""
+
+#: includes\demo-data.php:503
+msgid "Lampiran Pengumuman Demo"
+msgstr ""
+
+#: includes\admin\menu.php:69 includes\settings\schema.php:271
+msgid "Lanjutan"
+msgstr ""
+
+#: includes\demo-data.php:1108
+msgid "Layanan kesiswaan membantu peserta didik tumbuh melalui organisasi, pembinaan karakter, dan kegiatan pengembangan diri."
+msgstr ""
+
+#: includes\settings\schema.php:202
+msgid "Lebar maksimum dalam jumlah karakter. Naikkan nilainya agar nama sekolah memakai lebih sedikit baris."
+msgstr ""
+
+#: includes\settings\schema.php:196
+msgid "Lebar nama sekolah di hero"
+msgstr ""
+
+#: includes\settings\schema.php:264
+msgid "Lengket di atas"
+msgstr ""
+
+#. %s: nama konten.
+#: includes\helpers\labels.php:32
+#, php-format
+msgid "Lihat %s"
+msgstr ""
+
+#: includes\admin\menu.php:441
+msgid "Lihat data hero tunggal"
+msgstr ""
+
+#: includes\admin\menu.php:446
+msgid "Lihat data slider"
+msgstr ""
+
+#: includes\demo-data.php:534
+msgid "Lingkungan sekolah"
+msgstr ""
+
+#: includes\settings\schema.php:119
+msgid "Logo"
+msgstr ""
+
+#: includes\settings\schema.php:255
+msgid "Logo dan nama sekolah berasal dari Identitas. Tombol pendaftaran berasal dari PPDB."
+msgstr ""
+
+#: includes\demo-data.php:534
+#, php-format
+msgid "Logo demo %s"
+msgstr ""
+
+#: includes\demo-data.php:533
+msgid "Logo sekolah demo"
+msgstr ""
+
+#: includes\meta\schema.php:133 includes\meta\schema.php:189 includes\meta\schema.php:200
+msgid "Lokasi"
+msgstr ""
+
+#: includes\demo-data.php:1102
+msgid "Madrasah berkembang dari semangat masyarakat untuk menghadirkan pendidikan menengah Islam yang dekat, bermutu, dan terjangkau."
+msgstr ""
+
+#: includes\admin\columns.php:250
+msgid "Manual"
+msgstr ""
+
+#: includes\meta\schema.php:49
+msgid "Mata pelajaran"
+msgstr ""
+
+#. %d: media attachment ID.
+#: includes\demo-data.php:363
+#, php-format
+msgid "Media #%d gagal dihapus."
+msgstr ""
+
+#. %s: image settings key.
+#: includes\admin\tools-settings-transfer.php:75
+#, php-format
+msgid "Media %s tidak ditemukan secara lokal; field dikosongkan."
+msgstr ""
+
+#: includes\admin\tools-legacy.php:216
+msgid "Media backup tidak ditemukan; pemulihan dibatalkan."
+msgstr ""
+
+#: includes\admin\editor-panels.php:82
+msgid "Media dihapus."
+msgstr ""
+
+#: includes\admin\editor-panels.php:81
+msgid "Media dipilih."
+msgstr ""
+
+#: blocks\social-links\render.php:49 includes\admin\menu.php:25 includes\settings\schema.php:151
+msgid "Media sosial"
+msgstr ""
+
+#: includes\admin\demo-data-page.php:263
+msgid "Membuat 8 guru/tendik, 8 artikel, 6 pengumuman, 6 agenda, 6 prestasi, 6 ekstrakurikuler, 4 galeri, 6 fasilitas, 4 program unggulan, 4 testimoni, 3 slide hero, halaman informasi, media, dan seluruh Pengaturan Sakolaan."
+msgstr ""
+
+#: includes\settings\page.php:141
+msgid "Memproses data demo. Jangan tutup halaman ini…"
+msgstr ""
+
+#: includes\admin\tools-data-transfer.php:216
+msgid "Mencakup konten sekolah, halaman, taxonomy, navigasi, dan kustomisasi Site Editor. File media tidak disalin."
+msgstr ""
+
+#. %s: teacher name.
+#: includes\demo-data.php:786
+msgid "Mendampingi siswa dengan pendekatan aktif dan ramah."
+msgstr ""
+
+#: includes\admin\demo-data-page.php:275
+msgid "Menghapus seluruh data dalam cakupan Sakolaan dan mengembalikan identitas situs ke nilai generik. Tidak ada data contoh yang dibuat kembali."
+msgstr ""
+
+#: includes\admin\menu.php:203
+msgid "Menu"
+msgstr ""
+
+#: includes\demo-data.php:1333
+msgid "Menu utama"
+msgstr ""
+
+#: includes\settings\page.php:140
+msgid "Menyimpan pengaturan…"
+msgstr ""
+
+#: blocks\homepage-sections\block.json
+msgctxt "block description"
+msgid "Merender section beranda sesuai urutan pada Pengaturan Sakolaan."
+msgstr ""
+
+#: includes\seo.php:125 includes\seo.php:165
+msgid "Meta description"
+msgstr ""
+
+#: blocks\detail-byline\block.json
+msgctxt "block title"
+msgid "Metadata detail"
+msgstr ""
+
+#: includes\settings\schema.php:296
+msgid "Metadata ini menjadi fallback global. Nilai per halaman, konten, atau term dapat diatur dari editor masing-masing."
+msgstr ""
+
+#: blocks\detail-byline\render.php:90
+msgid "Metadata konten"
+msgstr ""
+
+#: includes\admin\menu.php:210
+msgid "Migrasi belum dapat diselesaikan. Periksa status migrasi untuk rinciannya."
+msgstr ""
+
+#. %s: comma-separated conflict identifiers.
+#: includes\migration.php:280
+#, php-format
+msgid "Migrasi dibatalkan karena data tujuan berbeda: %s"
+msgstr ""
+
+#: includes\migration.php:596
+msgid "Migrasi identitas Sakolaan"
+msgstr ""
+
+#: includes\admin\menu.php:210
+msgid "Migrasi identitas Sakolaan berhasil diselesaikan."
+msgstr ""
+
+#: includes\migration.php:548
+msgid "Migrasi Sakolaan belum selesai."
+msgstr ""
+
+#: includes\migration.php:549
+msgid "Migrasi Sakolaan dibatalkan."
+msgstr ""
+
+#: includes\meta\schema.php:185
+msgid "Misalnya: Sabtu, 14.00-16.00."
+msgstr ""
+
+#: includes\settings\schema.php:170
+msgid "Mode hero"
+msgstr ""
+
+#: includes\admin\columns.php:248
+msgid "Mode manual"
+msgstr ""
+
+#: includes\admin\menu.php:334
+msgid "Mode slider"
+msgstr ""
+
+#: includes\admin\menu.php:439
+msgid "Mode slider aktif. Kelola gambar, teks, tombol, dan urutan setiap slide dari daftar berikut."
+msgstr ""
+
+#: includes\admin\menu.php:334
+msgid "Mode tunggal"
+msgstr ""
+
+#. %s: relative module path.
+#: includes\class-sakolaan.php:115
+#, php-format
+msgid "Modul Sakolaan tidak ditemukan: %s"
+msgstr ""
+
+#: includes\demo-data.php:1158
+#, php-format
+msgid "%s hadir sebagai ruang belajar yang menggabungkan ilmu pengetahuan, karakter, dan nilai keislaman."
+msgstr ""
+
+#: includes\admin\tools-data-transfer.php:240
+msgid "Mulai impor data"
+msgstr ""
+
+#: includes\settings\page.php:338
+msgid "Naik"
+msgstr ""
+
+#. %s: section name.
+#: includes\settings\page.php:368 includes\settings\page.php:407
+#, php-format
+msgid "Naikkan %s"
+msgstr ""
+
+#: includes\admin\columns.php:139
+msgid "Naikkan item"
+msgstr ""
+
+#: includes\settings\page.php:338
+msgid "Naikkan tautan"
+msgstr ""
+
+#: includes\settings\schema.php:223
+msgid "Nama"
+msgstr ""
+
+#: includes\settings\schema.php:117
+msgid "Nama pendek"
+msgstr ""
+
+#: includes\settings\schema.php:116
+msgid "Nama sekolah"
+msgstr ""
+
+#: includes\meta\schema.php:167
+msgid "Nama siswa atau tim."
+msgstr ""
+
+#: includes\admin\menu.php:22
+msgid "Nama, logo, alamat, dan informasi dasar sekolah."
+msgstr ""
+
+#: includes\settings\schema.php:114
+msgid "Nama, tagline, logo, dan favicon disinkronkan ke Pengaturan Umum WordPress saat disimpan."
+msgstr ""
+
+#: includes\taxonomies\default-terms.php:60
+msgid "Nasional"
+msgstr ""
+
+#. %d: navigation post ID.
+#: includes\demo-data.php:299
+#, php-format
+msgid "Navigasi #%d gagal dihapus."
+msgstr ""
+
+#: includes\admin\menu.php:204
+msgid "Navigasi Sakolaan"
+msgstr ""
+
+#: includes\demo-data.php:1324
+msgid "Navigasi utama tidak memiliki link yang dapat dibuat."
+msgstr ""
+
+#. %s: field label.
+#: includes\settings\sanitize.php:96
+#, php-format
+msgid "Nilai untuk “%s” tidak valid."
+msgstr ""
+
+#: includes\meta\schema.php:31
+msgid "NIP"
+msgstr ""
+
+#: includes\settings\schema.php:139
+msgid "Nomor saja, misalnya 081234567890. Disimpan dalam format 62."
+msgstr ""
+
+#: includes\settings\schema.php:134
+msgid "Nomor telepon"
+msgstr ""
+
+#: includes\admin\menu.php:24
+msgid "Nomor telepon, email, WhatsApp, dan lokasi sekolah."
+msgstr ""
+
+#: includes\settings\schema.php:125
+msgid "NPSN"
+msgstr ""
+
+#: includes\meta\schema.php:37
+msgid "NUPTK"
+msgstr ""
+
+#: includes\seo.php:129 includes\seo.php:167
+msgid "OG / X description override"
+msgstr ""
+
+#: includes\seo.php:168
+msgid "OG / X image attachment ID"
+msgstr ""
+
+#: includes\seo.php:130
+msgid "OG / X image override"
+msgstr ""
+
+#: includes\seo.php:128 includes\seo.php:167
+msgid "OG / X title override"
+msgstr ""
+
+#: includes\taxonomies\default-terms.php:65
+msgid "Olahraga"
+msgstr ""
+
+#. %s: nama tampilan penulis.
+#: blocks\detail-byline\render.php:34
+#, php-format
+msgid "Oleh %s"
+msgstr ""
+
+#: includes\settings\page.php:333
+msgid "Opsional"
+msgstr ""
+
+#. %s: option name.
+#: includes\migration.php:302
+#, php-format
+msgid "Option lama belum terhapus: %s"
+msgstr ""
+
+#: includes\meta\schema.php:146
+msgid "Otomatis"
+msgstr ""
+
+#: includes\meta\schema.php:143
+msgid "Otomatis: dihitung dari tanggal."
+msgstr ""
+
+#: includes\admin\hero-slide-cta.php:19
+msgid "Outline"
+msgstr ""
+
+#: includes\admin\menu.php:457
+msgid "Panduan"
+msgstr ""
+
+#: includes\admin\demo-data-page.php:262
+msgid "Pasang dataset demo"
+msgstr ""
+
+#: includes\admin\demo-data-page.php:262
+msgid "Pasang ulang dataset"
+msgstr ""
+
+#: includes\admin\demo-data-page.php:266
+msgid "Pasang Ulang Demo"
+msgstr ""
+
+#. %s: facility name.
+#: includes\demo-data.php:998
+msgid "Pemakaian didampingi guru atau petugas."
+msgstr ""
+
+#: includes\admin\demo-data-page.php:83
+msgid "Pemasangan data demo berhenti karena error."
+msgstr ""
+
+#: includes\admin\demo-data-page.php:106
+msgid "Pemasangan ulang data demo berhenti karena error."
+msgstr ""
+
+#: includes\admin\tools-legacy.php:182
+msgid "Pembersihan gagal; transaksi database dibatalkan."
+msgstr ""
+
+#: includes\meta\schema.php:176
+msgid "Pembina"
+msgstr ""
+
+#: includes\demo-data.php:908
+msgid "Pembinaan dilakukan secara terjadwal."
+msgstr ""
+
+#: includes\admin\menu.php:67
+msgid "Pemeliharaan"
+msgstr ""
+
+#: includes\admin\tools-legacy.php:263
+msgid "Pemulihan database gagal; tidak ada perubahan yang disimpan."
+msgstr ""
+
+#: includes\admin\tools-legacy.php:196
+msgid "Pemulihan hanya tersedia setelah pembersihan legacy."
+msgstr ""
+
+#. %s: gallery title.
+#: blocks\meta-gallery\render.php:49
+msgid "Penampil foto"
+msgstr ""
+
+#: includes\demo-data.php:1420
+msgid "Pencarian demo"
+msgstr ""
+
+#: includes\settings\page.php:307
+msgid "Pendidikan"
+msgstr ""
+
+#: includes\meta\schema.php:55
+msgid "Pendidikan terakhir"
+msgstr ""
+
+#: includes\demo-data.php:1109
+msgid "Penerimaan Peserta Didik Baru terbuka bagi calon siswa yang ingin belajar dalam lingkungan madrasah yang aktif dan suportif."
+msgstr ""
+
+#: includes\admin\menu.php:210
+msgid "Pengaturan berhasil diimpor."
+msgstr ""
+
+#: includes\admin\tools-settings-transfer.php:36
+msgid "Pengaturan tidak dapat dikodekan menjadi JSON."
+msgstr ""
+
+#. %s: unknown settings key.
+#: includes\admin\tools-settings-transfer.php:63
+#, php-format
+msgid "Pengaturan tidak dikenal: %s."
+msgstr ""
+
+#: includes\demo-data.php:1104
+msgid "Pengelolaan madrasah dilakukan secara kolaboratif melalui pembagian peran yang jelas dan layanan yang terukur."
+msgstr ""
+
+#: includes\admin\menu.php:421
+msgid "Pengenalan Sekolah"
+msgstr ""
+
+#: includes\settings\schema.php:26
+msgid "Pengenalan sekolah"
+msgstr ""
+
+#: includes\admin\demo-data-page.php:132
+msgid "Penghapusan data demo berhenti karena error."
+msgstr ""
+
+#: includes\registry.php:19 includes\settings\page.php:276 includes\settings\page.php:306 includes\settings\schema.php:28
+msgid "Pengumuman"
+msgstr ""
+
+#: includes\demo-data.php:850
+msgid "Pengumuman ini disediakan sebagai contoh untuk menguji status aktif, arsip, dan unduhan lampiran."
+msgstr ""
+
+#: includes\meta\schema.php:164
+msgid "Peraih"
+msgstr ""
+
+#: includes\admin\tools.php:41
+msgid "Perbarui permalink"
+msgstr ""
+
+#: includes\admin\demo-data-page.php:242
+msgid "Perhatian: operasi ini permanen."
+msgstr ""
+
+#: includes\demo-data.php:850
+msgid "Perhatikan tanggal pelaksanaan."
+msgstr ""
+
+#: includes\admin\tools-data-transfer.php:225
+msgid "Periksa backup"
+msgstr ""
+
+#: includes\admin\menu.php:67
+msgid "Periksa kesehatan sistem dan perbarui permalink."
+msgstr ""
+
+#: includes\settings\schema.php:258
+msgid "Perilaku header"
+msgstr ""
+
+#: includes\admin\menu.php:38
+msgid "Perilaku header dan akses ke navigasi situs."
+msgstr ""
+
+#: includes\admin\demo-data-page.php:176
+msgid "Peringatan"
+msgstr ""
+
+#. %s: featured program name.
+#: includes\demo-data.php:1023
+msgid "Perkembangan siswa dipantau dan dikomunikasikan."
+msgstr ""
+
+#: includes\admin\tools-health.php:52
+msgid "Perlu dilengkapi"
+msgstr ""
+
+#: includes\admin\menu.php:210
+msgid "Permalink berhasil diperbarui."
+msgstr ""
+
+#: includes\demo-data.php:878
+msgid "Perubahan kegiatan akan diumumkan melalui kanal resmi madrasah."
+msgstr ""
+
+#: includes\demo-data.php:878
+msgid "Peserta hadir sesuai jadwal."
+msgstr ""
+
+#: blocks\map\block.json
+msgctxt "block description"
+msgid "Peta Google Maps dari Pengaturan Sakolaan (tab Kontak), ditambah tautan petunjuk arah. Tidak tampil jika belum diisi."
+msgstr ""
+
+#. %s: nama sekolah.
+#: blocks\map\render.php:39
+#, php-format
+msgid "Peta lokasi %s"
+msgstr ""
+
+#: blocks\map\block.json
+msgctxt "block title"
+msgid "Peta lokasi sekolah"
+msgstr ""
+
+#: blocks\map\render.php:56
+msgid "Petunjuk arah di Google Maps"
+msgstr ""
+
+#: includes\admin\editor-panels.php:75
+msgid "Pilih"
+msgstr ""
+
+#: includes\admin\menu.php:63
+msgid "Pilih alat"
+msgstr ""
+
+#: includes\admin\tools-data-transfer.php:224
+msgid "Pilih backup data JSON"
+msgstr ""
+
+#: includes\admin\tools.php:35
+msgid "Pilih backup pengaturan JSON"
+msgstr ""
+
+#: includes\admin\menu.php:328 includes\admin\menu.php:36 includes\admin\menu.php:41
+msgid "Pilih bagian"
+msgstr ""
+
+#. %s: nama konten jamak.
+#: includes\helpers\labels.php:42
+msgid "Pilih foto utama"
+msgstr ""
+
+#: includes\seo.php:181 includes\settings\page.php:135 includes\settings\page.php:329 includes\settings\page.php:502
+msgid "Pilih gambar"
+msgstr ""
+
+#: includes\seo.php:255
+msgid "Pilih gambar SEO"
+msgstr ""
+
+#: blocks\hero-slider\render.php:100
+msgid "Pilih slide"
+msgstr ""
+
+#: includes\admin\editor-panels.php:83
+msgid "Pilihan gambar diperbarui."
+msgstr ""
+
+#: includes\admin\menu.php:201
+msgid "Platform website sekolah"
+msgstr ""
+
+#: includes\settings\schema.php:299
+msgid "Pola judul SEO"
+msgstr ""
+
+#. %s: post type slug.
+#: includes\class-sakolaan.php:207
+#, php-format
+msgid "Post type gagal didaftarkan: %s"
+msgstr ""
+
+#: includes\demo-data.php:535
+msgid "Potret kepala sekolah demo"
+msgstr ""
+
+#: includes\admin\menu.php:34 includes\settings\page.php:278 includes\settings\schema.php:230
+msgid "PPDB"
+msgstr ""
+
+#: includes\demo-data.php:536
+msgid "Praktik sains"
+msgstr ""
+
+#: includes\admin\tools-data-transfer.php:229
+msgid "Pratinjau Backup Data"
+msgstr ""
+
+#: includes\admin\tools-settings-transfer.php:158
+msgid "Pratinjau impor telah kedaluwarsa."
+msgstr ""
+
+#: includes\admin\tools-data-transfer.php:190
+msgid "Pratinjau impor tidak valid atau kedaluwarsa."
+msgstr ""
+
+#: includes\admin\tools.php:35
+msgid "Pratinjau pengaturan"
+msgstr ""
+
+#. %d: number of settings that will change.
+#: includes\admin\tools-settings-transfer.php:138
+msgid "Pratinjau perubahan"
+msgstr ""
+
+#: includes\registry.php:22 includes\settings\schema.php:32
+msgid "Prestasi"
+msgstr ""
+
+#: includes\demo-data.php:908
+msgid "Prestasi ini menjadi contoh tampilan pencapaian siswa pada berbagai bidang dan tingkat perlombaan."
+msgstr ""
+
+#: includes\admin\menu.php:247
+msgid "Profil & Kegiatan"
+msgstr ""
+
+#: includes\meta\schema.php:225
+msgid "Profil alumni"
+msgstr ""
+
+#: includes\admin\menu.php:23
+msgid "Profil, foto, dan sambutan kepala sekolah."
+msgstr ""
+
+#: includes\demo-data.php:1107
+msgid "Program akademik dirancang untuk mengembangkan pemahaman konsep, kecakapan belajar, dan karakter siswa."
+msgstr ""
+
+#: includes\demo-data.php:1021
+msgid "Program terarah yang memadukan pendampingan, praktik, dan evaluasi perkembangan siswa."
+msgstr ""
+
+#: includes\registry.php:25 includes\settings\schema.php:34
+msgid "Program Unggulan"
+msgstr ""
+
+#: includes\admin\demo-data-page.php:66
+msgid "Proses data demo lain baru saja dimulai. Coba lagi setelah proses tersebut selesai."
+msgstr ""
+
+#: includes\admin\demo-data-page.php:58
+msgid "Proses data demo lain masih berjalan. Coba lagi setelah proses tersebut selesai."
+msgstr ""
+
+#: includes\taxonomies\default-terms.php:59
+msgid "Provinsi"
+msgstr ""
+
+#: includes\admin\menu.php:247
+msgid "Publikasi"
+msgstr ""
+
+#: includes\admin\tools-legacy.php:97
+msgid "Pulihkan berita lama"
+msgstr ""
+
+#: includes\admin\tools-legacy.php:96
+msgid "Pulihkan dari backup JSON:"
+msgstr ""
+
+#: includes\migration.php:607
+msgid "Pulihkan snapshot"
+msgstr ""
+
+#: includes\settings\page.php:139
+msgid "Pustaka media tidak tersedia. Muat ulang halaman lalu coba kembali."
+msgstr ""
+
+#: blocks\hero-slider\render.php:105
+msgid "Putar slider"
+msgstr ""
+
+#: includes\settings\schema.php:180
+msgid "Putar slider otomatis"
+msgstr ""
+
+#: includes\admin\tools-health.php:136
+msgid "Relasi taxonomy belum dapat diperiksa."
+msgstr ""
+
+#: blocks\archive-controls\render.php:71
+msgid "Reset"
+msgstr ""
+
+#: includes\admin\menu.php:15
+msgid "Ringkasan"
+msgstr ""
+
+#: includes\demo-data.php:825
+msgid "Ringkasan berita demo yang memperlihatkan bagaimana kartu menangani metadata, judul, dan cuplikan konten."
+msgstr ""
+
+#: includes\admin\demo-data-page.php:166
+msgid "Ringkasan hasil operasi"
+msgstr ""
+
+#: includes\seo.php:133 includes\seo.php:194
+msgid "Robots"
+msgstr ""
+
+#: includes\admin\menu.php:182 includes\admin\menu.php:201
+msgid "Sakolaan"
+msgstr ""
+
+#: includes\admin\tools-health.php:76
+msgid "Sakolaan Theme aktif."
+msgstr ""
+
+#: includes\demo-data.php:1360
+msgid "Sakolaan Theme harus aktif sebelum data demo dipasang."
+msgstr ""
+
+#: includes\demo-data.php:1316
+msgid "Sakolaan Theme tidak aktif sehingga navigasi utama tidak dibuat."
+msgstr ""
+
+#: includes\admin\tools-health.php:76
+msgid "Sakolaan Theme tidak aktif; pengaturan tetap tersedia."
+msgstr ""
+
+#: sakolaan.php:37
+msgid "Sakolaan tidak dapat dimuat karena file loader tidak tersedia. Instal ulang plugin."
+msgstr ""
+
+#: includes\admin\tools-settings-transfer.php:87
+msgid "Salah satu ikon akses cepat tidak ditemukan secara lokal."
+msgstr ""
+
+#: includes\settings\sanitize.php:38
+msgid "Salah satu URL akses cepat tidak valid."
+msgstr ""
+
+#: includes\settings\schema.php:226
+msgid "Sambutan"
+msgstr ""
+
+#: includes\settings\schema.php:31
+msgid "Sambutan kepala sekolah"
+msgstr ""
+
+#. %s: nama taxonomy.
+#: blocks\term-filter\render.php:53
+#, php-format
+msgid "Saring menurut %s"
+msgstr ""
+
+#: includes\meta\schema.php:211
+msgid "Sasaran program"
+msgstr ""
+
+#: includes\settings\schema.php:175
+msgid "Satu gambar"
+msgstr ""
+
+#: includes\admin\columns.php:272
+msgid "Sebagian urutan tidak dapat disimpan. Item yang valid sudah dipertahankan."
+msgstr ""
+
+#: includes\admin\menu.php:43
+msgid "Section"
+msgstr ""
+
+#: includes\settings\schema.php:217
+msgid "Section beranda"
+msgstr ""
+
+#: includes\settings\page.php:309 includes\taxonomies\default-terms.php:56
+msgid "Sekolah"
+msgstr ""
+
+#: includes\helpers\dates.php:21
+msgid "Selesai"
+msgstr ""
+
+#: includes\admin\demo-data-page.php:127
+msgid "Seluruh data Sakolaan dalam cakupan demo telah dihapus."
+msgstr ""
+
+#: includes\demo-data.php:1125 includes\demo-data.php:663
+msgid "Seluruh isi halaman ini adalah data demo dan dapat diedit melalui WordPress."
+msgstr ""
+
+#: includes\settings\schema.php:265
+msgid "Sembunyi saat menggulir turun"
+msgstr ""
+
+#: blocks\term-filter\render.php:57
+msgid "Semua"
+msgstr ""
+
+#. %s: nama konten jamak.
+#: includes\helpers\labels.php:100 includes\helpers\labels.php:40
+#, php-format
+msgid "Semua %s"
+msgstr ""
+
+#: blocks\archive-controls\render.php:60
+msgid "Semua status"
+msgstr ""
+
+#: includes\taxonomies\default-terms.php:66
+msgid "Seni"
+msgstr ""
+
+#: includes\admin\menu.php:54 includes\settings\schema.php:295
+msgid "SEO"
+msgstr ""
+
+#: includes\seo.php:126
+msgid "SEO / social image"
+msgstr ""
+
+#: includes\seo.php:166
+msgid "SEO / social image attachment ID"
+msgstr ""
+
+#: includes\seo.php:124 includes\seo.php:165
+msgid "SEO title"
+msgstr ""
+
+#: includes\admin\columns.php:303
+msgid "Seret baris menggunakan ikon menu, atau gunakan tombol keyboard pada baris."
+msgstr ""
+
+#: includes\settings\page.php:360
+msgid "Seret menggunakan pegangan, atau gunakan tombol Naik dan Turun. Perubahan diterapkan setelah pengaturan disimpan."
+msgstr ""
+
+#: includes\settings\page.php:317
+msgid "Seret untuk mengurutkan"
+msgstr ""
+
+#: includes\settings\page.php:444
+msgid "Simpan perubahan"
+msgstr ""
+
+#: includes\admin\columns.php:248
+msgid "Simpan Urutan"
+msgstr ""
+
+#: includes\admin\menu.php:63
+msgid "Sistem"
+msgstr ""
+
+#: includes\demo-data.php:534
+msgid "Siswa berjalan di halaman sekolah pada pagi hari"
+msgstr ""
+
+#: includes\demo-data.php:537
+msgid "Siswa berlatih kerja sama dalam kegiatan pramuka"
+msgstr ""
+
+#: includes\demo-data.php:538
+msgid "Siswa berprestasi"
+msgstr ""
+
+#: includes\demo-data.php:538
+msgid "Siswa berprestasi bulan ini"
+msgstr ""
+
+#: includes\demo-data.php:908
+msgid "Siswa memperoleh pendampingan dari guru pembina."
+msgstr ""
+
+#: includes\demo-data.php:826
+msgid "Siswa terlibat aktif sejak tahap persiapan."
+msgstr ""
+
+#: includes\demo-data.php:374
+msgid "Situs Sekolah"
+msgstr ""
+
+#: blocks\hero-slider\render.php:39
+msgid "Slide"
+msgstr ""
+
+#: blocks\hero-slider\render.php:61
+msgid "slide"
+msgstr ""
+
+#: blocks\hero-slider\render.php:99
+msgid "Slide berikutnya"
+msgstr ""
+
+#: includes\admin\menu.php:439 includes\registry.php:28
+msgid "Slide Hero"
+msgstr ""
+
+#: blocks\hero-slider\render.php:97
+msgid "Slide sebelumnya"
+msgstr ""
+
+#: includes\settings\schema.php:176
+msgid "Slider"
+msgstr ""
+
+#: blocks\hero-slider\block.json
+msgctxt "block description"
+msgid "Slider hero dari Slide Hero di Sakolaan."
+msgstr ""
+
+#: blocks\hero-slider\block.json
+msgctxt "block title"
+msgid "Slider Hero Sekolah"
+msgstr ""
+
+#: includes\migration.php:228
+msgid "Snapshot migrasi gagal melewati validasi round-trip."
+msgstr ""
+
+#: includes\migration.php:586
+msgid "Snapshot migrasi tidak dapat dibaca."
+msgstr ""
+
+#: includes\migration.php:216
+msgid "Snapshot migrasi tidak dapat dikodekan."
+msgstr ""
+
+#: includes\migration.php:220
+msgid "Snapshot migrasi tidak dapat disimpan."
+msgstr ""
+
+#: includes\migration.php:475 includes\migration.php:581
+msgid "Snapshot migrasi tidak ditemukan."
+msgstr ""
+
+#: includes\admin\menu.php:210
+msgid "Snapshot sebelum migrasi berhasil dipulihkan."
+msgstr ""
+
+#: includes\admin\hero-slide-cta.php:18
+msgid "Solid terang"
+msgstr ""
+
+#: blocks\hero-slider\render.php:35
+msgid "Sorotan sekolah"
+msgstr ""
+
+#: includes\settings\schema.php:263
+msgid "Statis"
+msgstr ""
+
+#: includes\admin\menu.php:26
+msgid "Statistik"
+msgstr ""
+
+#. %d: nomor statistik.
+#: includes\settings\schema.php:59
+#, php-format
+msgid "Statistik %d: angka"
+msgstr ""
+
+#. %d: nomor statistik.
+#: includes\settings\schema.php:64
+#, php-format
+msgid "Statistik %d: keterangan"
+msgstr ""
+
+#: includes\settings\schema.php:30
+msgid "Statistik sekolah"
+msgstr ""
+
+#: blocks\archive-controls\render.php:58 includes\admin\columns.php:35 includes\meta\schema.php:139 includes\meta\schema.php:84
+msgid "Status"
+msgstr ""
+
+#: includes\settings\schema.php:126
+msgid "Status akreditasi"
+msgstr ""
+
+#: includes\admin\menu.php:15
+msgid "Status situs dan pekerjaan konten yang membutuhkan perhatian."
+msgstr ""
+
+#. %s: migration status.
+#: includes\migration.php:597
+#, php-format
+msgid "Status: %s"
+msgstr ""
+
+#: includes\admin\menu.php:41
+msgid "Susun section, hero, akses cepat, dan jumlah konten."
+msgstr ""
+
+#: blocks\homepage-sections\block.json
+msgctxt "block title"
+msgid "Susunan Beranda"
+msgstr ""
+
+#: includes\taxonomies\news.php:29 includes\taxonomies\news.php:30
+msgid "Tag Berita"
+msgstr ""
+
+#: includes\settings\schema.php:118
+msgid "Tagline"
+msgstr ""
+
+#: includes\meta\schema.php:157
+msgid "Tahun"
+msgstr ""
+
+#: includes\settings\schema.php:127
+msgid "Tahun berdiri"
+msgstr ""
+
+#: includes\meta\schema.php:228
+msgid "Tahun lulus"
+msgstr ""
+
+#: includes\admin\columns.php:276
+msgid "Taksonomi berhasil diperbarui."
+msgstr ""
+
+#: includes\admin\columns.php:278
+msgid "Taksonomi tidak dapat diperbarui."
+msgstr ""
+
+#: includes\admin\menu.php:256
+msgid "Tambah"
+msgstr ""
+
+#. %s: nama konten, misalnya Guru.
+#: includes\helpers\labels.php:104 includes\helpers\labels.php:26
+#, php-format
+msgid "Tambah %s baru"
+msgstr ""
+
+#: includes\settings\page.php:291
+msgid "Tambah akses cepat"
+msgstr ""
+
+#: includes\helpers\labels.php:24
+msgid "Tambah baru"
+msgstr ""
+
+#: includes\admin\editor-panels.php:78
+msgid "Tambah gambar"
+msgstr ""
+
+#: includes\admin\menu.php:36
+msgid "Tampilan"
+msgstr ""
+
+#: includes\admin\menu.php:46
+msgid "Tampilan Konten"
+msgstr ""
+
+#: includes\settings\schema.php:281
+msgid "Tampilan konten"
+msgstr ""
+
+#. %d: slide number.
+#: blocks\hero-slider\render.php:102
+#, php-format
+msgid "Tampilkan slide %d"
+msgstr ""
+
+#: includes\settings\page.php:336
+msgid "Tampilkan tautan ini"
+msgstr ""
+
+#: includes\meta\schema.php:294 includes\meta\schema.php:78
+msgid "Tanggal"
+msgstr ""
+
+#: includes\meta\schema.php:108
+msgid "Tanggal mulai"
+msgstr ""
+
+#: includes\meta\schema.php:114
+msgid "Tanggal selesai"
+msgstr ""
+
+#: blocks\detail-byline\block.json
+msgctxt "block description"
+msgid "Tanggal, penulis, dan taxonomy utama untuk konten detail."
+msgstr ""
+
+#: includes\settings\page.php:303
+msgid "Tanpa ikon"
+msgstr ""
+
+#. %s: featured program name.
+#: includes\demo-data.php:1023
+msgid "Target pembelajaran disusun secara bertahap."
+msgstr ""
+
+#: includes\admin\hero-slide-cta.php:63
+msgid "Tautan"
+msgstr ""
+
+#: includes\settings\page.php:316
+msgid "Tautan akses cepat"
+msgstr ""
+
+#: includes\settings\page.php:310
+msgid "Tautan eksternal"
+msgstr ""
+
+#: includes\admin\menu.php:25
+msgid "Tautan kanal media sosial resmi sekolah."
+msgstr ""
+
+#: blocks\social-links\block.json
+msgctxt "block title"
+msgid "Tautan media sosial"
+msgstr ""
+
+#: includes\admin\demo-data-page.php:184
+msgid "Tautan pengujian"
+msgstr ""
+
+#: includes\settings\schema.php:233
+msgid "Tautan PPDB"
+msgstr ""
+
+#: includes\settings\sanitize.php:124
+msgid "Tautan tidak valid. Gunakan alamat lengkap yang diawali http:// atau https://."
+msgstr ""
+
+#. %s: taxonomy slug.
+#: includes\taxonomies\default-terms.php:75
+#, php-format
+msgid "Taxonomy belum tersedia: %s"
+msgstr ""
+
+#. %s: taxonomy slug.
+#: includes\class-sakolaan.php:201
+#, php-format
+msgid "Taxonomy gagal didaftarkan: %s"
+msgstr ""
+
+#: includes\settings\page.php:333
+msgid "Teks alternatif ikon gambar"
+msgstr ""
+
+#: includes\settings\schema.php:247
+msgid "Teks hak cipta"
+msgstr ""
+
+#: includes\meta\schema.php:245
+msgid "Teks kecil di atas judul"
+msgstr ""
+
+#: includes\admin\demo-data-page.php:217
+msgid "Teks konfirmasi"
+msgstr ""
+
+#: includes\migration.php:567
+msgid "Teks konfirmasi tidak sesuai."
+msgstr ""
+
+#: includes\admin\demo-data-page.php:52
+msgid "Teks konfirmasi tidak sesuai. Tidak ada data yang diubah."
+msgstr ""
+
+#: includes\admin\hero-slide-cta.php:61 includes\settings\schema.php:237
+msgid "Teks tombol"
+msgstr ""
+
+#: includes\meta\schema.php:67 includes\settings\page.php:308
+msgid "Telepon"
+msgstr ""
+
+#: includes\taxonomies\default-terms.php:53
+msgid "Tenaga Kependidikan"
+msgstr ""
+
+#: includes\admin\menu.php:46
+msgid "Tentukan jumlah konten pada halaman daftar publik."
+msgstr ""
+
+#: blocks\archive-controls\render.php:69
+msgid "Terapkan"
+msgstr ""
+
+#: includes\admin\tools-settings-transfer.php:147
+msgid "Terapkan impor"
+msgstr ""
+
+#. %s: extracurricular activity name.
+#: includes\demo-data.php:935
+msgid "Terbuka bagi siswa yang berminat."
+msgstr ""
+
+#: includes\helpers\dates.php:19
+msgid "Terjadwal"
+msgstr ""
+
+#: includes\registry.php:27 includes\settings\schema.php:36
+msgid "Testimoni Alumni"
+msgstr ""
+
+#: includes\demo-data.php:1047
+msgid "Testimoni ini merupakan data demo untuk pengujian."
+msgstr ""
+
+#. %s: nama konten jamak.
+#: includes\helpers\labels.php:38
+#, php-format
+msgid "Tidak ada %s di tong sampah."
+msgstr ""
+
+#: includes\admin\tools-legacy.php:82
+msgid "Tidak ada berita lama. Taksonomi lama dapat tetap berisi term kosong."
+msgstr ""
+
+#: includes\settings\schema.php:183
+msgid "Tidak dijalankan bagi pengunjung yang memilih reduced motion."
+msgstr ""
+
+#: blocks\social-links\render.php:26 includes\settings\schema.php:156
+msgid "TikTok"
+msgstr ""
+
+#: includes\demo-data.php:1110 includes\demo-data.php:657
+msgid "Tim layanan informasi siap membantu kebutuhan siswa, orang tua, dan masyarakat."
+msgstr ""
+
+#: includes\registry.php:37
+msgid "Tingkat Prestasi"
+msgstr ""
+
+#: includes\admin\content-order.php:9
+msgid "Tipe konten tidak valid."
+msgstr ""
+
+#: includes\admin\hero-slide-cta.php:46
+msgid "Tombol kedua"
+msgstr ""
+
+#: includes\meta\schema.php:282
+msgid "Tombol sekunder: gaya"
+msgstr ""
+
+#: includes\meta\schema.php:276 includes\settings\schema.php:209
+msgid "Tombol sekunder: tautan"
+msgstr ""
+
+#: includes\meta\schema.php:270 includes\settings\schema.php:208
+msgid "Tombol sekunder: teks"
+msgstr ""
+
+#: includes\admin\hero-slide-cta.php:29
+msgid "Tombol Slide"
+msgstr ""
+
+#: includes\admin\hero-slide-cta.php:45
+msgid "Tombol utama"
+msgstr ""
+
+#: includes\meta\schema.php:263
+msgid "Tombol utama: gaya"
+msgstr ""
+
+#: includes\meta\schema.php:257 includes\settings\schema.php:207
+msgid "Tombol utama: tautan"
+msgstr ""
+
+#: includes\meta\schema.php:251 includes\settings\schema.php:206
+msgid "Tombol utama: teks"
+msgstr ""
+
+#: includes\settings\page.php:339
+msgid "Turun"
+msgstr ""
+
+#. %s: section name.
+#: includes\settings\page.php:369 includes\settings\page.php:409
+#, php-format
+msgid "Turunkan %s"
+msgstr ""
+
+#: includes\admin\columns.php:140
+msgid "Turunkan item"
+msgstr ""
+
+#: includes\settings\page.php:339
+msgid "Turunkan tautan"
+msgstr ""
+
+#. %s: gallery title.
+#: blocks\meta-gallery\render.php:49
+msgid "Tutup"
+msgstr ""
+
+#: includes\settings\page.php:318
+msgid "Tutup pengaturan"
+msgstr ""
+
+#: includes\admin\editor-panels.php:79
+msgid "Ubah gambar"
+msgstr ""
+
+#: includes\taxonomies\default-terms.php:70
+msgid "Umum"
+msgstr ""
+
+#: includes\admin\tools-legacy.php:85
+msgid "Unduh backup berita lama"
+msgstr ""
+
+#: includes\admin\tools-data-transfer.php:223
+msgid "Unduh backup data"
+msgstr ""
+
+#: includes\admin\tools-data-transfer.php:196
+msgid "Unduh backup pengaman dan masukkan konfirmasi sebelum mengganti data."
+msgstr ""
+
+#: includes\admin\tools-data-transfer.php:238
+msgid "Unduh backup pengaman sebelum mengganti"
+msgstr ""
+
+#: includes\admin\tools.php:34
+msgid "Unduh backup pengaturan"
+msgstr ""
+
+#: includes\migration.php:604
+msgid "Unduh snapshot migrasi"
+msgstr ""
+
+#: includes\admin\tools-legacy.php:88
+msgid "Unggah kembali backup yang baru diunduh untuk verifikasi:"
+msgstr ""
+
+#: includes\admin\tools-data-transfer.php:239
+msgid "Untuk mode ganti, ketik GANTI DATA SEKOLAH"
+msgstr ""
+
+#: includes\settings\schema.php:173
+msgid "Untuk mode Slider, tambahkan dan urutkan konten melalui menu Slide Hero."
+msgstr ""
+
+#: includes\settings\page.php:322
+msgid "URL tujuan"
+msgstr ""
+
+#: includes\admin\columns.php:33
+msgid "Urutan"
+msgstr ""
+
+#: includes\admin\columns.php:270
+msgid "Urutan berhasil disimpan."
+msgstr ""
+
+#: includes\settings\schema.php:82
+msgid "Urutan section"
+msgstr ""
+
+#: blocks\archive-controls\render.php:48
+msgid "Urutkan"
+msgstr ""
+
+#. %d: post ID.
+#: includes\migration.php:327
+#, php-format
+msgid "Validasi konten migrasi gagal pada ID %d."
+msgstr ""
+
+#. 1: table, 2: metadata key.
+#: includes\migration.php:318
+#, php-format
+msgid "Validasi metadata migrasi gagal pada %1$s: %2$s"
+msgstr ""
+
+#. %s: option name.
+#: includes\migration.php:299
+#, php-format
+msgid "Validasi option migrasi gagal: %s"
+msgstr ""
+
+#: includes\demo-data.php:1103
+msgid "Visi madrasah adalah membentuk generasi berilmu, berakhlak, mandiri, dan siap berkontribusi bagi lingkungan."
+msgstr ""
+
+#: includes\meta\schema.php:121
+msgid "Waktu mulai"
+msgstr ""
+
+#: includes\meta\schema.php:127
+msgid "Waktu selesai"
+msgstr ""
+
+#: sakolaan.php:48
+msgid "Website resmi"
+msgstr ""
+
+#: includes\admin\menu.php:201
+msgid "Website resmi Sakolaan"
+msgstr ""
+
+#: includes\settings\schema.php:137
+msgid "WhatsApp"
+msgstr ""
+
+#: blocks\social-links\render.php:22 includes\settings\schema.php:155
+msgid "YouTube"
+msgstr ""
+
+#: includes\admin\tools-workflow.php:18
+msgid "← Kembali ke Sakolaan"
+msgstr ""

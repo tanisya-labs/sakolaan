@@ -1,0 +1,83 @@
+/* High-contrast status notices used only by Sakolaan admin messages. */
+body.wp-admin .notice.sakolaan-notice {
+	color: #1d2327 !important;
+	background-color: #fff !important;
+}
+
+body.wp-admin .notice.sakolaan-notice.notice-success {
+	background-color: #edfaef !important;
+	border-left-color: #00a32a !important;
+}
+
+body.wp-admin .notice.sakolaan-notice.notice-warning {
+	background-color: #fff8e5 !important;
+	border-left-color: #996800 !important;
+}
+
+body.wp-admin .notice.sakolaan-notice.notice-error {
+	background-color: #fcf0f1 !important;
+	border-left-color: #d63638 !important;
+}
+
+body.wp-admin .notice.sakolaan-notice.notice-info {
+	background-color: #f0f6fc !important;
+	border-left-color: #2271b1 !important;
+}
+
+body.wp-admin .notice.sakolaan-notice p,
+body.wp-admin .notice.sakolaan-notice ul,
+body.wp-admin .notice.sakolaan-notice ol,
+body.wp-admin .notice.sakolaan-notice li,
+body.wp-admin .notice.sakolaan-notice strong {
+	color: #1d2327 !important;
+}
+
+body.wp-admin .notice.sakolaan-notice a:not(.button) {
+	color: #135e96 !important;
+}
+
+body.wp-admin .notice.sakolaan-notice a:not(.button):hover,
+body.wp-admin .notice.sakolaan-notice a:not(.button):focus-visible {
+	color: #0a4b78 !important;
+}
+
+body.wp-admin .notice.sakolaan-notice a:focus-visible,
+body.wp-admin .notice.sakolaan-notice button:focus-visible {
+	outline: 2px solid #2271b1;
+	outline-offset: 2px;
+	box-shadow: none;
+}
+
+body.wp-admin .notice.sakolaan-notice .notice-dismiss::before {
+	color: #646970 !important;
+}
+
+body.wp-admin .notice.sakolaan-notice .notice-dismiss:hover::before,
+body.wp-admin .notice.sakolaan-notice .notice-dismiss:focus::before {
+	color: #135e96 !important;
+}
+
+@media (forced-colors: active) {
+	body.wp-admin .notice.sakolaan-notice,
+	body.wp-admin .notice.sakolaan-notice.notice-success,
+	body.wp-admin .notice.sakolaan-notice.notice-warning,
+	body.wp-admin .notice.sakolaan-notice.notice-error,
+	body.wp-admin .notice.sakolaan-notice.notice-info {
+		color: CanvasText !important;
+		background-color: Canvas !important;
+		border-color: CanvasText !important;
+	}
+
+	body.wp-admin .notice.sakolaan-notice p,
+	body.wp-admin .notice.sakolaan-notice ul,
+	body.wp-admin .notice.sakolaan-notice ol,
+	body.wp-admin .notice.sakolaan-notice li,
+	body.wp-admin .notice.sakolaan-notice strong {
+		color: CanvasText !important;
+	}
+
+	body.wp-admin .notice.sakolaan-notice a:not(.button) {
+		color: LinkText !important;
+	}
+}
+

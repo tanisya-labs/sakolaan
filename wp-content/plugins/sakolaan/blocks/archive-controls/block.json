@@ -1,0 +1,22 @@
+{
+	"$schema": "https://schemas.wp.org/trunk/block.json",
+	"apiVersion": 3,
+	"name": "sakolaan-theme/archive-controls",
+	"title": "Kontrol arsip",
+	"category": "theme",
+	"description": "Kontrol pengurutan dan status untuk daftar konten sekolah.",
+	"icon": "filter",
+	"textdomain": "sakolaan",
+	"attributes": {
+		"postType": {
+			"type": "string",
+			"default": ""
+		}
+	},
+	"supports": {
+		"align": [ "wide" ],
+		"autoRegister": true,
+		"html": false
+	},
+	"render": "file:./render.php"
+}

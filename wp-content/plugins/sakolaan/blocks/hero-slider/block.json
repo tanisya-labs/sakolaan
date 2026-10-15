@@ -1,0 +1,16 @@
+{
+	"$schema": "https://schemas.wp.org/trunk/block.json",
+	"apiVersion": 3,
+	"name": "sakolaan-theme/hero-slider",
+	"title": "Slider Hero Sekolah",
+	"category": "theme",
+	"description": "Slider hero dari Slide Hero di Sakolaan.",
+	"icon": "images-alt2",
+	"textdomain": "sakolaan",
+	"supports": {
+		"autoRegister": true,
+		"html": false
+	},
+	"render": "file:./render.php",
+	"viewScript": "file:./view.js"
+}
