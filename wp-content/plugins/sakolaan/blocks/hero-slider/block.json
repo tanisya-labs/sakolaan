@@ -1,7 +1,7 @@
 {
 	"$schema": "https://schemas.wp.org/trunk/block.json",
 	"apiVersion": 3,
-	"name": "sakolaan-theme/hero-slider",
+	"name": "pijar-sakolaan/hero-slider",
 	"title": "Slider Hero Sekolah",
 	"category": "theme",
 	"description": "Slider hero dari Slide Hero di Sakolaan.",

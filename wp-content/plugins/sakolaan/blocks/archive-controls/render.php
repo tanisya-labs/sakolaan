@@ -10,17 +10,17 @@ if ( ! defined( 'ABSPATH' ) ) {
 }
 
 $sakolaan_post_type = isset( $attributes['postType'] ) ? sanitize_key( $attributes['postType'] ) : '';
-$sakolaan_configs   = sakolaan_theme_get_archive_configs();
+$sakolaan_configs   = pijar_sakolaan_get_archive_configs();
 
 if ( ! isset( $sakolaan_configs[ $sakolaan_post_type ] ) ) {
 	return;
 }
 
-$sakolaan_sort_options = sakolaan_theme_get_archive_sort_options( $sakolaan_post_type );
-$sakolaan_statuses     = sakolaan_theme_get_archive_status_options( $sakolaan_post_type );
+$sakolaan_sort_options = pijar_sakolaan_get_archive_sort_options( $sakolaan_post_type );
+$sakolaan_statuses     = pijar_sakolaan_get_archive_status_options( $sakolaan_post_type );
 $sakolaan_sort         = sanitize_key( (string) get_query_var( 'sakolaan_sort' ) );
 $sakolaan_status       = sanitize_key( (string) get_query_var( 'sakolaan_status' ) );
-$sakolaan_default_sort = sakolaan_theme_is_manually_ordered_post_type( $sakolaan_post_type ) ? 'manual' : 'date_desc';
+$sakolaan_default_sort = pijar_sakolaan_is_manually_ordered_post_type( $sakolaan_post_type ) ? 'manual' : 'date_desc';
 $sakolaan_sort         = isset( $sakolaan_sort_options[ $sakolaan_sort ] ) ? $sakolaan_sort : $sakolaan_default_sort;
 $sakolaan_status       = isset( $sakolaan_statuses[ $sakolaan_status ] ) ? $sakolaan_status : '';
 $sakolaan_action       = get_post_type_archive_link( $sakolaan_post_type );

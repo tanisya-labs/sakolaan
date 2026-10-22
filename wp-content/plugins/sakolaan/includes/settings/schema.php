@@ -2,7 +2,7 @@
 /**
  * Skema Pengaturan Sakolaan. Satu option array: sakolaan_settings[group][key].
  *
- * Key diakses lewat sakolaan_get_setting( 'group.key' ). Kontrak dengan Sakolaan Theme:
+ * Key diakses lewat sakolaan_get_setting( 'group.key' ). Kontrak dengan Pijar Sakolaan:
  * identity.*, contact.*, social.*, ppdb.url, ppdb.cta_label, footer.description, footer.copyright.
  *
  * Tipe field: text, textarea, url, email, number, checkbox, select, image,

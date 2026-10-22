@@ -49,7 +49,7 @@ switch ( $sakolaan_post_type ) {
 		$sakolaan_taxonomies = array( 'tingkat_prestasi', 'kategori_prestasi' );
 		break;
 	case 'galeri':
-		$sakolaan_date = sakolaan_theme_get_meta_value( $sakolaan_post_id, 'tanggal' );
+		$sakolaan_date = pijar_sakolaan_get_meta_value( $sakolaan_post_id, 'tanggal' );
 		if ( '' !== $sakolaan_date ) {
 			$sakolaan_items[] = '<span class="sakolaan-detail__meta-item">' . esc_html( $sakolaan_date ) . '</span>';
 		}

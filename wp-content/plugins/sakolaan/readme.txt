@@ -10,7 +10,7 @@ Manage school identity, content, admissions, SEO, and theme settings from one fo
 
 == Description ==
 
-Sakolaan provides the content and configuration layer for Sakolaan Theme. Its dashboard organizes school identity, official information, contact details, social profiles, statistics, content, admissions, SEO, header, footer, and homepage settings.
+Sakolaan provides the content and configuration layer for Pijar Sakolaan, its official default theme. The plugin and theme recognize each other only when the Pijar Sakolaan parent theme is active, both packages use the exact same version, and both runtime APIs finish loading. Child themes that declare Pijar Sakolaan as their parent remain supported. The dashboard organizes school identity, official information, contact details, social profiles, statistics, content, admissions, SEO, header, footer, and homepage settings.
 
 Content visibility, ordering, and item limits are managed from a unified control. The plugin also provides settings and school-data backups, import previews, health checks, permalink tools, and guarded migration and recovery workflows for older Sakolaan installations.
 
@@ -28,7 +28,7 @@ When an administrator explicitly installs demo data, Sakolaan downloads the conf
 
 1. Upload the `sakolaan` folder to `/wp-content/plugins/`, or install the plugin package through the WordPress Plugins screen.
 2. Activate Sakolaan from the Plugins screen.
-3. Upload and activate Sakolaan Theme with the same version as the plugin (currently 0.0.1).
+3. Upload and activate the Pijar Sakolaan default theme with the same version as the plugin (currently 0.0.1).
 4. Open the Sakolaan menu to configure school identity, content, SEO, and appearance.
 5. Open Data Demo. Official release packages are ready to download their matching media automatically. For a private mirror, define both SAKOLAAN_DEMO_MEDIA_URL and SAKOLAAN_DEMO_MEDIA_SHA256 in wp-config.php.
 
@@ -54,4 +54,4 @@ The first migration creates a checksummed JSON snapshot. Migration stops if the 
 
 = 0.0.1 =
 
-* Initial release with matching plugin-theme version validation and dependency notices.
+* Initial release with strict plugin-theme identity, version, and runtime readiness validation.

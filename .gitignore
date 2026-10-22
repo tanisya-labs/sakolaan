@@ -20,6 +20,7 @@
 !/.wp-env.override.json.example
 !/phpcs.xml.dist
 !/.phpcs.xml.dist
+!/phpunit.xml.dist
 
 # Konfigurasi CI/CD GitHub.
 !/.github/
@@ -32,12 +33,14 @@
 /wp-content/plugins/*
 !/wp-content/plugins/sakolaan/
 !/wp-content/plugins/sakolaan/**
+!/wp-content/plugins/sakolaan-admission/
+!/wp-content/plugins/sakolaan-admission/**
 
-# Source theme Sakolaan saja.
+# Source tema default Pijar Sakolaan saja.
 !/wp-content/themes/
 /wp-content/themes/*
-!/wp-content/themes/sakolaan-theme/
-!/wp-content/themes/sakolaan-theme/**
+!/wp-content/themes/pijar-sakolaan/
+!/wp-content/themes/pijar-sakolaan/**
 
 # Alat build dan aset sumber paket media demo.
 !/tools/

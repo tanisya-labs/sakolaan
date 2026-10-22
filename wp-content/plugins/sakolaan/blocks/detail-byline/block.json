@@ -1,7 +1,7 @@
 {
 	"$schema": "https://schemas.wp.org/trunk/block.json",
 	"apiVersion": 3,
-	"name": "sakolaan-theme/detail-byline",
+	"name": "pijar-sakolaan/detail-byline",
 	"title": "Metadata detail",
 	"category": "theme",
 	"description": "Tanggal, penulis, dan taxonomy utama untuk konten detail.",

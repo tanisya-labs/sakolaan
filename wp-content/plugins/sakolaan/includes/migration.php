@@ -9,11 +9,11 @@ if ( ! defined( 'ABSPATH' ) ) {
 function sakolaan_migration_option_name( $name ) {
 	$name = (string) $name;
 	if ( 'theme_mods_school-theme' === $name ) {
-		return 'theme_mods_sakolaan-theme';
+		return 'theme_mods_pijar-sakolaan';
 	}
 	return str_replace(
 		array( 'school_core_', 'school_theme_', 'school-core', 'school-theme' ),
-		array( 'sakolaan_', 'sakolaan_theme_', 'sakolaan', 'sakolaan-theme' ),
+		array( 'sakolaan_', 'pijar_sakolaan_', 'sakolaan', 'pijar-sakolaan' ),
 		$name
 	);
 }
@@ -34,7 +34,7 @@ function sakolaan_migration_meta_key( $key ) {
 function sakolaan_migration_transform_string( $value ) {
 	$value = str_replace(
 		array( 'school-theme/', 'school-core/', 'school-theme', 'school-core', 'School Theme', 'School Core', 'school_core_', 'school_theme_', 'schoolCore', 'schoolTheme', 'schoolLayoutSection', '--sc-' ),
-		array( 'sakolaan-theme/', 'sakolaan/', 'sakolaan-theme', 'sakolaan', 'Sakolaan Theme', 'Sakolaan', 'sakolaan_', 'sakolaan_theme_', 'sakolaan', 'sakolaanTheme', 'sakolaanLayoutSection', '--sakolaan-' ),
+		array( 'pijar-sakolaan/', 'sakolaan/', 'pijar-sakolaan', 'sakolaan', 'Pijar Sakolaan', 'Sakolaan', 'sakolaan_', 'pijar_sakolaan_', 'sakolaan', 'pijarSakolaan', 'sakolaanLayoutSection', '--sakolaan-' ),
 		(string) $value
 	);
 	$value = str_replace(
@@ -145,7 +145,7 @@ function sakolaan_migration_snapshot_data() {
 			"SELECT t.term_id, t.name, t.slug, tt.term_taxonomy_id, tt.description, tt.parent, tt.count FROM {$wpdb->terms} t INNER JOIN {$wpdb->term_taxonomy} tt ON tt.term_id=t.term_id WHERE tt.taxonomy=%s AND t.slug IN (%s,%s) ORDER BY t.term_id",
 			'wp_theme',
 			'school-theme',
-			'sakolaan-theme'
+			'pijar-sakolaan'
 		),
 		ARRAY_A
 	);
@@ -272,9 +272,9 @@ function sakolaan_migration_preflight( $snapshot ) {
 	}
 
 	$old_theme = array_values( array_filter( $snapshot['theme_terms'], static function ( $row ) { return 'school-theme' === $row['slug']; } ) );
-	$new_theme = array_values( array_filter( $snapshot['theme_terms'], static function ( $row ) { return 'sakolaan-theme' === $row['slug']; } ) );
+	$new_theme = array_values( array_filter( $snapshot['theme_terms'], static function ( $row ) { return 'pijar-sakolaan' === $row['slug']; } ) );
 	if ( $old_theme && $new_theme && (int) $old_theme[0]['term_id'] !== (int) $new_theme[0]['term_id'] ) {
-		$conflicts[] = 'wp_theme:sakolaan-theme';
+		$conflicts[] = 'wp_theme:pijar-sakolaan';
 	}
 
 	return $conflicts ? new WP_Error( 'sakolaan_migration_conflict', sprintf( /* translators: %s: comma-separated conflict identifiers. */ __( 'Migrasi dibatalkan karena data tujuan berbeda: %s', 'sakolaan' ), implode( ', ', $conflicts ) ) ) : true;
@@ -288,7 +288,7 @@ function sakolaan_migration_verify_applied( $snapshot ) {
 		$new_name = sakolaan_migration_option_name( $old_name );
 		$value = maybe_unserialize( $row['option_value'] );
 		if ( 'template' === $old_name || 'stylesheet' === $old_name ) {
-			$value = 'sakolaan-theme';
+			$value = 'pijar-sakolaan';
 		} elseif ( 'active_plugins' === $old_name && is_array( $value ) ) {
 			$value = array_values( array_map( static function ( $plugin ) { return 'school-core/school-core.php' === $plugin ? 'sakolaan/sakolaan.php' : $plugin; }, $value ) );
 		} else {
@@ -322,7 +322,7 @@ function sakolaan_migration_verify_applied( $snapshot ) {
 
 	foreach ( $snapshot['posts'] as $row ) {
 		$current = $wpdb->get_row( $wpdb->prepare( "SELECT post_name, post_content FROM {$wpdb->posts} WHERE ID=%d", $row['ID'] ), ARRAY_A );
-		$expected_name = ( 'custom_css' === $row['post_type'] && 'school-theme' === $row['post_name'] ) ? 'sakolaan-theme' : $row['post_name'];
+		$expected_name = ( 'custom_css' === $row['post_type'] && 'school-theme' === $row['post_name'] ) ? 'pijar-sakolaan' : $row['post_name'];
 		if ( ! $current || $expected_name !== $current['post_name'] || sakolaan_migration_transform_string( $row['post_content'] ) !== $current['post_content'] ) {
 			return new WP_Error( 'sakolaan_migration_post_verify', sprintf( /* translators: %d: post ID. */ __( 'Validasi konten migrasi gagal pada ID %d.', 'sakolaan' ), $row['ID'] ) );
 		}
@@ -343,7 +343,7 @@ function sakolaan_migration_apply( $snapshot ) {
 			$new_name = sakolaan_migration_option_name( $old_name );
 			$value = maybe_unserialize( $row['option_value'] );
 			if ( 'template' === $old_name || 'stylesheet' === $old_name ) {
-				$value = 'sakolaan-theme';
+				$value = 'pijar-sakolaan';
 			} elseif ( 'active_plugins' === $old_name && is_array( $value ) ) {
 				$value = array_values( array_map( static function ( $plugin ) { return 'school-core/school-core.php' === $plugin ? 'sakolaan/sakolaan.php' : $plugin; }, $value ) );
 			} else {
@@ -385,14 +385,14 @@ function sakolaan_migration_apply( $snapshot ) {
 		foreach ( $snapshot['posts'] as $row ) {
 			$data = array( 'post_content' => sakolaan_migration_transform_string( $row['post_content'] ) );
 			if ( 'custom_css' === $row['post_type'] && 'school-theme' === $row['post_name'] ) {
-				$data['post_name'] = 'sakolaan-theme';
+				$data['post_name'] = 'pijar-sakolaan';
 			}
 			$wpdb->update( $wpdb->posts, $data, array( 'ID' => $row['ID'] ), array_fill( 0, count( $data ), '%s' ), array( '%d' ) );
 		}
 
 		foreach ( $snapshot['theme_terms'] as $row ) {
 			if ( 'school-theme' === $row['slug'] ) {
-				$wpdb->update( $wpdb->terms, array( 'name' => 'sakolaan-theme', 'slug' => 'sakolaan-theme' ), array( 'term_id' => $row['term_id'] ), array( '%s', '%s' ), array( '%d' ) );
+				$wpdb->update( $wpdb->terms, array( 'name' => 'pijar-sakolaan', 'slug' => 'pijar-sakolaan' ), array( 'term_id' => $row['term_id'] ), array( '%s', '%s' ), array( '%d' ) );
 			}
 		}
 		if ( $wpdb->last_error ) {

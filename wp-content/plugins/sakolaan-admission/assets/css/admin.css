@@ -1,0 +1,113 @@
+.sakolaan-admission-admin {
+	display: grid;
+	gap: 24px;
+	container-type: inline-size;
+}
+.sakolaan-admission-header {
+	display: flex;
+	align-items: flex-end;
+	justify-content: space-between;
+	gap: 24px;
+	padding: 24px;
+	background: linear-gradient(135deg,var(--sakolaan-primary-dark),var(--sakolaan-primary));
+	border-radius: 8px;
+	color: #fff;
+	box-shadow: 0 8px 24px rgba(7,63,56,.12);
+}
+.sakolaan-admission-header h2 { margin: 4px 0 6px; color: #fff; font-size: clamp(24px,3vw,32px); }
+.sakolaan-admission-header p { max-width: 720px; margin: 0; color: rgba(255,255,255,.82); }
+.sakolaan-admission-eyebrow { color: var(--sakolaan-gold); font-size: 12px; font-weight: 700; letter-spacing: .08em; text-transform: uppercase; }
+.sakolaan-institution-context { flex: 0 0 min(280px,100%); margin: 0; }
+.sakolaan-institution-context label { display: grid; gap: 5px; color: #fff; font-weight: 600; }
+.sakolaan-institution-context label > span { font-size: 12px; }
+.sakolaan-institution-context select { width: 100%; min-height: 44px; background: #fff; color: var(--sakolaan-text); }
+.sakolaan-admission-navigation {
+	display: grid;
+	grid-template-columns: repeat(5,minmax(0,1fr));
+	gap: 12px;
+	padding: 14px;
+	background: var(--sakolaan-surface);
+	border: 1px solid var(--sakolaan-border);
+	border-radius: 8px;
+}
+.sakolaan-admission-navigation__group { min-width: 0; }
+.sakolaan-admission-navigation__group > span { display: block; margin: 0 6px 7px; color: var(--sakolaan-muted); font-size: 11px; font-weight: 700; letter-spacing: .06em; text-transform: uppercase; }
+.sakolaan-admission-navigation__group > div { display: grid; gap: 3px; }
+.sakolaan-admission-navigation a { display: flex; align-items: center; min-height: 38px; padding: 7px 9px; border-radius: 5px; color: var(--sakolaan-primary-dark); font-weight: 500; text-decoration: none; }
+.sakolaan-admission-navigation a:hover { background: var(--sakolaan-subtle); color: var(--sakolaan-primary); }
+.sakolaan-admission-navigation a[aria-current="page"] { background: var(--sakolaan-tint); color: var(--sakolaan-primary-dark); font-weight: 700; box-shadow: inset 3px 0 0 var(--sakolaan-primary); }
+.sakolaan-admission-cards { display: grid; grid-template-columns: repeat(4,minmax(0,1fr)); gap: 16px; }
+.sakolaan-admission-metric { display: grid; grid-template-columns: 44px 1fr 20px; align-items: center; gap: 12px; min-height: 98px; padding: 18px; background: var(--sakolaan-surface); border: 1px solid var(--sakolaan-border); border-radius: 8px; color: var(--sakolaan-text); text-decoration: none; transition: border-color 160ms ease,box-shadow 160ms ease,transform 160ms ease; }
+.sakolaan-admission-metric:hover { border-color: var(--sakolaan-primary); color: var(--sakolaan-text); box-shadow: 0 8px 24px rgba(7,63,56,.08); transform: translateY(-2px); }
+.sakolaan-admission-metric > .dashicons:first-child { display: grid; place-items: center; width: 44px; height: 44px; border-radius: 50%; background: var(--sakolaan-tint); color: var(--sakolaan-primary); font-size: 22px; }
+.sakolaan-admission-metric strong,.sakolaan-admission-metric small { display: block; }
+.sakolaan-admission-metric strong { color: var(--sakolaan-primary-dark); font-size: 28px; line-height: 1; }
+.sakolaan-admission-metric small { margin-top: 5px; color: var(--sakolaan-muted); font-size: 13px; }
+.sakolaan-admission-panel,.sakolaan-admission-form-card { padding: 22px; background: var(--sakolaan-surface); border: 1px solid var(--sakolaan-border); border-radius: 8px; box-shadow: 0 1px 2px rgba(7,63,56,.04); }
+.sakolaan-admission-panel__heading { display: flex; justify-content: space-between; gap: 16px; margin-bottom: 16px; }
+.sakolaan-admission-panel__heading h3,.sakolaan-admission-form-card h3 { margin: 0 0 5px; color: var(--sakolaan-primary-dark); font-size: 18px; }
+.sakolaan-admission-panel__heading p,.sakolaan-admission-form-card > .description { margin: 0; color: var(--sakolaan-muted); }
+.sakolaan-admission-queue { display: grid; grid-template-columns: repeat(2,minmax(0,1fr)); gap: 12px; }
+.sakolaan-admission-queue a { display: flex; align-items: baseline; gap: 10px; min-height: 64px; padding: 15px; background: var(--sakolaan-subtle); border-radius: 6px; color: var(--sakolaan-text); text-decoration: none; }
+.sakolaan-admission-queue a:hover { background: var(--sakolaan-tint); }
+.sakolaan-admission-queue strong { color: var(--sakolaan-primary); font-size: 24px; }
+.sakolaan-admission-form-card { display: grid; gap: 14px; max-width: 900px; margin: 0; }
+.sakolaan-admission-form-card p { margin: 0; }
+.sakolaan-admission-form-card .submit { margin: 4px 0 0; padding: 0; }
+.sakolaan-admission-form-card small { color: var(--sakolaan-muted); font-weight: 400; line-height: 1.45; }
+.sakolaan-admission-form-grid { display: grid; grid-template-columns: repeat(2,minmax(0,1fr)); gap: 16px; }
+.sakolaan-admission-form-card label { display: grid; gap: 7px; font-weight: 600; }
+.sakolaan-admission-form-card textarea { width: 100%; min-height: 120px; }
+.sakolaan-admission-check { display: flex!important; grid-template-columns: none; align-items: flex-start; gap: 9px!important; font-weight: 500!important; }
+.sakolaan-admission-check input { margin-top: 2px!important; }
+.sakolaan-admission-options { display: grid; gap: 12px; padding: 16px; border: 1px solid var(--sakolaan-border); border-radius: 6px; }
+.sakolaan-admission-options legend { padding: 0 6px; color: var(--sakolaan-primary-dark); font-weight: 700; }
+.sakolaan-admission-danger-zone { padding: 16px; background: #fff5f5; border: 1px solid #efc2c2; border-radius: 6px; }
+.sakolaan-admission-danger-zone h4 { margin: 0 0 8px; color: var(--sakolaan-danger); }
+.sakolaan-admission-form-actions { display: flex; flex-wrap: wrap; gap: 10px; padding-top: 4px; border-top: 1px solid var(--sakolaan-border); }
+.sakolaan-admission-form-actions .button { min-height: 40px; }
+.sakolaan-admission-guidance { display: grid; gap: 14px; padding: 18px 20px; background: var(--sakolaan-tint); border: 1px solid color-mix(in srgb,var(--sakolaan-primary) 25%,var(--sakolaan-border)); border-left: 4px solid var(--sakolaan-primary); border-radius: 8px; }
+.sakolaan-admission-guidance > div:first-child { display: flex; align-items: flex-start; gap: 12px; }
+.sakolaan-admission-guidance .dashicons { flex: 0 0 24px; color: var(--sakolaan-primary); }
+.sakolaan-admission-guidance h3 { margin: 0 0 4px; color: var(--sakolaan-primary-dark); font-size: 16px; }
+.sakolaan-admission-guidance p { margin: 0; color: var(--sakolaan-text); }
+.sakolaan-admission-guidance details { margin-left: 36px; }
+.sakolaan-admission-guidance summary { color: var(--sakolaan-primary-dark); cursor: pointer; font-weight: 700; }
+.sakolaan-admission-guidance dl { display: grid; gap: 8px; margin: 12px 0 0; }
+.sakolaan-admission-guidance dl > div { display: grid; grid-template-columns: minmax(130px,220px) 1fr; gap: 12px; }
+.sakolaan-admission-guidance dt,.sakolaan-admission-guidance dd { margin: 0; }
+.sakolaan-admission-preview { padding: 12px 14px; background: var(--sakolaan-subtle); border: 1px solid var(--sakolaan-border); border-radius: 6px; }
+.sakolaan-admission-preview summary { cursor: pointer; font-weight: 700; }
+.sakolaan-admission-preview pre { max-height: 360px; overflow: auto; white-space: pre-wrap; }
+.sakolaan-table-wrap { max-width: 100%; overflow: auto; background: var(--sakolaan-surface); border: 1px solid var(--sakolaan-border); border-radius: 8px; }
+.sakolaan-admission-table { min-width: 680px; border: 0!important; box-shadow: none!important; }
+.sakolaan-admission-table th { padding: 12px 14px; background: var(--sakolaan-subtle); color: var(--sakolaan-primary-dark); font-size: 12px; font-weight: 700; letter-spacing: .02em; }
+.sakolaan-admission-table td { padding: 13px 14px; vertical-align: middle; }
+.sakolaan-admission-row-actions { display: flex; align-items: center; gap: 7px; white-space: nowrap; }
+.sakolaan-admission-row-actions form { display: inline-flex; margin: 0; }
+.sakolaan-admission-badge { display: inline-flex; align-items: center; min-height: 26px; padding: 3px 9px; border-radius: 999px; background: #e8eef5; color: #29486b; font-size: 12px; font-weight: 700; white-space: nowrap; }
+.sakolaan-admission-badge.is-success { background: #e4f4ea; color: #155a37; }
+.sakolaan-admission-badge.is-warning { background: #fff3d6; color: #764900; }
+.sakolaan-admission-badge.is-danger { background: #fde7e7; color: #8d2020; }
+.sakolaan-admission-empty { display: grid; justify-items: center; gap: 6px; padding: 36px 20px; background: var(--sakolaan-surface); border: 1px dashed var(--sakolaan-border); border-radius: 8px; color: var(--sakolaan-muted); text-align: center; }
+.sakolaan-admission-empty .dashicons { width: 36px; height: 36px; color: var(--sakolaan-primary); font-size: 36px; }
+.sakolaan-admission-empty strong { color: var(--sakolaan-text); font-size: 16px; }
+.sakolaan-admission-empty p { max-width: 480px; margin: 0; }
+.sakolaan-admission-diagnostics { display: grid; grid-template-columns: repeat(2,minmax(0,1fr)); gap: 10px; margin: 0; }
+.sakolaan-admission-diagnostics li { display: flex; justify-content: space-between; gap: 12px; margin: 0; padding: 12px; background: var(--sakolaan-subtle); border-radius: 5px; }
+.sakolaan-admission-diagnostics strong { text-align: right; overflow-wrap: anywhere; }
+@container (max-width:900px) {
+	.sakolaan-admission-navigation { grid-template-columns: repeat(2,minmax(0,1fr)); }
+	.sakolaan-admission-cards { grid-template-columns: repeat(2,minmax(0,1fr)); }
+}
+@media (max-width:782px) {
+	.sakolaan-admission-header { align-items: stretch; flex-direction: column; padding: 20px; }
+	.sakolaan-institution-context { flex-basis: auto; }
+	.sakolaan-admission-navigation { display: flex; overflow-x: auto; scroll-snap-type: x mandatory; }
+	.sakolaan-admission-navigation__group { flex: 0 0 min(76vw,260px); scroll-snap-align: start; }
+	.sakolaan-admission-cards,.sakolaan-admission-queue,.sakolaan-admission-form-grid,.sakolaan-admission-diagnostics { grid-template-columns: 1fr; }
+	.sakolaan-admission-guidance details { margin-left: 0; }
+	.sakolaan-admission-guidance dl > div { grid-template-columns: 1fr; gap: 2px; }
+	.sakolaan-admission-table td,.sakolaan-admission-table th { padding: 11px; }
+}
+@media (prefers-reduced-motion:reduce) { .sakolaan-admission-metric { transition: none; } }

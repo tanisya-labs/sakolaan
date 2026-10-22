@@ -1,7 +1,7 @@
 {
 	"$schema": "https://schemas.wp.org/trunk/block.json",
 	"apiVersion": 3,
-	"name": "sakolaan-theme/meta-list",
+	"name": "pijar-sakolaan/meta-list",
 	"title": "Daftar detail konten",
 	"category": "theme",
 	"description": "Daftar detail (jabatan, tanggal, lokasi, dan lainnya) dari data konten saat ini. Baris yang kosong tidak ditampilkan.",

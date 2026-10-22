@@ -573,7 +573,7 @@ msgid "Dataset demo versi %1$s terpasang sejak %2$s."
 msgstr ""
 
 #: includes\admin\demo-data-page.php:240
-msgid "Dataset ini mengisi seluruh fitur Sakolaan dan Sakolaan Theme agar archive, single, filter, galeri, pengaturan beranda, serta kondisi status dapat diuji langsung."
+msgid "Dataset ini mengisi seluruh fitur Sakolaan dan Pijar Sakolaan agar archive, single, filter, galeri, pengaturan beranda, serta kondisi status dapat diuji langsung."
 msgstr ""
 
 #: includes\settings\schema.php:238
@@ -1019,7 +1019,7 @@ msgid "Instagram"
 msgstr ""
 
 #: includes\demo-data.php:1362
-msgid "Instalasi dibatalkan karena Sakolaan Theme tidak aktif. Tidak ada data yang dihapus."
+msgid "Instalasi dibatalkan karena Pijar Sakolaan tidak aktif. Tidak ada data yang dihapus."
 msgstr ""
 
 #: includes\taxonomies\default-terms.php:61
@@ -2060,19 +2060,19 @@ msgid "Sakolaan"
 msgstr ""
 
 #: includes\admin\tools-health.php:76
-msgid "Sakolaan Theme aktif."
+msgid "Pijar Sakolaan aktif."
 msgstr ""
 
 #: includes\demo-data.php:1360
-msgid "Sakolaan Theme harus aktif sebelum data demo dipasang."
+msgid "Pijar Sakolaan harus aktif sebelum data demo dipasang."
 msgstr ""
 
 #: includes\demo-data.php:1316
-msgid "Sakolaan Theme tidak aktif sehingga navigasi utama tidak dibuat."
+msgid "Pijar Sakolaan tidak aktif sehingga navigasi utama tidak dibuat."
 msgstr ""
 
 #: includes\admin\tools-health.php:76
-msgid "Sakolaan Theme tidak aktif; pengaturan tetap tersedia."
+msgid "Pijar Sakolaan tidak aktif; pengaturan tetap tersedia."
 msgstr ""
 
 #: sakolaan.php:37
@@ -2773,4 +2773,52 @@ msgstr ""
 
 #: includes\admin\demo-data-page.php:255
 msgid "Konfigurasi media demo manual dari wp-config.php siap digunakan."
+msgstr ""
+
+#: includes\compatibility.php:22
+msgid "Versi Pijar Sakolaan tidak valid."
+msgstr ""
+
+#: includes\compatibility.php:26
+msgid "Versi plugin Sakolaan dan tema default Pijar Sakolaan harus sama."
+msgstr ""
+
+#: includes\compatibility.php:118
+msgid "Buka halaman Tema"
+msgstr ""
+
+#: includes\compatibility.php:87
+msgid "Plugin Sakolaan aktif, tetapi tema default Pijar Sakolaan belum terpasang. Unggah paket pijar-sakolaan.zip versi 0.0.1 lalu aktifkan tema."
+msgstr ""
+
+#: includes\compatibility.php:90
+msgid "Unggah Pijar Sakolaan"
+msgstr ""
+
+#: includes\compatibility.php:93
+msgid "Tema default Pijar Sakolaan versi 0.0.1 sudah terpasang tetapi belum aktif."
+msgstr ""
+
+#: includes\compatibility.php:131
+msgid "Tema default Pijar Sakolaan aktif tetapi API atau bootstrap-nya tidak lengkap. Instal ulang paket pijar-sakolaan.zip versi 0.0.1."
+msgstr ""
+
+#: includes\compatibility.php:98
+msgid "Versi Sakolaan tidak cocok. Plugin: %1$s; theme: %2$s. Instal pasangan plugin dan theme dengan versi yang sama."
+msgstr ""
+
+#: includes\admin\tools-health.php:80
+msgid "Plugin Sakolaan dan tema default Pijar Sakolaan aktif dengan versi yang sama: %s."
+msgstr ""
+
+#: includes\admin\tools-health.php:84
+msgid "Tema default Pijar Sakolaan belum terpasang."
+msgstr ""
+
+#: includes\admin\tools-health.php:86
+msgid "Tema default Pijar Sakolaan sudah terpasang tetapi belum aktif."
+msgstr ""
+
+#: includes\admin\tools-health.php:88
+msgid "Tema default Pijar Sakolaan aktif tetapi API atau bootstrap-nya tidak lengkap."
 msgstr ""

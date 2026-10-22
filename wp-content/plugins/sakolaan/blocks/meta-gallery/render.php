@@ -44,7 +44,7 @@ if ( empty( $sakolaan_items ) ) {
 	return;
 }
 
-sakolaan_theme_enqueue_gallery_script();
+pijar_sakolaan_enqueue_gallery_script();
 ?>
 <div <?php echo get_block_wrapper_attributes( array( 'class' => 'sakolaan-gallery', 'role' => 'region', 'aria-label' => sprintf( /* translators: %s: gallery title. */ __( 'Galeri foto: %s', 'sakolaan' ), $sakolaan_title ), 'data-sakolaan-gallery' => '', 'data-label-dialog' => __( 'Penampil foto', 'sakolaan' ), 'data-label-close' => __( 'Tutup', 'sakolaan' ), 'data-label-prev' => __( 'Foto sebelumnya', 'sakolaan' ), 'data-label-next' => __( 'Foto berikutnya', 'sakolaan' ) ) ); // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped -- Dibersihkan oleh get_block_wrapper_attributes(). ?>>
 	<ul class="sakolaan-gallery__list" aria-label="<?php esc_attr_e( 'Daftar foto', 'sakolaan' ); ?>">

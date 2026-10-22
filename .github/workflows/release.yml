@@ -31,6 +31,12 @@ jobs:
           extensions: gd, zip
           coverage: none
 
+      - name: Install test dependencies
+        run: composer install --no-interaction --prefer-dist
+
+      - name: Run admission unit tests
+        run: composer test
+
       - name: Prepare release metadata
         id: metadata
         shell: bash
@@ -86,9 +92,13 @@ jobs:
         shell: bash
         run: |
           set -euo pipefail
-          find wp-content/plugins/sakolaan wp-content/themes/sakolaan-theme tools \
+          find wp-content/plugins/sakolaan wp-content/plugins/sakolaan-admission wp-content/themes/pijar-sakolaan tools \
             -type f -name '*.php' -print0 \
             | xargs -0 -n1 php -l
+
+      - name: Verify plugin-theme handshake
+        shell: bash
+        run: php tools/verify-companion-handshake.php
 
       - name: Build and verify packages
         id: build
@@ -126,6 +136,7 @@ jobs:
 
           version="$(read_json version)"
           plugin="$(basename "$(read_json plugin.path)")"
+          admission="$(basename "$(read_json admission.path)")"
           theme="$(basename "$(read_json theme.path)")"
           media="$(basename "$(read_json media.path)")"
           checksum="$(basename "$(read_json media.checksum_path)")"
@@ -140,7 +151,7 @@ jobs:
             exit 1
           fi
 
-          for file in "$plugin" "$theme" "$media" "$checksum"; do
+          for file in "$plugin" "$admission" "$theme" "$media" "$checksum"; do
             test -f "dist/$file"
           done
           (cd dist && sha256sum --check "$checksum")
@@ -148,6 +159,7 @@ jobs:
           {
             printf 'version=%s\n' "$version"
             printf 'plugin=%s\n' "$plugin"
+            printf 'admission=%s\n' "$admission"
             printf 'theme=%s\n' "$theme"
             printf 'media=%s\n' "$media"
             printf 'checksum=%s\n' "$checksum"
@@ -159,6 +171,7 @@ jobs:
           name: ${{ steps.metadata.outputs.artifact_name }}
           path: |
             dist/${{ steps.build.outputs.plugin }}
+            dist/${{ steps.build.outputs.admission }}
             dist/${{ steps.build.outputs.theme }}
             dist/${{ steps.build.outputs.media }}
             dist/${{ steps.build.outputs.checksum }}
@@ -178,6 +191,7 @@ jobs:
           RELEASE_TAG: ${{ steps.metadata.outputs.release_tag }}
           COMMIT_SHA: ${{ github.sha }}
           PLUGIN_FILE: ${{ steps.build.outputs.plugin }}
+          ADMISSION_FILE: ${{ steps.build.outputs.admission }}
           THEME_FILE: ${{ steps.build.outputs.theme }}
           MEDIA_FILE: ${{ steps.build.outputs.media }}
           CHECKSUM_FILE: ${{ steps.build.outputs.checksum }}
@@ -201,6 +215,7 @@ jobs:
             printf -- '- Commit: `%s`\n\n' "$COMMIT_SHA"
             printf 'Aset:\n\n'
             printf -- '- `%s`\n' "$PLUGIN_FILE"
+            printf -- '- `%s`\n' "$ADMISSION_FILE"
             printf -- '- `%s`\n' "$THEME_FILE"
             printf -- '- `%s`\n' "$MEDIA_FILE"
             printf -- '- `%s`\n' "$CHECKSUM_FILE"
@@ -208,6 +223,7 @@ jobs:
 
           assets=(
             "dist/$PLUGIN_FILE"
+            "dist/$ADMISSION_FILE"
             "dist/$THEME_FILE"
             "dist/$MEDIA_FILE"
             "dist/$CHECKSUM_FILE"

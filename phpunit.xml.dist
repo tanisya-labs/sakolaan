@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<phpunit bootstrap="wp-content/plugins/sakolaan-admission/tests/bootstrap.php" colors="true">
+  <testsuites>
+    <testsuite name="Sakolaan Admission unit tests">
+      <directory suffix="Test.php">wp-content/plugins/sakolaan-admission/tests</directory>
+    </testsuite>
+  </testsuites>
+</phpunit>

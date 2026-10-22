@@ -14,6 +14,13 @@ if ( ! defined( 'ABSPATH' ) ) {
  */
 final class Sakolaan {
 	/**
+	 * Apakah seluruh modul plugin telah selesai dimuat.
+	 *
+	 * @var bool
+	 */
+	private static $ready = false;
+
+	/**
 	 * Error saat memuat modul.
 	 *
 	 * @var WP_Error|null
@@ -82,11 +89,21 @@ final class Sakolaan {
 	}
 
 	/**
+	 * Laporkan kesiapan runtime plugin kepada tema default.
+	 *
+	 * @return bool
+	 */
+	public static function is_ready() {
+		return self::$ready;
+	}
+
+	/**
 	 * Muat file dan pasang hook.
 	 *
 	 * @return void
 	 */
 	public static function run() {
+		self::$ready = false;
 		$loaded = self::load_files();
 
 		if ( is_wp_error( $loaded ) ) {
@@ -94,6 +111,8 @@ final class Sakolaan {
 			add_action( 'admin_notices', array( __CLASS__, 'render_load_error' ) );
 			return;
 		}
+
+		self::$ready = true;
 
 		add_action( 'init', array( __CLASS__, 'register_content_types_on_init' ), 5 );
 		add_action( 'init', array( __CLASS__, 'maybe_upgrade' ), 25 );
@@ -183,7 +202,7 @@ final class Sakolaan {
 			if ( ! get_option( 'sakolaan_legacy_news_purged', false ) ) {
 				sakolaan_register_news_taxonomies();
 			}
-			// Retain the empty /berita/ archive route; Sakolaan Theme queries native Posts there.
+			// Retain the empty /berita/ archive route; Pijar Sakolaan queries native Posts there.
 			sakolaan_register_news_post_type();
 			sakolaan_register_registry_content();
 

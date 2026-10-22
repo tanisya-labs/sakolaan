@@ -1,6 +1,6 @@
 <?php
 /**
- * Dataset demo lengkap untuk Sakolaan dan Sakolaan Theme.
+ * Dataset demo lengkap untuk Sakolaan dan Pijar Sakolaan.
  *
  * Semua operasi hanya dijalankan dari handler admin yang dilindungi capability,
  * nonce, dan konfirmasi tertulis. Data lama yang dikelola Sakolaan dihapus
@@ -38,7 +38,7 @@ function sakolaan_demo_taxonomies() {
 }
 
 /**
- * Path halaman bawaan Sakolaan Theme.
+ * Path halaman bawaan Pijar Sakolaan.
  *
  * Anak ditempatkan lebih dahulu agar dapat dihapus tanpa meninggalkan relasi.
  *
@@ -262,7 +262,7 @@ function sakolaan_demo_purge( $reset_identity = true ) {
 		array_filter(
 			$menu_ids,
 			static function ( $menu_id ) {
-				return (int) get_option( 'sakolaan_theme_menu_seeded' ) === $menu_id || 'Menu utama' === get_the_title( $menu_id );
+				return (int) get_option( 'pijar_sakolaan_menu_seeded' ) === $menu_id || 'Menu utama' === get_the_title( $menu_id );
 			}
 		)
 	);
@@ -368,7 +368,7 @@ function sakolaan_demo_purge( $reset_identity = true ) {
 
 	delete_option( 'sakolaan_settings' );
 	delete_option( 'sakolaan_demo_manifest' );
-	delete_option( 'sakolaan_theme_menu_seeded' );
+	delete_option( 'pijar_sakolaan_menu_seeded' );
 
 	if ( $reset_identity ) {
 		update_option( 'blogname', __( 'Situs Sekolah', 'sakolaan' ) );
@@ -1334,20 +1334,21 @@ function sakolaan_demo_seed_settings( $media, $pages, $identity, &$report ) {
 }
 
 /**
- * Buat navigasi utama memakai helper aktif milik Sakolaan Theme.
+ * Buat navigasi utama memakai helper aktif milik Pijar Sakolaan.
  *
  * @param array $manifest Manifest seed.
  * @param array $report   Laporan operasi.
  * @return void
  */
 function sakolaan_demo_seed_navigation( &$manifest, &$report ) {
-	if ( ! function_exists( 'sakolaan_theme_build_menu_blocks' ) ) {
-		sakolaan_demo_add_error( $report, __( 'Sakolaan Theme tidak aktif sehingga navigasi utama tidak dibuat.', 'sakolaan' ) );
+	$theme_ready = function_exists( 'sakolaan_companion_theme_is_ready' ) && sakolaan_companion_theme_is_ready();
+	if ( ! $theme_ready || ! function_exists( 'pijar_sakolaan_build_menu_blocks' ) ) {
+		sakolaan_demo_add_error( $report, __( 'Pijar Sakolaan tidak aktif sehingga navigasi utama tidak dibuat.', 'sakolaan' ) );
 		return;
 	}
 
-	delete_option( 'sakolaan_theme_menu_seeded' );
-	$blocks = sakolaan_theme_build_menu_blocks();
+	delete_option( 'pijar_sakolaan_menu_seeded' );
+	$blocks = pijar_sakolaan_build_menu_blocks();
 
 	if ( empty( $blocks ) ) {
 		sakolaan_demo_add_error( $report, __( 'Navigasi utama tidak memiliki link yang dapat dibuat.', 'sakolaan' ) );
@@ -1372,7 +1373,7 @@ function sakolaan_demo_seed_navigation( &$manifest, &$report ) {
 	}
 
 	$menu_id = (int) $menu_id;
-	update_option( 'sakolaan_theme_menu_seeded', $menu_id, false );
+	update_option( 'pijar_sakolaan_menu_seeded', $menu_id, false );
 	update_post_meta( $menu_id, '_sakolaan_demo_data', SAKOLAAN_DEMO_VERSION );
 	$manifest['navigation'][]     = $menu_id;
 	$report['counts']['navigasi'] = 1;
@@ -1384,11 +1385,12 @@ function sakolaan_demo_seed_navigation( &$manifest, &$report ) {
  * @return array Laporan operasi.
  */
 function sakolaan_demo_install() {
-	if ( ! function_exists( 'sakolaan_theme_get_page_tree' ) ) {
+	$theme_ready = function_exists( 'sakolaan_companion_theme_is_ready' ) && sakolaan_companion_theme_is_ready();
+	if ( ! $theme_ready || ! function_exists( 'pijar_sakolaan_get_page_tree' ) ) {
 		$report = sakolaan_demo_new_report();
-		sakolaan_demo_add_error( $report, __( 'Sakolaan Theme harus aktif sebelum data demo dipasang.', 'sakolaan' ) );
+		sakolaan_demo_add_error( $report, __( 'Pijar Sakolaan harus aktif sebelum data demo dipasang.', 'sakolaan' ) );
 		$report['status']  = 'error';
-		$report['message'] = __( 'Instalasi dibatalkan karena Sakolaan Theme tidak aktif. Tidak ada data yang dihapus.', 'sakolaan' );
+		$report['message'] = __( 'Instalasi dibatalkan karena Pijar Sakolaan tidak aktif. Tidak ada data yang dihapus.', 'sakolaan' );
 		return $report;
 	}
 

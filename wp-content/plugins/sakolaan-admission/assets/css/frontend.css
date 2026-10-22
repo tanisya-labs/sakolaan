@@ -1,0 +1,156 @@
+:where(.sakolaan-admission-portal,.sakolaan-admission-open,.sakolaan-admission-programs,.sakolaan-admission-form,.sakolaan-admission-dashboard,.sakolaan-admission-auth,.sakolaan-admission-verification,.sakolaan-admission-announcements,.sakolaan-admission-success) { --adm-primary:var(--wp--preset--color--primary,#0b6b5b); --adm-primary-dark:var(--wp--preset--color--primary-dark,#073f38); --adm-tint:var(--wp--preset--color--primary-tint,#ddf5ed); --adm-text:var(--wp--preset--color--text,#152523); --adm-muted:var(--wp--preset--color--muted,#4a5c57); --adm-border:var(--wp--preset--color--border,#d5ded9); --adm-surface:var(--wp--preset--color--surface,#fff); --adm-bg:var(--wp--preset--color--background,#f5f7f6); --adm-success:var(--wp--preset--color--success,#1b6b45); --adm-danger:var(--wp--preset--color--danger,#a8241a); color:var(--adm-text); }
+.sakolaan-admission-portal { display:grid; gap:clamp(2rem,5vw,4rem); }
+.sakolaan-admission-portal__hero { max-width:760px; }
+.sakolaan-admission-portal__hero h1 { margin:.35rem 0 .75rem; color:var(--adm-primary-dark); font-size:clamp(2rem,5vw,3.5rem); line-height:1.08; }
+.sakolaan-admission-portal__hero p:last-child { max-width:62ch; color:var(--adm-muted); font-size:1.08rem; }
+.sakolaan-admission-journey { display:grid; grid-template-columns:repeat(5,minmax(0,1fr)); margin:0; padding:1rem; border:1px solid var(--adm-border); border-radius:var(--wp--custom--radius--md,8px); background:var(--adm-surface); list-style:none; }
+.sakolaan-admission-journey li { position:relative; display:grid; justify-items:center; gap:.55rem; margin:0; color:var(--adm-muted); text-align:center; }
+.sakolaan-admission-journey li::before { position:absolute; top:19px; right:50%; width:100%; height:2px; background:var(--adm-border); content:""; }
+.sakolaan-admission-journey li:first-child::before { display:none; }
+.sakolaan-admission-journey span { position:relative; z-index:1; display:grid; place-items:center; width:40px; height:40px; border:2px solid var(--adm-border); border-radius:50%; background:var(--adm-surface); }
+.sakolaan-admission-journey .is-current,.sakolaan-admission-journey .is-complete { color:var(--adm-primary-dark); }
+.sakolaan-admission-journey .is-current span,.sakolaan-admission-journey .is-complete span { border-color:var(--adm-primary); background:var(--adm-primary); color:#fff; }
+.sakolaan-admission-journey .is-complete::before,.sakolaan-admission-journey .is-current::before { background:var(--adm-primary); }
+.sakolaan-admission-open { display:grid; gap:clamp(1.25rem,3vw,2rem); width:min(1200px,100%); margin-inline:auto; padding:clamp(1.5rem,4vw,3rem); border-radius:var(--wp--custom--radius--lg,14px); background:linear-gradient(135deg,var(--adm-tint),var(--adm-surface)); }
+.sakolaan-admission-open__header { display:flex; align-items:flex-end; justify-content:space-between; gap:1.5rem; }
+.sakolaan-admission-open__header h2 { margin:.3rem 0; color:var(--adm-primary-dark); font-size:clamp(1.65rem,4vw,2.5rem); }
+.sakolaan-admission-open__header p:last-child { margin-bottom:0; color:var(--adm-muted); }
+.sakolaan-admission-program-groups { display:grid; gap:clamp(2rem,5vw,4rem); }
+.sakolaan-admission-program-group>header { margin-bottom:1.25rem; }
+.sakolaan-admission-program-group>header :is(h2,p) { margin:.25rem 0; }
+.sakolaan-admission-programs { display:grid; grid-template-columns:repeat(auto-fit,minmax(min(100%,290px),1fr)); gap:clamp(1rem,3vw,1.5rem); }
+.sakolaan-admission-program-card,.sakolaan-admission-application,.sakolaan-admission-auth,.sakolaan-admission-form,.sakolaan-admission-verification,.sakolaan-admission-success,.sakolaan-admission-announcements article,.sakolaan-admission-callout { padding:clamp(1.25rem,3vw,2rem); border:1px solid var(--adm-border,#d5ded9); border-radius:var(--wp--custom--radius--md,8px); background:var(--adm-surface,#fff); box-shadow:var(--wp--preset--shadow--card,0 3px 10px rgba(7,63,56,.06)); }
+.sakolaan-admission-program-card { display:flex; flex-direction:column; gap:1rem; }
+.sakolaan-admission-program-card__header,.sakolaan-admission-application__header,.sakolaan-admission-dashboard__header,.sakolaan-admission-payment__heading { display:flex; align-items:flex-start; justify-content:space-between; gap:1rem; }
+.sakolaan-admission-program-card h3,.sakolaan-admission-application h3 { margin:0; color:var(--adm-primary-dark); }
+.sakolaan-admission-kicker { margin:0; color:var(--adm-primary); font-size:.75rem; font-weight:750; letter-spacing:.06em; text-transform:uppercase; }
+.sakolaan-admission-program-meta { display:grid; gap:.65rem; margin:0; padding:1rem; background:var(--adm-bg); border-radius:6px; }
+.sakolaan-admission-program-meta div { display:flex; justify-content:space-between; gap:1rem; }
+.sakolaan-admission-program-meta :is(dt,dd) { margin:0; }
+.sakolaan-admission-program-meta dt { color:var(--adm-muted); }
+.sakolaan-admission-program-meta dd { font-weight:650; text-align:right; }
+.sakolaan-admission-program-card .wp-element-button { display:inline-flex; align-items:center; justify-content:space-between; gap:.75rem; min-height:46px; margin-top:auto; }
+.sakolaan-admission-badge { display:inline-flex; align-items:center; min-height:27px; padding:.25rem .65rem; border-radius:999px; background:#e8eef5; color:#29486b; font-size:.75rem; font-weight:700; white-space:nowrap; }
+.sakolaan-admission-badge.is-success { background:#e4f4ea; color:#155a37; }
+.sakolaan-admission-badge.is-warning { background:#fff3d6; color:#764900; }
+.sakolaan-admission-badge.is-danger { background:#fde7e7; color:#8d2020; }
+.sakolaan-admission-auth { display:grid; grid-template-columns:minmax(0,1fr) minmax(280px,.8fr); gap:clamp(1.5rem,4vw,3rem); max-width:960px; margin-inline:auto; }
+.sakolaan-admission-auth__intro { align-self:center; }
+.sakolaan-admission-register { display:grid; gap:.9rem; padding:1.25rem; background:var(--adm-bg); border-radius:8px; }
+.sakolaan-admission-register h3,.sakolaan-admission-register p { margin:0; }
+.sakolaan-admission-form { max-width:860px; margin-inline:auto; }
+.sakolaan-admission-form__header { padding-bottom:1.25rem; border-bottom:1px solid var(--adm-border); }
+.sakolaan-admission-form__header h2 { margin:.25rem 0; color:var(--adm-primary-dark); }
+.sakolaan-admission-form__header p:last-child { margin:0; color:var(--adm-muted); }
+.sakolaan-admission-form-summary { display:grid; grid-template-columns:repeat(3,minmax(0,1fr)); gap:.75rem; margin:1.25rem 0 0; }
+.sakolaan-admission-form-summary div { padding:.8rem; border-radius:6px; background:var(--adm-bg); }
+.sakolaan-admission-form-summary :is(dt,dd) { margin:0; }
+.sakolaan-admission-form-summary dt { color:var(--adm-muted); font-size:.78rem; }
+.sakolaan-admission-form-summary dd { margin-top:.2rem; font-weight:700; }
+.sakolaan-admission-progress { display:grid; grid-template-columns:repeat(auto-fit,minmax(100px,1fr)); gap:.5rem; margin:1.5rem 0; padding:0; list-style:none; }
+.sakolaan-admission-progress li { position:relative; display:grid; justify-items:center; gap:.4rem; margin:0; color:var(--adm-muted); text-align:center; }
+.sakolaan-admission-progress li::before { position:absolute; z-index:0; top:17px; left:-50%; width:100%; height:2px; background:var(--adm-border); content:""; }
+.sakolaan-admission-progress li:first-child::before { display:none; }
+.sakolaan-admission-progress li span { position:relative; z-index:1; display:grid; place-items:center; width:34px; height:34px; border:2px solid var(--adm-border); border-radius:50%; background:var(--adm-surface); font-weight:700; }
+.sakolaan-admission-progress li[aria-current="step"] { color:var(--adm-primary-dark); font-weight:700; }
+.sakolaan-admission-progress li[aria-current="step"] span { border-color:var(--adm-primary); background:var(--adm-primary); color:#fff; box-shadow:0 0 0 4px var(--adm-tint); }
+.sakolaan-admission-progress li.is-complete { color:var(--adm-primary-dark); }
+.sakolaan-admission-progress li.is-complete span { border-color:var(--adm-primary); background:var(--adm-tint); color:var(--adm-primary-dark); }
+.sakolaan-admission-progress li.is-complete::before,.sakolaan-admission-progress li[aria-current="step"]::before { background:var(--adm-primary); }
+.sakolaan-admission-step { display:grid; gap:1.2rem; padding:0; border:0; }
+.sakolaan-admission-step legend { width:100%; margin-bottom:1rem; color:var(--adm-primary-dark); font-size:1.4rem; font-weight:750; }
+.sakolaan-admission-field,.sakolaan-admission-register label,.sakolaan-payment-evidence label { display:grid; gap:.5rem; }
+.sakolaan-admission-field>label,.sakolaan-admission-register>label,.sakolaan-payment-evidence>label { font-weight:650; }
+.sakolaan-admission-field :is(input:not([type=checkbox]):not([type=radio]),select,textarea),.sakolaan-admission-register input,.sakolaan-payment-evidence input { box-sizing:border-box; width:100%; min-height:46px; padding:.7rem .8rem; border:1px solid var(--adm-border); border-radius:5px; background:#fff; color:var(--adm-text); font:inherit; }
+.sakolaan-admission-field textarea { min-height:130px; resize:vertical; }
+.sakolaan-admission-field :is(input,select,textarea):focus,.sakolaan-admission-register input:focus,.sakolaan-payment-evidence input:focus { border-color:var(--adm-primary); outline:3px solid color-mix(in srgb,var(--adm-primary) 20%,transparent); outline-offset:1px; }
+.sakolaan-admission-field small,.sakolaan-admission-register small,.sakolaan-payment-evidence small { color:var(--adm-muted); font-weight:400; }
+.sakolaan-admission-field small.is-success { color:var(--adm-success); }
+.sakolaan-admission-required { color:var(--adm-danger); }
+.sakolaan-admission-choice { display:flex!important; align-items:center; gap:.6rem; min-height:40px; font-weight:400!important; }
+.sakolaan-admission-choice input { flex:0 0 auto; }
+.sakolaan-admission-section-heading { padding-top:.5rem; border-top:1px solid var(--adm-border); }
+.sakolaan-admission-section-heading :is(h3,p) { margin:.4rem 0; }
+.sakolaan-admission-section-heading p { color:var(--adm-muted); }
+.sakolaan-admission-actions { display:flex; flex-wrap:wrap; justify-content:flex-end; gap:.75rem; margin-top:.5rem; padding-top:1.25rem; border-top:1px solid var(--adm-border); }
+.sakolaan-admission-actions .is-secondary,.sakolaan-admission-auth .is-secondary,.sakolaan-admission-dashboard .is-secondary { background:transparent; border:1px solid var(--adm-primary); color:var(--adm-primary-dark); }
+.sakolaan-admission-errors,.sakolaan-admission-error { margin:1rem 0; padding:1rem; border-left:4px solid var(--adm-danger); border-radius:4px; background:#fff2f0; color:#761c15; }
+.sakolaan-admission-errors ul { margin:.6rem 0 0; }
+.sakolaan-admission-errors a,.sakolaan-field-error { color:var(--adm-danger); }
+.sakolaan-admission-field [aria-invalid="true"] { border-color:var(--adm-danger)!important; }
+.sakolaan-admission-status { min-height:1.5em; color:var(--adm-primary-dark); font-weight:650; }
+.sakolaan-admission-form[aria-busy="true"] { opacity:.82; }
+.sakolaan-admission-document { position:relative; padding:1rem; border:1px solid var(--adm-border); border-radius:7px; }
+.sakolaan-admission-document__status { justify-self:start; padding:.2rem .55rem; border-radius:999px; background:#fff3d6; color:#764900; font-size:.78rem; font-weight:700; }
+.sakolaan-admission-document__status.is-uploaded { background:#e4f4ea; color:#155a37; }
+.sakolaan-admission-review__content { display:grid; grid-template-columns:1fr 1fr; gap:1rem; }
+.sakolaan-admission-review__content section { padding:1rem; border:1px solid var(--adm-border); border-radius:7px; background:var(--adm-bg); }
+.sakolaan-admission-review__content h3 { margin-top:0; }
+.sakolaan-admission-review__content dl { display:grid; gap:.7rem; margin:0; }
+.sakolaan-admission-review__content dl div { display:grid; grid-template-columns:minmax(120px,.7fr) minmax(0,1.3fr); gap:.75rem; padding-bottom:.7rem; border-bottom:1px solid var(--adm-border); }
+.sakolaan-admission-review__content :is(dt,dd) { margin:0; overflow-wrap:anywhere; }
+.sakolaan-admission-review__content dt { color:var(--adm-muted); }
+.sakolaan-admission-confirm { display:flex; align-items:flex-start; gap:.7rem; padding:1rem; border:1px solid var(--adm-primary); border-radius:7px; background:var(--adm-tint); font-weight:650; }
+.sakolaan-admission-confirm input { flex:0 0 auto; width:20px; height:20px; margin-top:.1rem; }
+.sakolaan-admission-verification,.sakolaan-admission-success { display:grid; justify-items:center; gap:.75rem; max-width:720px; margin-inline:auto; text-align:center; }
+.sakolaan-admission-verification>span,.sakolaan-admission-success__icon { display:grid; place-items:center; width:64px; height:64px; border-radius:50%; background:var(--adm-tint); color:var(--adm-primary-dark); font-size:2rem; }
+.sakolaan-admission-verification :is(h2,p),.sakolaan-admission-success :is(h2,p) { margin:.2rem 0; }
+.sakolaan-verification-resend { display:grid; justify-items:center; gap:.75rem; margin-top:.5rem; }
+.sakolaan-admission-application__actions { display:flex; align-items:flex-end; flex-direction:column; gap:.75rem; }
+.sakolaan-admission-dashboard { display:grid; gap:1.5rem; }
+.sakolaan-admission-dashboard__header { align-items:center; }
+.sakolaan-admission-dashboard__header h2 { margin:.2rem 0 0; }
+.sakolaan-admission-application { display:grid; gap:1.5rem; }
+.sakolaan-admission-number { margin:.5rem 0 0; color:var(--adm-muted); }
+.sakolaan-admission-number strong { color:var(--adm-text); }
+.sakolaan-admission-application__grid { display:grid; grid-template-columns:minmax(220px,.7fr) minmax(280px,1.3fr); gap:1.5rem; }
+.sakolaan-admission-application__section { min-width:0; padding:1.1rem; background:var(--adm-bg); border-radius:7px; }
+.sakolaan-admission-application__section h4 { margin:0 0 1rem; color:var(--adm-primary-dark); }
+.sakolaan-admission-timeline { display:grid; gap:0; margin:0; padding:0; list-style:none; }
+.sakolaan-admission-timeline li { display:grid; grid-template-columns:18px 1fr; gap:.7rem; margin:0; }
+.sakolaan-admission-timeline li>span { position:relative; display:block; width:10px; height:10px; margin-top:.35rem; border:2px solid var(--adm-primary); border-radius:50%; background:var(--adm-surface); }
+.sakolaan-admission-timeline li>span::after { position:absolute; top:10px; left:3px; width:2px; height:calc(100% + 1.2rem); background:var(--adm-border); content:""; }
+.sakolaan-admission-timeline li:last-child>span::after { display:none; }
+.sakolaan-admission-timeline li>div { padding-bottom:1.2rem; }
+.sakolaan-admission-timeline :is(strong,time) { display:block; }
+.sakolaan-admission-timeline time { margin-top:.15rem; color:var(--adm-muted); font-size:.8rem; }
+.sakolaan-admission-timeline p { margin:.3rem 0 0; }
+.sakolaan-admission-records { display:grid; gap:.7rem; margin:0; padding:0; list-style:none; }
+.sakolaan-admission-records li { margin:0; padding:.75rem; background:var(--adm-surface); border:1px solid var(--adm-border); border-radius:5px; }
+.sakolaan-admission-records li>div { display:flex; align-items:center; justify-content:space-between; gap:.75rem; }
+.sakolaan-admission-records a { overflow-wrap:anywhere; }
+.sakolaan-document-replacement { display:grid; gap:.65rem; margin-top:.8rem; padding-top:.8rem; border-top:1px solid var(--adm-border); }
+.sakolaan-document-replacement label { display:grid; gap:.45rem; font-weight:650; }
+.sakolaan-document-replacement input { width:100%; }
+.sakolaan-document-replacement .wp-element-button { justify-self:start; }
+.sakolaan-admission-payment { padding:1.25rem; border:1px solid var(--adm-border); border-radius:7px; }
+.sakolaan-admission-payment__heading h4 { margin:.2rem 0 0; font-size:1.35rem; }
+.sakolaan-admission-instructions,.sakolaan-admission-feedback { margin:1rem 0; padding:1rem; background:var(--adm-bg); border-radius:5px; }
+.sakolaan-admission-feedback { border-left:4px solid var(--adm-primary); }
+.sakolaan-admission-feedback p { margin:.35rem 0 0; }
+.sakolaan-payment-evidence { display:grid; gap:.9rem; margin-top:1rem; padding-top:1rem; border-top:1px solid var(--adm-border); }
+.sakolaan-admission-announcements { display:grid; gap:1rem; }
+.sakolaan-admission-announcements article time { display:block; margin:.35rem 0 1rem; color:var(--adm-muted); font-size:.85rem; }
+.sakolaan-admission-empty,.sakolaan-admission-callout { display:grid; justify-items:center; gap:.5rem; padding:clamp(2rem,5vw,4rem); text-align:center; }
+.sakolaan-admission-empty { border:1px dashed var(--adm-border,#d5ded9); border-radius:8px; background:var(--adm-surface,#fff); }
+.sakolaan-admission-empty__icon { display:grid; place-items:center; width:52px; height:52px; border-radius:50%; background:var(--adm-tint,#ddf5ed); color:var(--adm-primary,#0b6b5b); font-size:1.8rem; }
+.sakolaan-admission-empty :is(h3,p),.sakolaan-admission-callout :is(h2,p) { margin:.2rem 0; }
+.sakolaan-admission-empty p,.sakolaan-admission-muted { color:var(--adm-muted,#4a5c57); }
+.sakolaan-admission-hp { position:absolute!important; left:-10000px!important; }
+:where(.sakolaan-admission-portal,.sakolaan-admission-open,.sakolaan-admission-programs,.sakolaan-admission-form,.sakolaan-admission-auth,.sakolaan-admission-dashboard,.sakolaan-admission-verification,.sakolaan-admission-announcements) [hidden] { display:none!important; }
+@media (max-width:700px) {
+	.sakolaan-admission-auth,.sakolaan-admission-application__grid { grid-template-columns:1fr; }
+	.sakolaan-admission-program-card,.sakolaan-admission-application,.sakolaan-admission-auth,.sakolaan-admission-form { padding:1rem; }
+	.sakolaan-admission-program-card__header,.sakolaan-admission-application__header,.sakolaan-admission-dashboard__header { align-items:flex-start; flex-direction:column; }
+	.sakolaan-admission-progress { display:flex; overflow-x:auto; justify-content:flex-start; padding:.3rem; }
+	.sakolaan-admission-progress li { flex:0 0 105px; }
+	.sakolaan-admission-actions>* { flex:1 1 140px; }
+	.sakolaan-admission-records li>div { align-items:flex-start; flex-direction:column; }
+	.sakolaan-admission-open__header { align-items:flex-start; flex-direction:column; }
+	.sakolaan-admission-open__header .wp-element-button { width:100%; text-align:center; }
+	.sakolaan-admission-journey { display:flex; overflow-x:auto; justify-content:flex-start; }
+	.sakolaan-admission-journey li { flex:0 0 120px; }
+	.sakolaan-admission-form-summary,.sakolaan-admission-review__content { grid-template-columns:1fr; }
+	.sakolaan-admission-application__actions { align-items:flex-start; }
+}
+@media (prefers-reduced-motion:reduce) { :where(.sakolaan-admission-portal,.sakolaan-admission-open,.sakolaan-admission-programs,.sakolaan-admission-form,.sakolaan-admission-auth,.sakolaan-admission-dashboard,.sakolaan-admission-announcements) * { scroll-behavior:auto!important; } }

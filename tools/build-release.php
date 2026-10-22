@@ -54,6 +54,15 @@ function sakolaan_build_read_version( string $path, string $pattern, string $lab
 	return trim( $matches[1] );
 }
 
+/** Read one required identity value from a source file. */
+function sakolaan_build_read_identity( string $path, string $pattern, string $label ): string {
+	$contents = file_exists( $path ) ? file_get_contents( $path ) : false;
+	if ( false === $contents || ! preg_match( $pattern, $contents, $matches ) ) {
+		throw new RuntimeException( 'Identitas tidak ditemukan pada ' . $label . ': ' . $path );
+	}
+	return trim( $matches[1] );
+}
+
 $demo_version = sakolaan_build_read_version(
 	$root . '/wp-content/plugins/sakolaan/includes/demo-data.php',
 	"/const\s+SAKOLAAN_DEMO_VERSION\s*=\s*'([^']+)'/",
@@ -65,10 +74,10 @@ $release_versions = array(
 	'plugin constant' => sakolaan_build_read_version( $root . '/wp-content/plugins/sakolaan/sakolaan.php', "/define\(\s*'SAKOLAAN_VERSION'\s*,\s*'([^']+)'\s*\)/", 'plugin constant' ),
 	'plugin readme'   => sakolaan_build_read_version( $root . '/wp-content/plugins/sakolaan/readme.txt', '/^Stable tag:[ \t]*([^\r\n]+)/mi', 'plugin readme' ),
 	'plugin POT'      => sakolaan_build_read_version( $root . '/wp-content/plugins/sakolaan/languages/sakolaan.pot', '/Project-Id-Version: Sakolaan ([0-9A-Za-z.+-]+)/', 'plugin POT' ),
-	'theme header'    => sakolaan_build_read_version( $root . '/wp-content/themes/sakolaan-theme/style.css', '/Version:\s*([0-9A-Za-z.+-]+)/', 'theme header' ),
-	'theme constant'  => sakolaan_build_read_version( $root . '/wp-content/themes/sakolaan-theme/functions.php', "/define\(\s*'SAKOLAAN_THEME_VERSION'\s*,\s*'([^']+)'\s*\)/", 'theme constant' ),
-	'theme readme'    => sakolaan_build_read_version( $root . '/wp-content/themes/sakolaan-theme/readme.txt', '/^Version:[ \t]*([^\r\n]+)/mi', 'theme readme' ),
-	'theme POT'       => sakolaan_build_read_version( $root . '/wp-content/themes/sakolaan-theme/languages/sakolaan-theme.pot', '/Project-Id-Version: Sakolaan Theme ([0-9A-Za-z.+-]+)/', 'theme POT' ),
+	'theme header'    => sakolaan_build_read_version( $root . '/wp-content/themes/pijar-sakolaan/style.css', '/Version:\s*([0-9A-Za-z.+-]+)/', 'theme header' ),
+	'theme constant'  => sakolaan_build_read_version( $root . '/wp-content/themes/pijar-sakolaan/functions.php', "/define\(\s*'PIJAR_SAKOLAAN_VERSION'\s*,\s*'([^']+)'\s*\)/", 'theme constant' ),
+	'theme readme'    => sakolaan_build_read_version( $root . '/wp-content/themes/pijar-sakolaan/readme.txt', '/^Version:[ \t]*([^\r\n]+)/mi', 'theme readme' ),
+	'theme POT'       => sakolaan_build_read_version( $root . '/wp-content/themes/pijar-sakolaan/languages/pijar-sakolaan.pot', '/Project-Id-Version: Pijar Sakolaan ([0-9A-Za-z.+-]+)/', 'theme POT' ),
 );
 
 foreach ( $release_versions as $label => $detected_version ) {
@@ -77,8 +86,28 @@ foreach ( $release_versions as $label => $detected_version ) {
 	}
 }
 
+$contract_identities = array(
+	'plugin default theme slug' => sakolaan_build_read_identity( $root . '/wp-content/plugins/sakolaan/sakolaan.php', "/define\(\s*'SAKOLAAN_DEFAULT_THEME_SLUG'\s*,\s*'([^']+)'\s*\)/", 'plugin default theme slug' ),
+	'plugin default theme name' => sakolaan_build_read_identity( $root . '/wp-content/plugins/sakolaan/sakolaan.php', "/define\(\s*'SAKOLAAN_DEFAULT_THEME_NAME'\s*,\s*'([^']+)'\s*\)/", 'plugin default theme name' ),
+	'theme slug'                => sakolaan_build_read_identity( $root . '/wp-content/themes/pijar-sakolaan/functions.php', "/define\(\s*'PIJAR_SAKOLAAN_SLUG'\s*,\s*'([^']+)'\s*\)/", 'theme slug' ),
+	'theme plugin basename'     => sakolaan_build_read_identity( $root . '/wp-content/themes/pijar-sakolaan/functions.php', "/define\(\s*'PIJAR_SAKOLAAN_PLUGIN_BASENAME'\s*,\s*'([^']+)'\s*\)/", 'theme plugin basename' ),
+	'theme header name'         => sakolaan_build_read_identity( $root . '/wp-content/themes/pijar-sakolaan/style.css', '/^Theme Name:[ \t]*([^\r\n]+)/mi', 'theme header name' ),
+);
+$expected_contract_identities = array(
+	'plugin default theme slug' => 'pijar-sakolaan',
+	'plugin default theme name' => 'Pijar Sakolaan',
+	'theme slug'                => 'pijar-sakolaan',
+	'theme plugin basename'     => 'sakolaan/sakolaan.php',
+	'theme header name'         => 'Pijar Sakolaan',
+);
+foreach ( $expected_contract_identities as $label => $expected_identity ) {
+	if ( $expected_identity !== $contract_identities[ $label ] ) {
+		throw new RuntimeException( sprintf( 'Build dibatalkan: identitas %s adalah %s, seharusnya %s.', $label, $contract_identities[ $label ], $expected_identity ) );
+	}
+}
+
 $plugin_notice_css = $root . '/wp-content/plugins/sakolaan/assets/css/admin-notices.css';
-$theme_notice_css  = $root . '/wp-content/themes/sakolaan-theme/assets/css/admin-notices.css';
+$theme_notice_css  = $root . '/wp-content/themes/pijar-sakolaan/assets/css/admin-notices.css';
 if (
 	! file_exists( $plugin_notice_css ) ||
 	! file_exists( $theme_notice_css ) ||
@@ -350,7 +379,8 @@ ksort( $files );
 file_put_contents( $media_root . '/manifest.json', json_encode( array( 'version' => $demo_version, 'files' => $files ), JSON_PRETTY_PRINT | JSON_UNESCAPED_SLASHES ) . "\n" );
 
 $plugin_zip = $dist . '/sakolaan' . $filename_suffix . '.zip';
-$theme_zip  = $dist . '/sakolaan-theme' . $filename_suffix . '.zip';
+$admission_zip = $dist . '/sakolaan-admission' . $filename_suffix . '.zip';
+$theme_zip  = $dist . '/pijar-sakolaan' . $filename_suffix . '.zip';
 $media_zip  = $dist . '/sakolaan-demo-media-' . $media_version . $filename_suffix . '.zip';
 sakolaan_build_zip( $media_zip, $media_root );
 sakolaan_build_validate_zip( $media_zip, '', array( 'manifest.json', 'media/' ) );
@@ -375,14 +405,20 @@ if ( '' !== $release_repository ) {
 }
 
 $plugin_stage = $stage . '/sakolaan';
-$theme_stage  = $stage . '/sakolaan-theme';
+$admission_stage = $stage . '/sakolaan-admission';
+$theme_stage  = $stage . '/pijar-sakolaan';
 sakolaan_build_copy_tree(
 	$root . '/wp-content/plugins/sakolaan',
 	$plugin_stage,
 	static fn( string $relative, SplFileInfo $item ): bool => ! str_starts_with( $relative, 'assets/demo' ) && ! str_ends_with( $relative, '.map' ) && '.gitkeep' !== basename( $relative )
 );
 sakolaan_build_copy_tree(
-	$root . '/wp-content/themes/sakolaan-theme',
+	$root . '/wp-content/plugins/sakolaan-admission',
+	$admission_stage,
+	static fn( string $relative, SplFileInfo $item ): bool => ! str_ends_with( $relative, '.map' ) && '.gitkeep' !== basename( $relative ) && 'tests' !== $relative && ! str_starts_with( $relative, 'tests/' )
+);
+sakolaan_build_copy_tree(
+	$root . '/wp-content/themes/pijar-sakolaan',
 	$theme_stage,
 	static function ( string $relative, SplFileInfo $item ): bool {
 		$excluded_css = array( 'assets/css/base.css', 'assets/css/utilities.css', 'assets/css/components.css', 'assets/css/site.css' );
@@ -395,19 +431,22 @@ if ( '' !== $release_media_url ) {
 	file_put_contents( $release_config_path, sakolaan_build_release_media_config( $release_media_url, $media_checksum ) );
 }
 
-foreach ( array_merge( glob( $plugin_stage . '/assets/css/*.css' ), glob( $theme_stage . '/assets/css/*.css' ) ) as $css ) {
+foreach ( array_merge( glob( $plugin_stage . '/assets/css/*.css' ), glob( $admission_stage . '/assets/css/*.css' ), glob( $theme_stage . '/assets/css/*.css' ) ) as $css ) {
 	file_put_contents( $css, sakolaan_build_minify_css( file_get_contents( $css ) ) );
 }
-foreach ( array_merge( glob( $plugin_stage . '/assets/js/*.js' ), glob( $theme_stage . '/assets/js/*.js' ) ) as $javascript ) {
+foreach ( array_merge( glob( $plugin_stage . '/assets/js/*.js' ), glob( $admission_stage . '/assets/js/*.js' ), glob( $theme_stage . '/assets/js/*.js' ) ) as $javascript ) {
 	file_put_contents( $javascript, sakolaan_build_minify_js( file_get_contents( $javascript ) ) );
 }
-sakolaan_build_screenshot( $root . '/wp-content/themes/sakolaan-theme/screenshot.png', $theme_stage . '/screenshot.png' );
+sakolaan_build_screenshot( $root . '/wp-content/themes/pijar-sakolaan/screenshot.png', $theme_stage . '/screenshot.png' );
 
 sakolaan_build_zip( $plugin_zip, $plugin_stage, 'sakolaan' );
-sakolaan_build_zip( $theme_zip, $theme_stage, 'sakolaan-theme' );
+sakolaan_build_zip( $admission_zip, $admission_stage, 'sakolaan-admission' );
+sakolaan_build_zip( $theme_zip, $theme_stage, 'pijar-sakolaan' );
 sakolaan_build_validate_zip( $plugin_zip, 'sakolaan', array( 'sakolaan/sakolaan.php', 'sakolaan/includes/release-media-config.php' ) );
-sakolaan_build_validate_zip( $theme_zip, 'sakolaan-theme', array( 'sakolaan-theme/style.css' ) );
+sakolaan_build_validate_zip( $admission_zip, 'sakolaan-admission', array( 'sakolaan-admission/sakolaan-admission.php', 'sakolaan-admission/readme.txt' ) );
+sakolaan_build_validate_zip( $theme_zip, 'pijar-sakolaan', array( 'pijar-sakolaan/style.css' ) );
 sakolaan_build_assert_max_size( $plugin_zip, 1000000 );
+sakolaan_build_assert_max_size( $admission_zip, 1000000 );
 sakolaan_build_assert_max_size( $theme_zip, 1000000 );
 if ( '' !== $release_media_url ) {
 	sakolaan_build_validate_release_config( $plugin_zip, $release_media_url, $media_checksum );
@@ -419,6 +458,7 @@ $result = array(
 	'suffix'       => $release_suffix,
 	'release'      => array( 'repository' => $release_repository, 'tag' => $release_tag, 'configured' => '' !== $release_media_url ),
 	'plugin'       => array( 'path' => $plugin_zip, 'bytes' => filesize( $plugin_zip ) ),
+	'admission'    => array( 'path' => $admission_zip, 'bytes' => filesize( $admission_zip ) ),
 	'theme'        => array( 'path' => $theme_zip, 'bytes' => filesize( $theme_zip ) ),
 	'media'        => array( 'path' => $media_zip, 'url' => $release_media_url, 'checksum_path' => $media_zip . '.sha256', 'bytes' => filesize( $media_zip ), 'sha256' => $media_checksum ),
 );

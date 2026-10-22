@@ -16,12 +16,12 @@ php tools/build-release.php --suffix=0-0-1
 Builder menghasilkan:
 
 - `dist/sakolaan.zip`
-- `dist/sakolaan-theme.zip`
+- `dist/pijar-sakolaan.zip`
 - `dist/sakolaan-demo-media-***.zip`
 - `dist/sakolaan-demo-media-***.zip.sha256`
 
 Dengan `--suffix=0-0-1`, nama file menjadi `sakolaan-0-0-1.zip`,
-`sakolaan-theme-0-0-1.zip`, dan
+`pijar-sakolaan-0-0-1.zip`, dan
 `sakolaan-demo-media-***-0-0-1.zip` beserta checksum-nya. Builder menolak
 suffix kosong, karakter tidak aman, dan suffix yang terlalu panjang.
 
@@ -76,4 +76,4 @@ versi di `manifest.json` dibaca dari `SAKOLAAN_DEMO_VERSION` (`2.2.0`) agar coco
 dengan validasi installer. Bangun ulang seluruh arsip setelah salah satunya
 berubah.
 
-CSS theme gabungan digunakan pada paket produksi. Untuk memakai CSS sumber di workspace pengembangan, definisikan `SAKOLAAN_THEME_DEV_ASSETS` bernilai `true`.
+CSS theme gabungan digunakan pada paket produksi. Untuk memakai CSS sumber di workspace pengembangan, definisikan `PIJAR_SAKOLAAN_DEV_ASSETS` bernilai `true`.

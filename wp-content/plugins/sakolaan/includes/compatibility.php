@@ -19,26 +19,54 @@ function sakolaan_validate_companion_version( $theme_version ) {
 	$theme_version = is_scalar( $theme_version ) ? trim( (string) $theme_version ) : '';
 
 	if ( '' === $theme_version || ! preg_match( '/^\d+\.\d+\.\d+(?:[-+][0-9A-Za-z.-]+)?$/', $theme_version ) ) {
-		return new WP_Error( 'sakolaan_theme_version_invalid', __( 'Versi Sakolaan Theme tidak valid.', 'sakolaan' ) );
+		return new WP_Error( 'pijar_sakolaan_version_invalid', __( 'Versi Pijar Sakolaan tidak valid.', 'sakolaan' ) );
 	}
 
 	if ( SAKOLAAN_VERSION !== $theme_version ) {
-		return new WP_Error( 'sakolaan_version_mismatch', __( 'Versi plugin dan theme Sakolaan harus sama.', 'sakolaan' ) );
+		return new WP_Error( 'sakolaan_version_mismatch', __( 'Versi plugin Sakolaan dan tema default Pijar Sakolaan harus sama.', 'sakolaan' ) );
 	}
 
 	return true;
 }
 
 /**
+ * Theme APIs required by plugin integrations and dynamic block renderers.
+ *
+ * @return string[]
+ */
+function sakolaan_companion_theme_required_apis() {
+	return array(
+		'pijar_sakolaan_dependency_status',
+		'pijar_sakolaan_is_compatible',
+		'pijar_sakolaan_get_setting',
+		'pijar_sakolaan_get_page_tree',
+		'pijar_sakolaan_get_archive_configs',
+		'pijar_sakolaan_get_archive_sort_options',
+		'pijar_sakolaan_get_archive_status_options',
+		'pijar_sakolaan_is_manually_ordered_post_type',
+		'pijar_sakolaan_get_breadcrumb_items',
+		'pijar_sakolaan_get_breadcrumb_schema',
+		'pijar_sakolaan_get_meta_value',
+		'pijar_sakolaan_get_raw_meta',
+		'pijar_sakolaan_render_homepage_sections',
+		'pijar_sakolaan_enqueue_gallery_script',
+		'pijar_sakolaan_get_meta_labels',
+		'pijar_sakolaan_render_meta_value',
+		'pijar_sakolaan_get_archive_url',
+	);
+}
+
+/**
  * Inspect installation, activation, and version state of the companion theme.
  *
- * @return array{code:string,compatible:bool,installed:bool,active:bool,plugin_version:string,theme_version:string}
+ * @return array{code:string,compatible:bool,installed:bool,active:bool,runtime_ready:bool,plugin_version:string,theme_version:string}
  */
 function sakolaan_get_companion_theme_status() {
-	$theme         = wp_get_theme( 'sakolaan-theme' );
+	$theme         = wp_get_theme( SAKOLAAN_DEFAULT_THEME_SLUG );
 	$installed     = $theme->exists() && ! is_wp_error( $theme->errors() );
-	$active        = 'sakolaan-theme' === get_template();
+	$active        = SAKOLAAN_DEFAULT_THEME_SLUG === get_template();
 	$theme_version = $installed ? trim( (string) $theme->get( 'Version' ) ) : '';
+	$runtime_ready = false;
 	$code          = 'compatible';
 
 	if ( ! $installed ) {
@@ -50,6 +78,24 @@ function sakolaan_get_companion_theme_status() {
 			$code = $validation->get_error_code();
 		} elseif ( ! $active ) {
 			$code = 'theme_inactive';
+		} else {
+			$runtime_ready = defined( 'PIJAR_SAKOLAAN_VERSION' )
+				&& defined( 'PIJAR_SAKOLAAN_SLUG' )
+				&& PIJAR_SAKOLAAN_VERSION === $theme_version
+				&& SAKOLAAN_DEFAULT_THEME_SLUG === PIJAR_SAKOLAAN_SLUG;
+
+			foreach ( sakolaan_companion_theme_required_apis() as $function ) {
+				$runtime_ready = $runtime_ready && function_exists( $function );
+			}
+
+			if ( $runtime_ready ) {
+				$dependency_status = pijar_sakolaan_dependency_status();
+				$runtime_ready = ! empty( $dependency_status['compatible'] ) && ! empty( $dependency_status['plugin_ready'] );
+			}
+
+			if ( ! $runtime_ready ) {
+				$code = 'theme_incomplete';
+			}
 		}
 	}
 
@@ -58,9 +104,20 @@ function sakolaan_get_companion_theme_status() {
 		'compatible'     => 'compatible' === $code,
 		'installed'      => $installed,
 		'active'         => $active,
+		'runtime_ready'  => $runtime_ready,
 		'plugin_version' => SAKOLAAN_VERSION,
 		'theme_version'  => $theme_version,
 	);
+}
+
+/**
+ * Whether the default theme is active and its runtime contract is ready.
+ *
+ * @return bool
+ */
+function sakolaan_companion_theme_is_ready() {
+	$status = sakolaan_get_companion_theme_status();
+	return ! empty( $status['compatible'] ) && ! empty( $status['runtime_ready'] );
 }
 
 /**
@@ -81,16 +138,19 @@ function sakolaan_companion_theme_notice() {
 
 	$class = 'notice sakolaan-notice notice-warning';
 	$url   = admin_url( 'themes.php' );
-	$label = __( 'Buka halaman Theme', 'sakolaan' );
+	$label = __( 'Buka halaman Tema', 'sakolaan' );
 
 	if ( 'theme_missing' === $status['code'] ) {
-		$message = __( 'Plugin Sakolaan aktif, tetapi Sakolaan Theme belum terpasang. Unggah paket sakolaan-theme.zip versi 0.0.1 lalu aktifkan theme.', 'sakolaan' );
+		$message = __( 'Plugin Sakolaan aktif, tetapi tema default Pijar Sakolaan belum terpasang. Unggah paket pijar-sakolaan.zip versi 0.0.1 lalu aktifkan tema.', 'sakolaan' );
 		if ( current_user_can( 'install_themes' ) ) {
 			$url   = admin_url( 'theme-install.php?upload' );
-			$label = __( 'Unggah Sakolaan Theme', 'sakolaan' );
+			$label = __( 'Unggah Pijar Sakolaan', 'sakolaan' );
 		}
 	} elseif ( 'theme_inactive' === $status['code'] ) {
-		$message = __( 'Sakolaan Theme versi 0.0.1 sudah terpasang tetapi belum aktif.', 'sakolaan' );
+		$message = __( 'Tema default Pijar Sakolaan versi 0.0.1 sudah terpasang tetapi belum aktif.', 'sakolaan' );
+	} elseif ( 'theme_incomplete' === $status['code'] ) {
+		$class = 'notice sakolaan-notice notice-error';
+		$message = __( 'Tema default Pijar Sakolaan aktif tetapi API atau bootstrap-nya tidak lengkap. Instal ulang paket pijar-sakolaan.zip versi 0.0.1.', 'sakolaan' );
 	} else {
 		$class = 'notice sakolaan-notice notice-error';
 		$message = sprintf(

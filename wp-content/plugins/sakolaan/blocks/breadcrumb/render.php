@@ -27,8 +27,8 @@ if ( defined( 'REST_REQUEST' ) && REST_REQUEST ) {
 	);
 	$sakolaan_schema = '';
 } else {
-	$sakolaan_items  = sakolaan_theme_get_breadcrumb_items();
-	$sakolaan_schema = sakolaan_theme_get_breadcrumb_schema( $sakolaan_items );
+	$sakolaan_items  = pijar_sakolaan_get_breadcrumb_items();
+	$sakolaan_schema = pijar_sakolaan_get_breadcrumb_schema( $sakolaan_items );
 }
 
 if ( empty( $sakolaan_items ) ) {

@@ -12,14 +12,14 @@ if ( ! defined( 'ABSPATH' ) ) {
 	exit;
 }
 
-$sakolaan_map_url = esc_url_raw( (string) sakolaan_theme_get_setting( 'contact.maps_url', '' ), array( 'https' ) );
+$sakolaan_map_url = esc_url_raw( (string) pijar_sakolaan_get_setting( 'contact.maps_url', '' ), array( 'https' ) );
 $sakolaan_host    = strtolower( (string) wp_parse_url( $sakolaan_map_url, PHP_URL_HOST ) );
 $sakolaan_path    = (string) wp_parse_url( $sakolaan_map_url, PHP_URL_PATH );
 $sakolaan_valid   = '' !== $sakolaan_map_url
 	&& in_array( $sakolaan_host, array( 'www.google.com', 'maps.google.com', 'google.com' ), true )
 	&& 0 === strpos( $sakolaan_path, '/maps' );
 
-$sakolaan_address   = (string) sakolaan_theme_get_setting( 'contact.address', '' );
+$sakolaan_address   = (string) pijar_sakolaan_get_setting( 'contact.address', '' );
 $sakolaan_direction = '' !== $sakolaan_address
 	? add_query_arg(
 		array(

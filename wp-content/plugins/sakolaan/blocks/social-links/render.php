@@ -31,7 +31,7 @@ $sakolaan_networks = array(
 $sakolaan_links = array();
 
 foreach ( $sakolaan_networks as $sakolaan_key => $sakolaan_network ) {
-	$sakolaan_url = esc_url( (string) sakolaan_theme_get_setting( 'social.' . $sakolaan_key ), array( 'http', 'https' ) );
+	$sakolaan_url = esc_url( (string) pijar_sakolaan_get_setting( 'social.' . $sakolaan_key ), array( 'http', 'https' ) );
 
 	if ( '' !== $sakolaan_url ) {
 		$sakolaan_links[ $sakolaan_key ] = array(

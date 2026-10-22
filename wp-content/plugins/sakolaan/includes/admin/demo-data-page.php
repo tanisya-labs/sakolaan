@@ -240,7 +240,7 @@ function sakolaan_render_demo_data_page() {
 	$media_config = sakolaan_demo_media_config();
 	$media_ready  = ! is_wp_error( $media_config );
 	?>
-	<p><?php esc_html_e( 'Dataset ini mengisi seluruh fitur Sakolaan dan Sakolaan Theme agar archive, single, filter, galeri, pengaturan beranda, serta kondisi status dapat diuji langsung.', 'sakolaan' ); ?></p>
+	<p><?php esc_html_e( 'Dataset ini mengisi seluruh fitur Sakolaan dan Pijar Sakolaan agar archive, single, filter, galeri, pengaturan beranda, serta kondisi status dapat diuji langsung.', 'sakolaan' ); ?></p>
 	<div class="notice sakolaan-notice notice-error inline">
 		<p><strong><?php esc_html_e( 'Perhatian: operasi ini permanen.', 'sakolaan' ); ?></strong> <?php esc_html_e( 'Konten Sakolaan, taxonomy, halaman bawaan theme, navigasi utama, pengaturan sekolah, dan media terkait akan dihapus tanpa backup.', 'sakolaan' ); ?></p>
 	</div>

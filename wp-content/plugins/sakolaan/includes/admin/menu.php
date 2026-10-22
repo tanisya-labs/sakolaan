@@ -10,7 +10,7 @@ function sakolaan_admin_url( $view = 'summary', $args = array() ) {
 
 /** Single source of truth for Sakolaan dashboard navigation. */
 function sakolaan_admin_navigation_registry() {
-	return array(
+	$registry = array(
 		'summary' => array(
 			'label' => __( 'Ringkasan', 'sakolaan' ), 'title' => __( 'Ringkasan', 'sakolaan' ), 'description' => __( 'Status situs dan pekerjaan konten yang membutuhkan perhatian.', 'sakolaan' ),
 			'icon' => 'dashicons-dashboard', 'capability' => 'edit_posts',
@@ -72,7 +72,40 @@ function sakolaan_admin_navigation_registry() {
 			),
 		),
 	);
+
+	/**
+	 * Filter the Sakolaan dashboard navigation registry.
+	 *
+	 * Add-ons may register a top-level view with the same shape as the built-in
+	 * nodes. A callable `render_callback` is invoked only after the node's
+	 * capability has been checked.
+	 *
+	 * @param array $registry Dashboard navigation nodes.
+	 */
+	return apply_filters( 'sakolaan_admin_navigation_registry', $registry );
 }
+
+/** Map the shared Sakolaan dashboard capability without granting edit_posts. */
+function sakolaan_map_admin_capability( $required_caps, $capability, $user_id ) {
+	if ( 'sakolaan_access_admin' !== $capability ) {
+		return $required_caps;
+	}
+
+	$capabilities = (array) apply_filters( 'sakolaan_admin_access_capabilities', array( 'edit_posts' ), $user_id );
+	$user         = get_userdata( $user_id );
+	if ( ! $user ) {
+		return array( 'do_not_allow' );
+	}
+
+	foreach ( array_filter( array_map( 'sanitize_key', $capabilities ) ) as $candidate ) {
+		if ( ! empty( $user->allcaps[ $candidate ] ) ) {
+			return array( $candidate );
+		}
+	}
+
+	return array( 'do_not_allow' );
+}
+add_filter( 'map_meta_cap', 'sakolaan_map_admin_capability', 10, 3 );
 
 /** Find a navigation node from its view and descendant keys. */
 function sakolaan_admin_navigation_node( $view, $path = array() ) {
@@ -179,7 +212,7 @@ function sakolaan_redirect_legacy_admin_routes() {
 add_action( 'admin_init', 'sakolaan_redirect_legacy_admin_routes', 20 );
 
 function sakolaan_register_admin_menu() {
-	add_menu_page( __( 'Sakolaan', 'sakolaan' ), __( 'Sakolaan', 'sakolaan' ), 'edit_posts', 'sakolaan', 'sakolaan_render_admin_dashboard', 'dashicons-building', 20 );
+	add_menu_page( __( 'Sakolaan', 'sakolaan' ), __( 'Sakolaan', 'sakolaan' ), 'sakolaan_access_admin', 'sakolaan', 'sakolaan_render_admin_dashboard', 'dashicons-building', 20 );
 }
 add_action( 'admin_menu', 'sakolaan_register_admin_menu', 5 );
 
@@ -190,13 +223,16 @@ function sakolaan_remove_auto_submenu() {
 add_action( 'admin_menu', 'sakolaan_remove_auto_submenu', 999 );
 
 function sakolaan_render_admin_dashboard() {
-	if ( ! current_user_can( 'edit_posts' ) ) {
+	if ( ! current_user_can( 'sakolaan_access_admin' ) ) {
 		wp_die( esc_html__( 'Akses ditolak.', 'sakolaan' ), '', array( 'response' => 403 ) );
 	}
 	$views = sakolaan_admin_views();
 	$requested_view = isset( $_GET['view'] ) ? sanitize_key( wp_unslash( $_GET['view'] ) ) : 'summary'; // phpcs:ignore WordPress.Security.NonceVerification.Recommended -- Navigation only.
 	$invalid_view = ! isset( $views[ $requested_view ] );
-	$view = $invalid_view ? 'summary' : $requested_view;
+	$view = $invalid_view ? ( isset( $views['summary'] ) ? 'summary' : (string) array_key_first( $views ) ) : $requested_view;
+	if ( '' === $view ) {
+		wp_die( esc_html__( 'Tidak ada halaman Sakolaan yang dapat Anda akses.', 'sakolaan' ), '', array( 'response' => 403 ) );
+	}
 	echo '<div class="wrap sakolaan-ui sakolaan-dashboard">';
 	echo '<header class="sakolaan-dashboard__header"><span class="sakolaan-admin-kicker">' . esc_html__( 'Platform website sekolah', 'sakolaan' ) . '</span><h1>' . esc_html__( 'Sakolaan', 'sakolaan' ) . '</h1><p>' . esc_html__( 'Kelola identitas, konten, tampilan, dan sistem website sekolah dari satu tempat.', 'sakolaan' ) . '</p><a class="sakolaan-dashboard__official-link" href="https://sakolaan.com/" target="_blank" rel="noopener noreferrer">' . esc_html__( 'Website resmi Sakolaan', 'sakolaan' ) . '<span class="dashicons dashicons-external" aria-hidden="true"></span></a></header>';
 	echo '<div class="sakolaan-dashboard__navigation">';
@@ -214,12 +250,17 @@ function sakolaan_render_admin_dashboard() {
 	if ( $invalid_view ) {
 		sakolaan_render_invalid_route_notice();
 	}
+	$node = sakolaan_admin_navigation_node( $view );
+	if ( ! empty( $node['render_callback'] ) && is_callable( $node['render_callback'] ) ) {
+		call_user_func( $node['render_callback'] );
+	} else {
 	switch ( $view ) {
 		case 'identity': sakolaan_render_identity_panel(); break;
 		case 'content': sakolaan_render_content_panel(); break;
 		case 'seo': sakolaan_render_seo_panel(); break;
 		case 'more': sakolaan_render_more_page(); break;
 		default: sakolaan_render_summary_panel();
+	}
 	}
 	echo '</main></div>';
 }

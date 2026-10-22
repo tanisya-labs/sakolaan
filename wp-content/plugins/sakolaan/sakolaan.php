@@ -23,6 +23,8 @@ if ( ! defined( 'ABSPATH' ) ) {
 define( 'SAKOLAAN_VERSION', '0.0.1' );
 define( 'SAKOLAAN_SCHEMA_VERSION', 2 );
 define( 'SAKOLAAN_MIGRATION_VERSION', 1 );
+define( 'SAKOLAAN_DEFAULT_THEME_SLUG', 'pijar-sakolaan' );
+define( 'SAKOLAAN_DEFAULT_THEME_NAME', 'Pijar Sakolaan' );
 define( 'SAKOLAAN_FILE', __FILE__ );
 define( 'SAKOLAAN_PATH', plugin_dir_path( __FILE__ ) );
 define( 'SAKOLAAN_URL', plugin_dir_url( __FILE__ ) );

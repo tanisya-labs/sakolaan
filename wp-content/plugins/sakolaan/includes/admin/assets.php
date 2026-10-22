@@ -11,7 +11,8 @@ function sakolaan_admin_asset_version( $relative_path ) {
 
 function sakolaan_enqueue_admin_style() {
 	wp_enqueue_style( 'sakolaan-admin', SAKOLAAN_URL . 'assets/css/admin.css', array( 'common', 'buttons', 'dashicons', 'sakolaan-admin-notices' ), sakolaan_admin_asset_version( 'assets/css/admin.css' ) );
-	if ( 'sakolaan-theme' === get_template() && function_exists( 'wp_get_global_settings' ) ) {
+	$theme_ready = function_exists( 'sakolaan_companion_theme_is_ready' ) && sakolaan_companion_theme_is_ready();
+	if ( $theme_ready && function_exists( 'wp_get_global_settings' ) ) {
 		$palette = wp_get_global_settings( array( 'color', 'palette', 'theme' ) );
 		$map = array( 'primary' => 'primary', 'primary-dark' => 'primary-dark', 'primary-tint' => 'tint', 'accent' => 'gold', 'text' => 'text', 'muted' => 'muted', 'border' => 'border', 'surface' => 'surface', 'background' => 'subtle', 'danger' => 'danger' );
 		$variables = array();

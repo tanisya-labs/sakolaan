@@ -24,8 +24,8 @@ if ( empty( $sakolaan_slides ) ) {
 }
 
 $sakolaan_count    = count( $sakolaan_slides );
-$sakolaan_autoplay = (bool) sakolaan_theme_get_setting( 'homepage.hero_autoplay', true );
-$sakolaan_interval = min( 10, max( 3, absint( sakolaan_theme_get_setting( 'homepage.hero_interval', 6 ) ) ) );
+$sakolaan_autoplay = (bool) pijar_sakolaan_get_setting( 'homepage.hero_autoplay', true );
+$sakolaan_interval = min( 10, max( 3, absint( pijar_sakolaan_get_setting( 'homepage.hero_interval', 6 ) ) ) );
 $sakolaan_id       = wp_unique_id( 'sakolaan-hero-slider-' );
 ?>
 <section
@@ -43,15 +43,15 @@ $sakolaan_id       = wp_unique_id( 'sakolaan-hero-slider-' );
 		<?php foreach ( $sakolaan_slides as $sakolaan_index => $sakolaan_slide ) : ?>
 			<?php
 			$sakolaan_is_first = 0 === $sakolaan_index;
-			$sakolaan_eyebrow  = sakolaan_theme_get_raw_meta( $sakolaan_slide->ID, 'eyebrow' );
+			$sakolaan_eyebrow  = pijar_sakolaan_get_raw_meta( $sakolaan_slide->ID, 'eyebrow' );
 			$sakolaan_excerpt  = has_excerpt( $sakolaan_slide ) ? get_the_excerpt( $sakolaan_slide ) : '';
-			$sakolaan_primary  = sakolaan_theme_get_raw_meta( $sakolaan_slide->ID, 'cta_label' );
-			$sakolaan_primary_url = esc_url( (string) sakolaan_theme_get_raw_meta( $sakolaan_slide->ID, 'cta_url' ) );
-			$sakolaan_primary_style = sanitize_key( (string) sakolaan_theme_get_raw_meta( $sakolaan_slide->ID, 'cta_style' ) );
+			$sakolaan_primary  = pijar_sakolaan_get_raw_meta( $sakolaan_slide->ID, 'cta_label' );
+			$sakolaan_primary_url = esc_url( (string) pijar_sakolaan_get_raw_meta( $sakolaan_slide->ID, 'cta_url' ) );
+			$sakolaan_primary_style = sanitize_key( (string) pijar_sakolaan_get_raw_meta( $sakolaan_slide->ID, 'cta_style' ) );
 			$sakolaan_primary_style = in_array( $sakolaan_primary_style, array( 'accent', 'light', 'outline' ), true ) ? $sakolaan_primary_style : 'accent';
-			$sakolaan_secondary = sakolaan_theme_get_raw_meta( $sakolaan_slide->ID, 'cta2_label' );
-			$sakolaan_secondary_url = esc_url( (string) sakolaan_theme_get_raw_meta( $sakolaan_slide->ID, 'cta2_url' ) );
-			$sakolaan_secondary_style = sanitize_key( (string) sakolaan_theme_get_raw_meta( $sakolaan_slide->ID, 'cta2_style' ) );
+			$sakolaan_secondary = pijar_sakolaan_get_raw_meta( $sakolaan_slide->ID, 'cta2_label' );
+			$sakolaan_secondary_url = esc_url( (string) pijar_sakolaan_get_raw_meta( $sakolaan_slide->ID, 'cta2_url' ) );
+			$sakolaan_secondary_style = sanitize_key( (string) pijar_sakolaan_get_raw_meta( $sakolaan_slide->ID, 'cta2_style' ) );
 			$sakolaan_secondary_style = in_array( $sakolaan_secondary_style, array( 'accent', 'light', 'outline' ), true ) ? $sakolaan_secondary_style : 'outline';
 			$sakolaan_style_classes = array( 'accent' => 'is-style-accent', 'light' => 'is-style-sakolaan-light', 'outline' => 'is-style-outline' );
 			?>

@@ -15,7 +15,7 @@ if ( ! preg_match( '/^[a-z0-9_.]+$/', $sakolaan_key ) ) {
 	return;
 }
 
-$sakolaan_image_id = absint( sakolaan_theme_get_setting( $sakolaan_key, 0 ) );
+$sakolaan_image_id = absint( pijar_sakolaan_get_setting( $sakolaan_key, 0 ) );
 
 if ( ! $sakolaan_image_id ) {
 	return;

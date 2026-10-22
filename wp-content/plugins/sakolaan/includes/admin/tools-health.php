@@ -74,16 +74,18 @@ add_action( 'pre_get_posts', 'sakolaan_filter_incomplete_query', 30 );
 function sakolaan_health_checks() {
 	$checks = array();
 	$theme_status = function_exists( 'sakolaan_get_companion_theme_status' ) ? sakolaan_get_companion_theme_status() : array();
-	if ( ! empty( $theme_status['compatible'] ) ) {
+	if ( ! empty( $theme_status['compatible'] ) && ! empty( $theme_status['runtime_ready'] ) ) {
 		$theme_message = sprintf(
 			/* translators: %s: matching plugin and theme version. */
-			__( 'Plugin dan Sakolaan Theme aktif dengan versi yang sama: %s.', 'sakolaan' ),
+			__( 'Plugin Sakolaan dan tema default Pijar Sakolaan aktif dengan versi yang sama: %s.', 'sakolaan' ),
 			$theme_status['plugin_version']
 		);
 	} elseif ( 'theme_missing' === ( $theme_status['code'] ?? '' ) ) {
-		$theme_message = __( 'Sakolaan Theme belum terpasang.', 'sakolaan' );
+		$theme_message = __( 'Tema default Pijar Sakolaan belum terpasang.', 'sakolaan' );
 	} elseif ( 'theme_inactive' === ( $theme_status['code'] ?? '' ) ) {
-		$theme_message = __( 'Sakolaan Theme sudah terpasang tetapi belum aktif.', 'sakolaan' );
+		$theme_message = __( 'Tema default Pijar Sakolaan sudah terpasang tetapi belum aktif.', 'sakolaan' );
+	} elseif ( 'theme_incomplete' === ( $theme_status['code'] ?? '' ) ) {
+		$theme_message = __( 'Tema default Pijar Sakolaan aktif tetapi API atau bootstrap-nya tidak lengkap.', 'sakolaan' );
 	} else {
 		$theme_message = sprintf(
 			/* translators: 1: plugin version, 2: installed theme version. */
@@ -92,7 +94,7 @@ function sakolaan_health_checks() {
 			$theme_status['theme_version'] ?? ''
 		);
 	}
-	$checks['theme'] = array( 'status' => ! empty( $theme_status['compatible'] ) ? 'good' : 'warning', 'message' => $theme_message );
+	$checks['theme'] = array( 'status' => ! empty( $theme_status['compatible'] ) && ! empty( $theme_status['runtime_ready'] ) ? 'good' : 'warning', 'message' => $theme_message );
 	$rules = get_option( 'rewrite_rules', array() );
 	$checks['permalinks'] = array( 'status' => is_array( $rules ) && $rules ? 'good' : 'warning', 'message' => is_array( $rules ) && $rules ? __( 'Aturan permalink tersedia.', 'sakolaan' ) : __( 'Aturan permalink belum tersedia.', 'sakolaan' ) );
 	foreach ( array( 'berita', 'kontak', 'ppdb' ) as $slug ) {

@@ -1,6 +1,6 @@
 <?php
 /**
- * API publik untuk membaca Pengaturan Sakolaan. Dipakai oleh Sakolaan Theme.
+ * API publik untuk membaca Pengaturan Sakolaan. Dipakai oleh Pijar Sakolaan.
  *
  * @package Sakolaan
  */

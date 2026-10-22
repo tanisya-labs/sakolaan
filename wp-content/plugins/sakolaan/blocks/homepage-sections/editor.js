@@ -1,7 +1,7 @@
 ( function ( wp ) {
 	'use strict';
 
-	var blockName = 'sakolaan-theme/homepage-sections';
+	var blockName = 'pijar-sakolaan/homepage-sections';
 	var sections = [
 		[ 'quick_links', 'Akses cepat' ], [ 'introduction', 'Pengenalan sekolah' ], [ 'news', 'Berita' ],
 		[ 'announcements', 'Pengumuman' ], [ 'events', 'Agenda' ], [ 'statistics', 'Statistik' ],
@@ -58,5 +58,5 @@
 		};
 	}, 'withSakolaanHomepageLayoutControls' );
 
-	wp.hooks.addFilter( 'editor.BlockEdit', 'sakolaan-theme/homepage-layout-controls', withLayoutControls );
+	wp.hooks.addFilter( 'editor.BlockEdit', 'pijar-sakolaan/homepage-layout-controls', withLayoutControls );
 }( window.wp ) );

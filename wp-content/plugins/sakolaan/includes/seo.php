@@ -532,8 +532,8 @@ function sakolaan_seo_organization_schema() {
 
 /** Build breadcrumb schema from active theme breadcrumb data when available. */
 function sakolaan_seo_breadcrumb_schema() {
-	if ( ! function_exists( 'sakolaan_theme_get_breadcrumb_items' ) ) { return null; }
-	$items = sakolaan_theme_get_breadcrumb_items();
+	if ( ! function_exists( 'pijar_sakolaan_get_breadcrumb_items' ) ) { return null; }
+	$items = pijar_sakolaan_get_breadcrumb_items();
 	if ( count( $items ) < 2 ) { return null; }
 	$list = array();
 	foreach ( array_values( $items ) as $index => $item ) {
@@ -544,9 +544,9 @@ function sakolaan_seo_breadcrumb_schema() {
 	return array( '@type' => 'BreadcrumbList', 'itemListElement' => $list );
 }
 
-/** Tell Sakolaan Theme not to emit its standalone breadcrumb schema. */
+/** Tell Pijar Sakolaan not to emit its standalone breadcrumb schema. */
 function sakolaan_seo_owns_theme_schema( $active ) { return $active || ! sakolaan_seo_plugin_active(); }
-add_filter( 'sakolaan_theme_has_seo_plugin', 'sakolaan_seo_owns_theme_schema' );
+add_filter( 'pijar_sakolaan_has_seo_plugin', 'sakolaan_seo_owns_theme_schema' );
 
 /** Tell native sitemap queries to honor per-object noindex. */
 function sakolaan_seo_sitemap_post_query( $args, $post_type ) {

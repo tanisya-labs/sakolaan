@@ -1,9 +1,9 @@
 <?php
 /**
- * Register blocks used by the companion Sakolaan Theme.
+ * Register blocks used by Pijar Sakolaan, the default theme for Sakolaan.
  *
- * Block names intentionally retain the sakolaan-theme namespace so existing
- * templates, patterns, and saved content continue to work unchanged.
+ * Block names use the pijar-sakolaan namespace shared by the default theme's
+ * templates, patterns, and newly saved content.
  *
  * @package Sakolaan
  */
@@ -15,7 +15,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 /**
  * Register the companion theme's blocks only while that parent theme is active.
  *
- * The render callbacks use presentation helpers supplied by Sakolaan Theme, so
+ * The render callbacks use presentation helpers supplied by Pijar Sakolaan, so
  * the blocks must remain unavailable under unrelated themes.
  *
  * @return void
@@ -23,7 +23,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 function sakolaan_register_theme_blocks() {
 	$status = function_exists( 'sakolaan_get_companion_theme_status' ) ? sakolaan_get_companion_theme_status() : array();
 
-	if ( empty( $status['compatible'] ) || ! function_exists( 'sakolaan_theme_is_compatible' ) || ! sakolaan_theme_is_compatible() || ! function_exists( 'sakolaan_theme_get_setting' ) ) {
+	if ( empty( $status['compatible'] ) || empty( $status['runtime_ready'] ) || ! function_exists( 'pijar_sakolaan_is_compatible' ) || ! pijar_sakolaan_is_compatible() ) {
 		return;
 	}
 

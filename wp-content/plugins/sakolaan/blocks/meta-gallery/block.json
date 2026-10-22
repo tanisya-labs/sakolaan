@@ -1,7 +1,7 @@
 {
 	"$schema": "https://schemas.wp.org/trunk/block.json",
 	"apiVersion": 3,
-	"name": "sakolaan-theme/meta-gallery",
+	"name": "pijar-sakolaan/meta-gallery",
 	"title": "Galeri foto konten",
 	"category": "theme",
 	"description": "Kumpulan foto dari data galeri saat ini, dengan lightbox. Tanpa JavaScript, foto terbuka di halaman sendiri.",

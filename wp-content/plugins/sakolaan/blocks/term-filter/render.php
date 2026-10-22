@@ -37,7 +37,7 @@ if ( ! $sakolaan_tax || empty( $sakolaan_tax->object_type ) || empty( $sakolaan_
 }
 
 $sakolaan_post_type = ! empty( $sakolaan_tax->object_type ) ? $sakolaan_tax->object_type[0] : '';
-$sakolaan_all_url   = 'category' === $sakolaan_taxonomy ? sakolaan_theme_get_archive_url( 'berita' ) : ( $sakolaan_post_type ? get_post_type_archive_link( $sakolaan_post_type ) : '' );
+$sakolaan_all_url   = 'category' === $sakolaan_taxonomy ? pijar_sakolaan_get_archive_url( 'berita' ) : ( $sakolaan_post_type ? get_post_type_archive_link( $sakolaan_post_type ) : '' );
 $sakolaan_current   = ( is_tax( $sakolaan_taxonomy ) || ( 'category' === $sakolaan_taxonomy && is_category() ) ) ? (int) get_queried_object_id() : 0;
 $sakolaan_query_args = array_filter(
 	array(
